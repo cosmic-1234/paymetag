@@ -27,7 +27,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
         const width = container.clientWidth || 500;
         const height = container.clientHeight || 500;
 
-        globeInstance = Globe()(container)
+        globeInstance = (Globe as any)()(container)
           .width(width)
           .height(height)
           .globeImageUrl(null)

@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD } from "@/lib/formatters";
-import { DEMO_FORGOTTEN } from "@/lib/mockData";
+import { ForgottenAssetItem } from "@/lib/mockData";
 import { BladeCard } from "@/components/ui/BladeCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { IepfClaimModal } from "@/components/dashboard/Modals/IepfClaimModal";
