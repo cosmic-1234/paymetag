@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Landmark, ArrowRight, Lock, Mail, User, Globe2, Loader2, CheckCircle2 } from "lucide-react";
 import { ThreeFloatingElements } from "@/components/3d/ThreeFloatingElements";
 import { useApp } from "@/lib/store";
+import { DEMO_USERS } from "@/lib/mockData";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -29,18 +30,34 @@ export default function SignUpPage() {
         body: JSON.stringify({ name, email, country, password }),
       });
 
-      const data = await res.json();
-      if (res.ok && data.user) {
-        setActiveUser(data.user);
-        router.push("/onboard");
-      } else {
-        setError(data.error || "Failed to create account");
+      if (res.ok) {
+        const data = await res.json();
+        if (data.user) {
+          setActiveUser(data.user);
+          router.push("/onboard");
+          setLoading(false);
+          return;
+        }
       }
     } catch (err) {
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
+      // Fallback for static site hosting
     }
+
+    const newUser = {
+      ...DEMO_USERS.shrirang,
+      name: name.trim(),
+      email: email.trim(),
+      location:
+        country === "USA"
+          ? "San Jose, California, USA"
+          : country === "UAE"
+          ? "Dubai, UAE"
+          : "Toronto, Ontario, Canada",
+    };
+
+    setActiveUser(newUser);
+    router.push("/onboard");
+    setLoading(false);
   };
 
   return (
