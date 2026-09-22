@@ -195,7 +195,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
 
   return (
     <div
-      className={`relative w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] flex items-center justify-center bg-transparent border-0 shadow-none select-none before:absolute before:inset-[-10%] before:rounded-full before:bg-[radial-gradient(circle,rgba(52,81,209,0.25)_0%,transparent_70%)] before:pointer-events-none before:z-0 ${className}`}
+      className={`relative w-[280px] h-[280px] min-[380px]:w-[330px] min-[380px]:h-[330px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] max-w-full flex items-center justify-center bg-transparent border-0 shadow-none select-none before:absolute before:inset-[-10%] before:rounded-full before:bg-[radial-gradient(circle,rgba(52,81,209,0.25)_0%,transparent_70%)] before:pointer-events-none before:z-0 ${className}`}
     >
       <div
         ref={containerRef}

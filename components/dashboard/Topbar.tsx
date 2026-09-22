@@ -9,6 +9,7 @@ import {
   ChevronDown,
   AlertTriangle,
   LogOut,
+  Menu,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD } from "@/lib/formatters";
@@ -17,7 +18,8 @@ import { DEMO_USERS } from "@/lib/mockData";
 export const Topbar: React.FC<{
   onOpenFbar?: () => void;
   onOpenAiCopilot?: () => void;
-}> = ({ onOpenFbar, onOpenAiCopilot }) => {
+  onToggleMobileNav?: () => void;
+}> = ({ onOpenFbar, onOpenAiCopilot, onToggleMobileNav }) => {
   const {
     activeUser,
     setActiveUser,
@@ -52,40 +54,51 @@ export const Topbar: React.FC<{
     : "BP";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-[64px] border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-6 shadow-[0px_1px_4px_rgba(0,0,0,0.06)] flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 h-[64px] border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-3 sm:px-6 shadow-[0px_1px_4px_rgba(0,0,0,0.06)] flex items-center justify-between">
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          LEFT SECTION — Logo lockup
+          LEFT SECTION — Mobile Drawer Toggle & Logo lockup
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <Link href="/dashboard" className="flex items-center gap-[10px] group cursor-pointer select-none">
-        {/* Logo icon: 36px x 36px, rounded-[10px], linear-gradient(135deg, #3451D1, #1D3FAD) */}
-        <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0 group-hover:opacity-95 transition-opacity">
-          <svg
-            className="h-[20px] w-[20px] text-white"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-            <path d="M12 8v8" />
-            <path d="M9.5 10.5h5" />
-            <path d="M9.5 13.5h5" />
-          </svg>
-        </div>
+      <div className="flex items-center gap-2.5 sm:gap-3">
+        <button
+          onClick={onToggleMobileNav}
+          className="lg:hidden flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/[0.06] text-slate-700 dark:text-slate-200 shrink-0 cursor-pointer transition-colors"
+          aria-label="Toggle navigation drawer"
+          type="button"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
 
-        <div>
-          <span className="block font-extrabold text-[16px] tracking-tight text-[#0D2266] dark:text-white leading-tight font-sans">
-            DESHBOARD
-          </span>
-          <span className="block font-medium text-[11px] text-[#9CA3AF] leading-none mt-0.5">
-            NRI Wealth Portal
-          </span>
-        </div>
-      </Link>
+        <Link href="/dashboard" className="flex items-center gap-[10px] group cursor-pointer select-none">
+          {/* Logo icon: 36px x 36px, rounded-[10px], linear-gradient(135deg, #3451D1, #1D3FAD) */}
+          <div className="flex h-[34px] w-[34px] sm:h-[36px] sm:w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0 group-hover:opacity-95 transition-opacity">
+            <svg
+              className="h-[18px] w-[18px] sm:h-[20px] sm:w-[20px] text-white"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
+              <path d="M12 8v8" />
+              <path d="M9.5 10.5h5" />
+              <path d="M9.5 13.5h5" />
+            </svg>
+          </div>
+
+          <div>
+            <span className="block font-extrabold text-[15px] sm:text-[16px] tracking-tight text-[#0D2266] dark:text-white leading-tight font-sans">
+              DESHBOARD
+            </span>
+            <span className="hidden sm:block font-medium text-[11px] text-[#9CA3AF] leading-none mt-0.5">
+              NRI Wealth Portal
+            </span>
+          </div>
+        </Link>
+      </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           CENTER SECTION — Wealth metric (Centered, no overlap)

@@ -137,9 +137,9 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060B18] text-slate-900 font-sans selection:bg-[#3451D1] selection:text-white">
+    <div className="min-h-screen bg-[#060B18] text-slate-900 font-sans selection:bg-[#3451D1] selection:text-white overflow-x-hidden">
       {/* ─── LANDING NAVBAR ─── */}
-      <header className="sticky top-0 z-50 flex h-[68px] w-full items-center justify-between border-b border-white/[0.06] bg-[#060B18]/80 px-6 md:px-12 backdrop-blur-[12px] transition-all">
+      <header className="sticky top-0 z-50 flex h-[68px] w-full items-center justify-between border-b border-white/[0.06] bg-[#060B18]/80 px-4 sm:px-6 md:px-12 backdrop-blur-[12px] transition-all">
         {/* Logo Lockup */}
         <Link href="/" className="flex items-center gap-[10px]">
           <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0">
@@ -161,7 +161,7 @@ export default function LandingPage() {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-[16px] tracking-tight text-white leading-none">
+            <span className="font-extrabold text-[15px] sm:text-[16px] tracking-tight text-white leading-none">
               DESHBOARD
             </span>
             <span className="text-[11px] font-medium text-[#9CA3AF] mt-0.5">
@@ -171,16 +171,16 @@ export default function LandingPage() {
         </Link>
 
         {/* Right CTAs */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/signin"
-            className="rounded-[8px] border border-white/15 bg-white/[0.06] px-5 py-[9px] text-[14px] font-semibold text-white/85 hover:bg-white/10 hover:border-white/25 transition-all"
+            className="rounded-[8px] border border-white/15 bg-white/[0.06] px-3.5 sm:px-5 py-[8px] sm:py-[9px] text-[13px] sm:text-[14px] font-semibold text-white/85 hover:bg-white/10 hover:border-white/25 transition-all"
           >
             Sign In
           </Link>
           <Link
             href="/onboard"
-            className="flex items-center gap-1.5 rounded-[8px] bg-[#3451D1] px-5 py-[9px] text-[14px] font-bold text-white shadow-[0_4px_14px_rgba(52,81,209,0.4)] hover:bg-[#1D3FAD] transition-all"
+            className="flex items-center gap-1.5 rounded-[8px] bg-[#3451D1] px-4 sm:px-5 py-[8px] sm:py-[9px] text-[13px] sm:text-[14px] font-bold text-white shadow-[0_4px_14px_rgba(52,81,209,0.4)] hover:bg-[#1D3FAD] transition-all"
           >
             <span>Get Started</span>
             <span>→</span>
@@ -189,7 +189,7 @@ export default function LandingPage() {
       </header>
 
       {/* ─── HERO SECTION ─── */}
-      <section className="relative min-h-[calc(100vh-68px)] bg-[#060B18] pt-[80px] pb-[80px] px-6 md:px-12 lg:px-20 flex items-center overflow-visible">
+      <section className="relative min-h-[calc(100vh-68px)] bg-[#060B18] pt-[60px] sm:pt-[80px] pb-[60px] sm:pb-[80px] px-4 sm:px-6 md:px-12 lg:px-20 flex items-center overflow-visible">
         {/* Subtle Radial Glows */}
         <div
           className="pointer-events-none absolute -top-[10%] left-0 h-[800px] w-[800px] rounded-full opacity-100 blur-[130px]"
@@ -220,10 +220,10 @@ export default function LandingPage() {
             {/* Left Column: Heading + Security Badges */}
             <div className="flex flex-col items-start z-10">
               <h1 className="tracking-[-0.02em] leading-[1.1]">
-                <span className="block font-extrabold text-[40px] sm:text-[50px] lg:text-[56px] text-white">
+                <span className="block font-extrabold text-[32px] sm:text-[46px] lg:text-[56px] text-white">
                   All Your Indian Assets.
                 </span>
-                <span className="block font-extrabold text-[40px] sm:text-[50px] lg:text-[56px] bg-gradient-to-r from-[#60A5FA] via-[#93C5FD] to-[#A78BFA] bg-clip-text text-transparent">
+                <span className="block font-extrabold text-[32px] sm:text-[46px] lg:text-[56px] bg-gradient-to-r from-[#60A5FA] via-[#93C5FD] to-[#A78BFA] bg-clip-text text-transparent">
                   In One Sovereign View.
                 </span>
               </h1>
@@ -300,13 +300,13 @@ export default function LandingPage() {
 
 
       {/* ─── DEDICATED SECURITY & PRIVACY SECTION ─── */}
-      <section className="bg-white px-6 py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
+      <section className="bg-white px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
         <div className="mx-auto max-w-[1280px]">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3451D1]">
               SOVEREIGN DATA INTEGRITY
             </span>
-            <h2 className="mt-2 text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
+            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
               Bank-Grade Security & Privacy by Design
             </h2>
             <p className="mt-2 text-sm text-[#6B7280]">
@@ -314,8 +314,8 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-6 space-y-3">
+          <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-5 sm:p-6 space-y-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
                 <ShieldCheck className="h-5 w-5" />
               </div>
@@ -327,7 +327,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-6 space-y-3">
+            <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-5 sm:p-6 space-y-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
                 <Lock className="h-5 w-5" />
               </div>
@@ -339,7 +339,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-6 space-y-3">
+            <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-5 sm:p-6 space-y-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
                 <KeyRound className="h-5 w-5" />
               </div>
@@ -355,13 +355,13 @@ export default function LandingPage() {
       </section>
 
       {/* ─── UPCOMING FEATURES AS MENTIONED IN CONCEPT ─── */}
-      <section className="bg-[#F8FAFC] px-6 py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
+      <section className="bg-[#F8FAFC] px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
         <div className="mx-auto max-w-[1280px]">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3451D1]">
               ROADMAP & CONCEPT PIPELINE
             </span>
-            <h2 className="mt-2 text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
+            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
               Upcoming Features in DeshBoard
             </h2>
             <p className="mt-2 text-sm text-[#6B7280]">
@@ -369,13 +369,13 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {upcomingFeatures.map((feat, idx) => {
               const Icon = feat.icon;
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#EAECF0] bg-white p-6 shadow-xs space-y-3 flex flex-col justify-between"
+                  className="rounded-2xl border border-[#EAECF0] bg-white p-5 sm:p-6 shadow-xs space-y-3 flex flex-col justify-between"
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between">
@@ -402,13 +402,13 @@ export default function LandingPage() {
       </section>
 
       {/* ─── MODULE GRID SECTION ─── */}
-      <section className="bg-white px-6 py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
+      <section className="bg-white px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
         <div className="mx-auto max-w-[1280px]">
           <div className="text-center">
             <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#3451D1]">
               CORE PORTAL MODULES
             </div>
-            <h2 className="mt-2 text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
+            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
               Every Indian Asset, Unified
             </h2>
             <p className="mt-2 text-sm text-[#6B7280] max-w-lg mx-auto">
@@ -416,14 +416,14 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {modules.map((m, idx) => {
               const Icon = m.icon;
               return (
                 <Link
                   key={idx}
                   href={m.href}
-                  className="group relative flex flex-col justify-between rounded-[16px] border border-[#EAECF0] bg-white p-6 shadow-[0px_1px_4px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_24px_rgba(0,0,0,0.08)] hover:border-[#3451D1] transition-all duration-200 cursor-pointer"
+                  className="group relative flex flex-col justify-between rounded-[16px] border border-[#EAECF0] bg-white p-5 sm:p-6 shadow-[0px_1px_4px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_24px_rgba(0,0,0,0.08)] hover:border-[#3451D1] transition-all duration-200 cursor-pointer"
                 >
                   <div>
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#EEF2FF] to-[#DBEAFE] text-[#3451D1] shadow-xs">
@@ -450,7 +450,7 @@ export default function LandingPage() {
       </section>
 
       {/* ─── FOOTER (Prototype of DeshBoard) ─── */}
-      <footer className="bg-[#FAFAFA] border-t border-[#F0F0F0] py-10 px-6 md:px-12 text-xs text-[#9CA3AF] relative z-20">
+      <footer className="bg-[#FAFAFA] border-t border-[#F0F0F0] py-8 sm:py-10 px-4 sm:px-6 md:px-12 text-xs text-[#9CA3AF] relative z-20">
         <div className="mx-auto max-w-[1280px] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <div className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#3451D1] text-white">

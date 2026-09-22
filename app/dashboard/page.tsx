@@ -179,7 +179,7 @@ export default function DashboardMain() {
       {/* Active User Context Strip */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
         <div className="text-xs font-medium text-slate-700">
-          Viewing as <strong className="font-bold text-[#0C2340]">{activeUser.name}</strong> ({activeUser.role === "resident_parent" ? "Father in Mumbai • Caretaker with POA" : "NRI Primary • San Jose, USA"})
+          Viewing as <strong className="font-bold text-[#0C2340]">{activeUser.name}</strong> ({activeUser.location})
         </div>
         <div className="text-xs font-normal text-slate-400 font-mono">
           PAN: {activeUser.pan}

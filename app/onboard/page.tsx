@@ -273,26 +273,26 @@ function OnboardContent() {
         <div className="w-full max-w-2xl">
           {/* Step Progress Header */}
           <div className="mb-6">
-            <div className="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2.5">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2.5 gap-1.5">
               <span className="flex items-center gap-2 font-bold text-[#0D2266] dark:text-white text-sm">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#3451D1] text-white text-[11px] font-bold">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#3451D1] text-white text-[11px] font-bold">
                   {step}
                 </span>
-                <span>
+                <span className="truncate">
                   {step === 1 && "Tax Jurisdiction & Regulatory Profile"}
                   {step === 2 && "Income Tax Department PAN & CKYCR Query"}
-                  {step === 3 && "Aadhaar e-KYC & Permanent Address Decryption"}
+                  {step === 3 && "Aadhaar e-KYC & Address Decryption"}
                   {step === 4 && "Central Asset Discovery & Consolidation"}
                   {step === 5 && "Vault Sealed & Portal Access"}
                 </span>
               </span>
-              <span className="font-semibold text-[11px] text-[#9CA3AF]">
+              <span className="font-semibold text-[11px] text-[#9CA3AF] shrink-0">
                 Step {step} of 5
               </span>
             </div>
 
             {/* Segmented Progress Line */}
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
               {[1, 2, 3, 4, 5].map((s) => (
                 <div
                   key={s}
@@ -308,7 +308,7 @@ function OnboardContent() {
             </div>
           </div>
 
-          <BladeCard variant="default" className="p-6 md:p-8 shadow-card relative overflow-hidden">
+          <BladeCard variant="default" className="p-5 sm:p-6 md:p-8 shadow-card relative overflow-hidden">
             {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 STEP 1: REGULATORY JURISDICTION (US, UAE, UK)
                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}

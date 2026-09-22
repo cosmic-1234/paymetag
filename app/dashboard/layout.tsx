@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Topbar } from "@/components/dashboard/Topbar";
 import { FbarExportModal } from "@/components/dashboard/Modals/FbarExportModal";
@@ -11,9 +12,16 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   const [isFbarOpen, setIsFbarOpen] = useState(false);
   const [isAiOpen, setIsAiOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [aiInitialQuery, setAiInitialQuery] = useState<string | undefined>(undefined);
+
+  // Automatically close mobile sidebar on navigation
+  useEffect(() => {
+    setIsMobileNavOpen(false);
+  }, [pathname]);
 
   // Global keyboard shortcut: Cmd+K / Ctrl+K
   useEffect(() => {
@@ -41,17 +49,23 @@ export default function DashboardLayout({
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F1A] text-slate-900 dark:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F1A] text-slate-900 dark:text-white overflow-x-hidden">
       {/* Fixed Full-Width Blade Navbar */}
-      <Topbar onOpenFbar={() => setIsFbarOpen(true)} />
+      <Topbar
+        onOpenFbar={() => setIsFbarOpen(true)}
+        onToggleMobileNav={() => setIsMobileNavOpen((prev) => !prev)}
+      />
 
       <div className="flex min-h-screen">
-        {/* Fixed Left Blade Navigation (240px) */}
-        <Sidebar />
+        {/* Left Navigation (Responsive Drawer on Mobile/Tablet, Fixed on Desktop) */}
+        <Sidebar
+          isOpen={isMobileNavOpen}
+          onClose={() => setIsMobileNavOpen(false)}
+        />
 
-        {/* Main Content Container (Centered max 1280px with 24px padding) */}
-        <div className="flex-1 ml-[240px] pt-[64px] min-h-screen">
-          <main className="max-w-[1280px] w-full mx-auto px-6 py-8 space-y-8">
+        {/* Main Content Container (Centered max 1280px with responsive padding) */}
+        <div className="flex-1 lg:ml-[240px] pt-[64px] min-h-screen w-full overflow-x-hidden">
+          <main className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
             {children}
           </main>
         </div>

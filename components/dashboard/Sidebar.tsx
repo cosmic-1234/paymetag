@@ -38,7 +38,12 @@ interface NavSection {
   items: NavItem[];
 }
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => {
   const pathname = usePathname();
 
   const sections: NavSection[] = [
@@ -186,35 +191,50 @@ export const Sidebar: React.FC = () => {
   };
 
   return (
-    <aside className="fixed left-0 top-[64px] bottom-0 z-40 w-[240px] flex flex-col justify-between border-r border-[#F0F0F0] dark:border-white/[0.06] bg-[#FAFAFA] dark:bg-[#0B0F1A] px-3 py-5 overflow-y-auto no-scrollbar">
-      <div className="space-y-4">
-        {sections.map((section, sIdx) => (
-          <div key={section.title}>
-            {/* Section label */}
-            <h3
-              className={`font-bold text-[10px] uppercase tracking-[0.10em] text-[#9CA3AF] ml-2 mb-1.5 ${
-                sIdx === 0 ? "mt-1" : "mt-5"
-              }`}
-            >
-              {section.title}
-            </h3>
+    <>
+      {/* Mobile Drawer Backdrop */}
+      {isOpen && (
+        <div
+          onClick={onClose}
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-[2px] lg:hidden transition-opacity"
+          aria-hidden="true"
+        />
+      )}
 
-            {/* Nav items */}
-            <div className="space-y-0.5">
-              {section.items.map((item) => {
-                const Icon = item.icon;
-                const isActive = pathname === item.href;
+      <aside
+        className={`fixed left-0 top-[64px] bottom-0 z-50 w-[260px] sm:w-[240px] flex flex-col justify-between border-r border-[#F0F0F0] dark:border-white/[0.06] bg-[#FAFAFA] dark:bg-[#0B0F1A] px-3 py-5 overflow-y-auto no-scrollbar shadow-2xl lg:shadow-none transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        }`}
+      >
+        <div className="space-y-4">
+          {sections.map((section, sIdx) => (
+            <div key={section.title}>
+              {/* Section label */}
+              <h3
+                className={`font-bold text-[10px] uppercase tracking-[0.10em] text-[#9CA3AF] ml-2 mb-1.5 ${
+                  sIdx === 0 ? "mt-1" : "mt-5"
+                }`}
+              >
+                {section.title}
+              </h3>
 
-                return (
-                  <div key={item.href} className="relative">
-                    {/* Left accent bar on active: 3px solid #3451D1, border-radius 0 2px 2px 0 on left edge of sidebar */}
-                    {isActive && (
-                      <div className="absolute -left-3 top-1.5 bottom-1.5 w-[3px] bg-[#3451D1] rounded-r-[2px]" />
-                    )}
+              {/* Nav items */}
+              <div className="space-y-0.5">
+                {section.items.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = pathname === item.href;
 
-                    <Link
-                      href={item.href}
-                      className={`flex items-center justify-between px-3 py-[9px] rounded-lg transition-all duration-150 ease-out group ${
+                  return (
+                    <div key={item.href} className="relative">
+                      {/* Left accent bar on active: 3px solid #3451D1, border-radius 0 2px 2px 0 on left edge of sidebar */}
+                      {isActive && (
+                        <div className="absolute -left-3 top-1.5 bottom-1.5 w-[3px] bg-[#3451D1] rounded-r-[2px]" />
+                      )}
+
+                      <Link
+                        href={item.href}
+                        onClick={onClose}
+                        className={`flex items-center justify-between px-3 py-[9px] rounded-lg transition-all duration-150 ease-out group ${
                         isActive
                           ? "bg-[#EEF2FF] dark:bg-[rgba(52,81,209,0.15)] text-[#3451D1] font-bold"
                           : "text-[#374151] dark:text-[#CBD5E1] font-medium hover:bg-[#F3F4F6] dark:hover:bg-white/[0.06] hover:text-[#111827] dark:hover:text-white"
@@ -251,5 +271,6 @@ export const Sidebar: React.FC = () => {
         </div>
       </div>
     </aside>
+    </>
   );
 };
