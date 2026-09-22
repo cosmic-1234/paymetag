@@ -10,43 +10,39 @@ export interface UserProfile {
   taxResidency: string;
   relation?: string;
   isPOA?: boolean;
+  fatherName?: string;
+  dob?: string;
+  indianAddress?: string;
+  subRegistrarOffice?: string;
 }
 
 export const DEMO_USERS: Record<string, UserProfile> = {
-  shrirang: {
-    id: "usr_shrirang",
-    name: "Shrirang Mehta",
+  brijal: {
+    id: "usr_brijal",
+    name: "Brijal Patel",
     role: "primary_nri",
-    email: "shrirang.mehta@siliconvalley.io",
+    email: "brijal.patel@siliconvalley.io",
     location: "San Jose, California, USA",
     pan: "ABCPM1234D",
     aadhaarMasked: "XXXX-XXXX-4521",
     ckycNumber: "40029104928104",
     taxResidency: "NRI (RNOR Period Expired Mar 2023)",
+    fatherName: "Rameshchandra Patel",
+    dob: "18 Oct 1984",
+    indianAddress: "Flat 4B, Oberoi Woods, Mohan Gokhale Rd, Goregaon East, Mumbai 400063, Maharashtra",
+    subRegistrarOffice: "Bandra Sub-Registrar Office, Mumbai",
   },
-  priya: {
-    id: "usr_priya",
-    name: "Priya Mehta",
+  shagun: {
+    id: "usr_shagun",
+    name: "Shagun Patel",
     role: "spouse",
-    email: "priya.mehta@california.org",
+    email: "shagun.patel@california.org",
     location: "San Jose, California, USA",
     pan: "BCQPM5678E",
     aadhaarMasked: "XXXX-XXXX-8912",
     ckycNumber: "40029104928199",
     taxResidency: "NRI (RNOR Expired)",
-    relation: "Spouse (Co-Investor)",
-  },
-  ramesh: {
-    id: "usr_ramesh",
-    name: "Ramesh Mehta",
-    role: "resident_parent",
-    email: "ramesh.mehta1952@gmail.com",
-    location: "Prabhadevi, Mumbai 400025, India",
-    pan: "AAAPM9012R",
-    aadhaarMasked: "XXXX-XXXX-1104",
-    ckycNumber: "10023491823901",
-    taxResidency: "Resident Senior Citizen",
-    relation: "Father (General POA Caretaker in India)",
+    relation: "Family Member (Co-Investor & POA)",
     isPOA: true,
   },
 };
@@ -75,7 +71,7 @@ export const DEMO_ACCOUNTS: BankAccount[] = [
     balanceINR: 1240000,
     interestRate: "3.50% p.a.",
     status: "active",
-    nominee: "Priya Mehta (100%)",
+    nominee: "Shagun Patel (100%)",
     branch: "Nariman Point, Mumbai",
   },
   {
@@ -86,7 +82,7 @@ export const DEMO_ACCOUNTS: BankAccount[] = [
     balanceINR: 320000,
     interestRate: "2.75% p.a.",
     status: "kyc_expired",
-    nominee: "Ramesh Mehta (Father)",
+    nominee: "Shagun Patel (Family)",
     branch: "Fort Branch, Mumbai",
     alerts: "Periodic KYC overdue since Nov 2024. Account restricted for outward debits.",
   },
@@ -99,7 +95,7 @@ export const DEMO_ACCOUNTS: BankAccount[] = [
     interestRate: "7.10% p.a. (Cumulative)",
     status: "active",
     maturityDate: "18 Jan 2027",
-    nominee: "Priya Mehta",
+    nominee: "Shagun Patel",
     branch: "BKC, Mumbai",
   },
   {
@@ -112,7 +108,7 @@ export const DEMO_ACCOUNTS: BankAccount[] = [
     interestRate: "5.25% USD Yield (Tax Free)",
     status: "active",
     maturityDate: "10 Oct 2026",
-    nominee: "Priya Mehta",
+    nominee: "Shagun Patel",
     branch: "Overseas Branch, Mumbai",
   },
   {
@@ -135,7 +131,7 @@ export const DEMO_ACCOUNTS: BankAccount[] = [
     balanceINR: 860000,
     interestRate: "4.00% p.a.",
     status: "active",
-    nominee: "Priya Mehta",
+    nominee: "Shagun Patel",
     branch: "Khar West, Mumbai",
   },
 ];
@@ -173,7 +169,7 @@ export const DEMO_PROPERTIES: PropertyItem[] = [
     purchasePrice: 7800000,
     currentValuation: 11200000,
     encumbranceStatus: "clear",
-    coOwners: ["Shrirang Mehta (50%)", "Ramesh Mehta (Father - 50%)"],
+    coOwners: ["Brijal Patel (50%)", "Shagun Patel (50%)"],
     rentalStatus: {
       tenantName: "Infosys Senior Executive",
       monthlyRent: 30000,
@@ -199,7 +195,7 @@ export const DEMO_PROPERTIES: PropertyItem[] = [
     purchasePrice: 420000,
     currentValuation: 3500000,
     encumbranceStatus: "disputed",
-    coOwners: ["Shrirang Mehta (33%)", "Ramesh Mehta (Father - 33%)", "Suresh Mehta (Uncle - 33%)"],
+    coOwners: ["Brijal Patel (50%)", "Shagun Patel (50%)"],
     documents: [
       { name: "7/12 Extract (Satbara Utara - Revenue Record)", status: "disputed", type: "PDF" },
       { name: "Mutation Entry Notice (Ferfar #891)", status: "pending", type: "PDF" },
@@ -237,7 +233,7 @@ export const DEMO_INSURANCE: InsurancePolicy[] = [
     dueDate: "10 Oct 2026",
     daysLeft: 23,
     status: "due_soon",
-    nominee: "Priya Mehta (Wife)",
+    nominee: "Shagun Patel (Co-Insured / Family)",
     nomineeStatus: "registered",
   },
   {
@@ -250,7 +246,7 @@ export const DEMO_INSURANCE: InsurancePolicy[] = [
     annualPremium: 31500,
     dueDate: "15 Apr 2027",
     status: "active",
-    nominee: "Ramesh Mehta (Father - Primary Insured in India)",
+    nominee: "Shagun Patel (Family)",
     nomineeStatus: "missing_contingent",
   },
   {

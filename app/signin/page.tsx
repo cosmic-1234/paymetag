@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Landmark, ArrowRight, Lock, Mail, ShieldCheck, Loader2 } from "lucide-react";
+import { Landmark, ArrowRight, Lock, Mail, ShieldCheck, Loader2, KeyRound } from "lucide-react";
 import { ThreeFloatingElements } from "@/components/3d/ThreeFloatingElements";
 import { useApp } from "@/lib/store";
 import { DEMO_USERS } from "@/lib/mockData";
@@ -11,7 +11,7 @@ import { DEMO_USERS } from "@/lib/mockData";
 export default function SignInPage() {
   const router = useRouter();
   const { setActiveUser } = useApp();
-  const [email, setEmail] = useState("shrirang.mehta@siliconvalley.io");
+  const [email, setEmail] = useState("brijal.patel@siliconvalley.io");
   const [password, setPassword] = useState("password123");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -47,7 +47,7 @@ export default function SignInPage() {
     );
 
     const user = matchedUser || {
-      ...DEMO_USERS.shrirang,
+      ...DEMO_USERS.brijal,
       email: email.trim(),
     };
 
@@ -64,6 +64,8 @@ export default function SignInPage() {
           <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0">
             <svg
               className="h-[20px] w-[20px] text-white"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -169,12 +171,13 @@ export default function SignInPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    setEmail("shrirang.mehta@siliconvalley.io");
+                    setEmail("brijal.patel@siliconvalley.io");
                     setPassword("password123");
                   }}
-                  className="w-full text-center text-xs font-medium text-blue-600 hover:text-blue-800"
+                  className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#3451D1] hover:text-[#1D3FAD] transition-colors"
                 >
-                  ⚡ Autofill Demo Credentials (Shrirang Mehta)
+                  <KeyRound className="h-3.5 w-3.5" />
+                  <span>Prefill Registered Account (Brijal Patel)</span>
                 </button>
               </div>
             </div>

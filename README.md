@@ -51,7 +51,7 @@ Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
 
 9. **Will & Succession Registry (`/dashboard/will`)**:
    - Intestate exposure alert for ₹1.84 Cr of Indian assets.
-   - Registered General Power of Attorney ledger (Ramesh Mehta, Father in Mumbai).
+   - Registered General Power of Attorney ledger (Shagun Patel, Family Trustee & Caretaker).
    - Directory of verified NRI succession advocates.
 
 10. **Forgotten Assets Recovery Engine (`/dashboard/forgotten`)**:
@@ -65,7 +65,7 @@ Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
     - Interactive FEMA LRS remittance net calculator.
 
 12. **Family Trust Graph Switcher**:
-    - Dynamic perspective toggle in the top bar between **Shrirang Mehta (Primary NRI, US)**, **Priya Mehta (Spouse)**, and **Ramesh Mehta (Father / Local POA Caretaker in Mumbai)**.
+    - Dynamic perspective toggle in the top bar between **Brijal Patel (Primary NRI, US)** and **Shagun Patel (Family Member & Caretaker, US / India)**.
 
 ---
 

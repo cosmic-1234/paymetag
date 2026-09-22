@@ -18,10 +18,16 @@ import {
   AlertCircle,
   Info,
   Users,
+  BrainCircuit,
+  Scale,
+  FileText,
+  ArrowRight,
+  ShieldAlert,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD, formatCompactINR } from "@/lib/formatters";
 import { VideoKycModal } from "@/components/dashboard/Modals/VideoKycModal";
+import { openAiCopilot } from "@/lib/aiCopilot";
 import { BladeCard } from "@/components/ui/BladeCard";
 import { BladeActionCard } from "@/components/ui/BladeActionCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -125,10 +131,10 @@ export default function DashboardMain() {
       href: "/dashboard/will",
       icon: Scroll,
       valueINR: 0,
-      valueLabel: "POA: Ramesh Mehta",
+      valueLabel: "POA: Shagun Patel",
       badge: "Unregistered",
       badgeType: "danger",
-      subtitle: "Father has Power of Attorney • Indian Will pending",
+      subtitle: "Shagun has Power of Attorney • Indian Will pending",
     },
     {
       title: "Lost Money Finder",
@@ -171,6 +177,115 @@ export default function DashboardMain() {
         </div>
         <div className="text-xs font-normal text-slate-400 font-mono">
           PAN: {activeUser.pan}
+        </div>
+      </div>
+
+      {/* Sovereign AI Executive Intelligence Briefing */}
+      <div className="rounded-2xl border border-[#3451D1]/25 bg-gradient-to-br from-[#EEF2FF] via-[#F8FAFC] to-[#F0F4FF] dark:from-[#0F172A] dark:via-[#111C38] dark:to-[#0F172A] p-5 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#3451D1]/15 pb-3">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] text-white shadow-sm">
+              <BrainCircuit className="h-4 w-4" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="font-extrabold text-[14px] text-[#0D2266] dark:text-white tracking-tight">
+                  Sovereign AI Executive Briefing
+                </h3>
+                <span className="rounded-full bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/60 dark:text-emerald-300 px-2 py-0.5 text-[10px] font-bold">
+                  3 Actions Identified
+                </span>
+              </div>
+              <p className="text-[11px] text-[#6B7280] dark:text-slate-400">
+                Cross-jurisdictional intelligence scan across US IRS (FATCA/FBAR), India Income Tax Dept, & RBI FEMA
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => openAiCopilot()}
+            className="self-start sm:self-auto flex items-center gap-1.5 rounded-lg border border-[#3451D1] bg-white dark:bg-blue-950/60 px-3 py-1.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#3451D1] hover:text-white transition-all shadow-xs"
+          >
+            <span>Launch Copilot</span>
+            <ArrowRight className="h-3 w-3" />
+          </button>
+        </div>
+
+        {/* 3 Strategic AI Findings */}
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+          {/* Finding 1: Tax Treaty */}
+          <div className="rounded-xl border border-slate-200/80 dark:border-white/[0.08] bg-white/90 dark:bg-[#151B2B]/90 p-3.5 flex flex-col justify-between hover:border-[#3451D1] transition-all">
+            <div>
+              <div className="flex items-center justify-between text-[11px] mb-1.5">
+                <span className="font-bold text-[#0D2266] dark:text-white flex items-center gap-1.5">
+                  <Scale className="h-3.5 w-3.5 text-[#3451D1]" />
+                  DTAA Tax Arbitrage
+                </span>
+                <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/50 px-1.5 py-0.5 rounded">
+                  ₹3.84L Credit
+                </span>
+              </div>
+              <p className="text-[11px] text-[#6B7280] dark:text-slate-400 leading-relaxed">
+                Indian 20% Section 195 TDS on dividends qualifies for direct IRS Form 1116 Foreign Tax Credit against your CA 37% Federal bracket.
+              </p>
+            </div>
+            <button
+              onClick={() => openAiCopilot("Analyze DTAA Article 10 dividend withholding rates for my Indian demat portfolio vs US IRS taxation.")}
+              className="mt-3 flex items-center gap-1 text-[11px] font-bold text-[#3451D1] hover:underline"
+            >
+              <span>Inspect Tax Arbitrage</span>
+              <ArrowRight className="h-3 w-3" />
+            </button>
+          </div>
+
+          {/* Finding 2: Succession & Property */}
+          <div className="rounded-xl border border-slate-200/80 dark:border-white/[0.08] bg-white/90 dark:bg-[#151B2B]/90 p-3.5 flex flex-col justify-between hover:border-[#3451D1] transition-all">
+            <div>
+              <div className="flex items-center justify-between text-[11px] mb-1.5">
+                <span className="font-bold text-[#0D2266] dark:text-white flex items-center gap-1.5">
+                  <ShieldAlert className="h-3.5 w-3.5 text-[#F59E0B]" />
+                  Probate Harmonization
+                </span>
+                <span className="text-[10px] font-bold text-[#F59E0B] bg-[#FEF9C3] dark:bg-amber-950/50 px-1.5 py-0.5 rounded">
+                  Dual-Probate Risk
+                </span>
+              </div>
+              <p className="text-[11px] text-[#6B7280] dark:text-slate-400 leading-relaxed">
+                Oberoi Woods flat requires probate under Indian Succession Act 1925. Registered POA for Shagun Patel prevents 14-month transfer freeze.
+              </p>
+            </div>
+            <button
+              onClick={() => openAiCopilot("Scan my digital will for cross-border probate bottlenecks between US Probate Courts and Bombay High Court.")}
+              className="mt-3 flex items-center gap-1 text-[11px] font-bold text-[#3451D1] hover:underline"
+            >
+              <span>Run Succession Scan</span>
+              <ArrowRight className="h-3 w-3" />
+            </button>
+          </div>
+
+          {/* Finding 3: IEPF Recovery */}
+          <div className="rounded-xl border border-slate-200/80 dark:border-white/[0.08] bg-white/90 dark:bg-[#151B2B]/90 p-3.5 flex flex-col justify-between hover:border-[#3451D1] transition-all">
+            <div>
+              <div className="flex items-center justify-between text-[11px] mb-1.5">
+                <span className="font-bold text-[#0D2266] dark:text-white flex items-center gap-1.5">
+                  <FileText className="h-3.5 w-3.5 text-[#3451D1]" />
+                  IEPF Claim Dossier
+                </span>
+                <span className="text-[10px] font-bold text-[#3451D1] bg-[#EEF2FF] dark:bg-blue-950/50 px-1.5 py-0.5 rounded">
+                  94.2% Match
+                </span>
+              </div>
+              <p className="text-[11px] text-[#6B7280] dark:text-slate-400 leading-relaxed">
+                350 L&T physical shares (₹14.80L) detected in IEPF escrow. Automated name affidavit generated for &apos;Brijal A. Patel&apos; variance.
+              </p>
+            </div>
+            <button
+              onClick={() => openAiCopilot("What are the approval odds and required affidavits for recovering my unclaimed L&T shares from IEPF?")}
+              className="mt-3 flex items-center gap-1 text-[11px] font-bold text-[#3451D1] hover:underline"
+            >
+              <span>View Claim Admissibility</span>
+              <ArrowRight className="h-3 w-3" />
+            </button>
+          </div>
         </div>
       </div>
 

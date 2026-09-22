@@ -8,14 +8,20 @@ import {
   Download,
   FileCheck,
   ArrowUpRight,
+  Scale,
+  ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
 import { formatINR } from "@/lib/formatters";
 import { DEMO_TAX } from "@/lib/mockData";
 import { BladeCard, BladeStatCard } from "@/components/ui/BladeCard";
 import { FbarExportModal } from "@/components/dashboard/Modals/FbarExportModal";
+import { AiTaxAuditModal } from "@/components/dashboard/Modals/AiTaxAuditModal";
+import { openAiCopilot } from "@/lib/aiCopilot";
 
 export default function TaxPage() {
   const [isFbarModalOpen, setIsFbarModalOpen] = useState(false);
+  const [isTaxAuditModalOpen, setIsTaxAuditModalOpen] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -61,6 +67,71 @@ export default function TaxPage() {
           subtitle="15% tax rate instead of 30% standard"
           trend={{ direction: "up", text: "DTAA Active" }}
         />
+      </div>
+
+      {/* AI Cross-Border Tax Arbitrage & DTAA Treaty Analyzer */}
+      <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] text-white shadow-xs">
+                <Scale className="h-3.5 w-3.5" />
+              </span>
+              <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
+                Sovereign Tax Intelligence
+              </span>
+              <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
+                Form 1116 Active
+              </span>
+            </div>
+            <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
+              AI Cross-Border Tax Arbitrage & DTAA Treaty Analyzer
+            </h3>
+            <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
+              Automated reconciliation of Indian Section 195 TDS (20%) with US California Marginal Tax Brackets (37% Federal + 9.3% State). Foreign Tax Credit (FTC) offsets US passive liability dollar-for-dollar.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            <button
+              onClick={() => setIsTaxAuditModalOpen(true)}
+              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm"
+            >
+              <ShieldCheck className="h-4 w-4" />
+              <span>Run AI Tax Mismatch Audit</span>
+            </button>
+            <button
+              onClick={() =>
+                openAiCopilot(
+                  "Analyze DTAA Article 10 dividend withholding rates for my Indian demat portfolio vs US IRS taxation."
+                )
+              }
+              className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
+            >
+              <span>Ask AI Counsel</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* 3 Inline AI Tax Insights */}
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
+          <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Total FTC Reclaimable</span>
+            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">₹1,42,000 ($1,710 USD)</span>
+            <span className="text-[10px] text-emerald-600 font-medium">IRS Form 1116 Line 8</span>
+          </div>
+          <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Section 197 Optimization</span>
+            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">Lower Deduction Eligible</span>
+            <span className="text-[10px] text-[#3451D1] font-medium">Saves ₹2,42,000 withholding</span>
+          </div>
+          <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Form 10F & TRC Filing</span>
+            <span className="font-extrabold text-sm text-[#16A34A] mt-0.5 block">Valid for FY2026-27</span>
+            <span className="text-[10px] text-slate-500 font-medium">No 30% Non-Resident Surcharge</span>
+          </div>
+        </div>
       </div>
 
       {/* US FBAR Alert Card — Clean Blade design, no amateur tint */}
@@ -192,6 +263,11 @@ export default function TaxPage() {
       <FbarExportModal
         isOpen={isFbarModalOpen}
         onClose={() => setIsFbarModalOpen(false)}
+      />
+
+      <AiTaxAuditModal
+        isOpen={isTaxAuditModalOpen}
+        onClose={() => setIsTaxAuditModalOpen(false)}
       />
     </div>
   );

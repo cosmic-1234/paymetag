@@ -14,7 +14,10 @@ import { useApp } from "@/lib/store";
 import { formatINR, formatUSD } from "@/lib/formatters";
 import { DEMO_USERS } from "@/lib/mockData";
 
-export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) => {
+export const Topbar: React.FC<{
+  onOpenFbar?: () => void;
+  onOpenAiCopilot?: () => void;
+}> = ({ onOpenFbar, onOpenAiCopilot }) => {
   const {
     activeUser,
     setActiveUser,
@@ -39,6 +42,14 @@ export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) =>
 
   const usersList = Object.values(DEMO_USERS);
   const formattedWealth = currency === "INR" ? formatINR(totalNetWorthINR) : formatUSD(totalNetWorthINR);
+  const userInitials = activeUser?.name
+    ? activeUser.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2)
+    : "BP";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-[64px] border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-6 shadow-[0px_1px_4px_rgba(0,0,0,0.06)] flex items-center justify-between">
@@ -50,6 +61,8 @@ export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) =>
         <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0 group-hover:opacity-95 transition-opacity">
           <svg
             className="h-[20px] w-[20px] text-white"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -75,22 +88,22 @@ export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) =>
       </Link>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          CENTER SECTION — Wealth metric (Centered)
+          CENTER SECTION — Wealth metric (Centered, no overlap)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+      <div className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2 pointer-events-auto">
         <div className="flex flex-col items-center">
-          <span className="font-bold text-[11px] uppercase tracking-[0.08em] text-[#9CA3AF]">
+          <span className="font-bold text-[10px] xl:text-[11px] uppercase tracking-[0.08em] text-[#9CA3AF]">
             TOTAL INDIAN WEALTH
           </span>
           <div className="flex items-center gap-2 mt-0.5">
-            <span className="font-extrabold text-[24px] tracking-tight text-[#0D2266] dark:text-white leading-none font-sans">
+            <span className="font-extrabold text-[20px] xl:text-[24px] tracking-tight text-[#0D2266] dark:text-white leading-none font-sans">
               {formattedWealth}
             </span>
 
             {/* USD toggle: small pill button */}
             <button
               onClick={() => setCurrency(currency === "INR" ? "USD" : "INR")}
-              className="border border-[#E5E7EB] dark:border-white/[0.1] rounded-[6px] px-2.5 py-[3px] font-semibold text-[12px] text-[#6B7280] dark:text-slate-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.04] transition-colors cursor-pointer select-none"
+              className="border border-[#E5E7EB] dark:border-white/[0.1] rounded-[6px] px-2 py-[2px] font-semibold text-[11px] text-[#6B7280] dark:text-slate-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.04] transition-colors cursor-pointer select-none"
               title="Toggle currency display"
             >
               {currency === "INR" ? "$ USD" : "₹ INR"}
@@ -98,53 +111,53 @@ export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) =>
           </div>
         </div>
 
-        {/* Vertical divider */}
-        <div className="h-9 w-[1px] bg-[#F0F0F0] dark:bg-white/[0.08]" />
-
-        {/* Health Score: Compact ring (40px) */}
-        <div className="flex flex-col items-center">
-          <div className="relative flex h-10 w-10 items-center justify-center">
-            <svg className="h-10 w-10 -rotate-90 transform" viewBox="0 0 36 36">
-              <defs>
-                <linearGradient id="gold-stroke-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#F59E0B" />
-                  <stop offset="100%" stopColor="#D97706" />
-                </linearGradient>
-              </defs>
-              <path
-                className="text-[#F3F4F6] dark:text-white/[0.06]"
-                strokeWidth="3.2"
-                stroke="currentColor"
-                fill="none"
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path
-                stroke="url(#gold-stroke-grad)"
-                strokeDasharray={`${healthScore}, 100`}
-                strokeWidth="3.2"
-                strokeLinecap="round"
-                fill="none"
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-            </svg>
-            <span className="absolute font-extrabold text-[16px] text-[#0D2266] dark:text-white font-sans leading-none">
-              {healthScore}
+        {/* Health Score ring & divider: Only displayed on 2XL screens (1536px+) to prevent overlap on laptops */}
+        <div className="hidden 2xl:flex items-center gap-6">
+          <div className="h-9 w-[1px] bg-[#F0F0F0] dark:bg-white/[0.08]" />
+          <div className="flex flex-col items-center">
+            <div className="relative flex h-10 w-10 items-center justify-center">
+              <svg className="h-10 w-10 -rotate-90 transform" viewBox="0 0 36 36">
+                <defs>
+                  <linearGradient id="gold-stroke-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F59E0B" />
+                    <stop offset="100%" stopColor="#D97706" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="text-[#F3F4F6] dark:text-white/[0.06]"
+                  strokeWidth="3.2"
+                  stroke="currentColor"
+                  fill="none"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path
+                  stroke="url(#gold-stroke-grad)"
+                  strokeDasharray={`${healthScore}, 100`}
+                  strokeWidth="3.2"
+                  strokeLinecap="round"
+                  fill="none"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+              </svg>
+              <span className="absolute font-extrabold text-[16px] text-[#0D2266] dark:text-white font-sans leading-none">
+                {healthScore}
+              </span>
+            </div>
+            <span className="font-medium text-[11px] text-[#F59E0B] leading-none mt-0.5 whitespace-nowrap">
+              3 Reminders
             </span>
           </div>
-          <span className="font-medium text-[11px] text-[#F59E0B] leading-none mt-0.5 whitespace-nowrap">
-            3 Reminders
-          </span>
         </div>
       </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           RIGHT SECTION — Actions & Profile
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
         {/* "Refresh Banks" button: Ghost button */}
         <button
           onClick={handleSync}
-          className="hidden sm:flex items-center gap-1.5 border border-[#E5E7EB] dark:border-white/[0.1] bg-transparent rounded-lg px-3.5 py-2 font-semibold text-[13px] text-[#374151] dark:text-slate-200 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.04] hover:border-[#D1D5DB] transition-all cursor-pointer"
+          className="hidden sm:flex items-center gap-1.5 border border-[#E5E7EB] dark:border-white/[0.1] bg-transparent rounded-lg px-3 py-1.5 font-semibold text-xs text-[#374151] dark:text-slate-200 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.04] hover:border-[#D1D5DB] transition-all cursor-pointer"
         >
           <RefreshCw
             className={`h-3.5 w-3.5 text-[#374151] dark:text-slate-200 ${
@@ -158,7 +171,7 @@ export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) =>
         {onOpenFbar && (
           <button
             onClick={onOpenFbar}
-            className="hidden lg:flex items-center gap-1.5 border border-[#3451D1] text-[#3451D1] bg-transparent rounded-lg px-3.5 py-2 font-bold text-[13px] hover:bg-[#EEF2FF] dark:hover:bg-blue-950/30 transition-all cursor-pointer"
+            className="hidden 2xl:flex items-center gap-1.5 border border-[#3451D1] text-[#3451D1] bg-transparent rounded-lg px-3.5 py-2 font-bold text-[13px] hover:bg-[#EEF2FF] dark:hover:bg-blue-950/30 transition-all cursor-pointer"
           >
             <FileDown className="h-3.5 w-3.5 text-[#3451D1]" />
             <span>US Tax Report (FBAR)</span>
@@ -217,16 +230,16 @@ export const Topbar: React.FC<{ onOpenFbar?: () => void }> = ({ onOpenFbar }) =>
             onClick={() => setIsFamilyOpen(!isFamilyOpen)}
             className="flex items-center gap-2 bg-[#F3F4F6] dark:bg-white/[0.08] rounded-full pl-1.5 pr-3 py-1.5 hover:bg-[#E9EBF0] dark:hover:bg-white/[0.12] transition-colors cursor-pointer"
           >
-            {/* Avatar: 28px circle, initials "SM", bg #3451D1 */}
+            {/* Avatar: 28px circle, dynamic initials, bg #3451D1 */}
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#3451D1] text-white font-bold text-[11px]">
-              SM
+              {userInitials}
             </div>
             <div className="text-left hidden sm:block">
               <div className="font-semibold text-[13px] text-[#111827] dark:text-white leading-tight">
-                Shrirang Mehta
+                {activeUser?.name || "Brijal Patel"}
               </div>
               <div className="font-normal text-[11px] text-[#9CA3AF] leading-none mt-0.5">
-                NRI (USA)
+                {activeUser?.role === "primary_nri" ? "NRI (USA)" : activeUser?.relation || "Family"}
               </div>
             </div>
             <ChevronDown className="h-3.5 w-3.5 text-[#9CA3AF]" />

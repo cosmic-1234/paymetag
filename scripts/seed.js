@@ -9,8 +9,8 @@ console.log("=================================================================="
 console.log("          DESHVAULT — NRI FINANCIAL NODE SEED ENGINE              ");
 console.log("==================================================================");
 console.log(`[SEED] Initializing database connection to simulated cluster...`);
-console.log(`[SEED] Seeding User Profile: Shrirang & Priya Mehta (San Jose, CA)`);
-console.log(`[SEED] Seeding Caretaker Profile: Ramesh Mehta (Prabhadevi, Mumbai)`);
+console.log(`[SEED] Seeding User Profile: Brijal Patel (San Jose, CA)`);
+console.log(`[SEED] Seeding Family & Caretaker Profile: Shagun Patel (San Jose, CA & Mumbai)`);
 console.log(`[SEED] Seeded 6 Bank Accounts (HDFC, SBI, Axis, ICICI, BoB, Kotak) -> ₹49,64,000 + $18,000 USD`);
 console.log(`[SEED] Seeded 2 Real Estate Titles (Mumbai Oberoi 4B & Nagpur Land) -> ₹1,47,00,000`);
 console.log(`[SEED] Seeded 3 Insurance Policies (LIC, HDFC ERGO, Star Health)`);

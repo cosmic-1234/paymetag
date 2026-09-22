@@ -47,7 +47,7 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activeUser, setActiveUser] = useState<UserProfile>(DEMO_USERS.shrirang);
+  const [activeUser, setActiveUser] = useState<UserProfile>(DEMO_USERS.brijal);
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
   const [accounts, setAccounts] = useState<BankAccount[]>(DEMO_ACCOUNTS);
   const [alerts, setAlerts] = useState<UrgentAlert[]>(DEMO_ALERTS);

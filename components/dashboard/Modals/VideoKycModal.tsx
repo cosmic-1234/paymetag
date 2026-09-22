@@ -24,7 +24,7 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
   onClose,
   institutionName = "State Bank of India",
 }) => {
-  const { resolveKyc } = useApp();
+  const { resolveKyc, activeUser } = useApp();
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -101,7 +101,7 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#9CA3AF]">Name on Record:</span>
-                  <span className="font-mono font-bold text-[#0D2266] dark:text-white">Shrirang Mehta</span>
+                  <span className="font-mono font-bold text-[#0D2266] dark:text-white">{activeUser?.name || "Brijal Patel"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#9CA3AF]">KYC Status:</span>
@@ -150,7 +150,7 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
                   Live Video Verification Officer
                 </p>
                 <p className="text-[11px] text-[#9CA3AF]">
-                  SBI Officer: Priya S. (Overseas Customer Desk)
+                  SBI Officer: Ananya S. (Overseas Customer Desk)
                 </p>
                 <div className="mt-3 inline-flex items-center gap-2 rounded-[6px] bg-[#DCFCE7] dark:bg-emerald-950/40 px-3 py-1 text-[11px] font-bold text-[#16A34A] dark:text-emerald-400">
                   <span className="h-2 w-2 rounded-full bg-[#16A34A] animate-ping" />

@@ -5,11 +5,11 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { email, password } = body;
 
-    // Demo credentials allow standard login or default to Shrirang
+    // Demo credentials allow standard login or default to Brijal
     const user = {
-      id: "usr_shrirang",
-      name: "Shrirang Mehta",
-      email: email || "shrirang.mehta@siliconvalley.io",
+      id: "usr_brijal",
+      name: "Brijal Patel",
+      email: email || "brijal.patel@siliconvalley.io",
       role: "primary_nri",
       location: "San Jose, California, USA",
       pan: "ABCPM1234D",

@@ -11,8 +11,8 @@ import { DEMO_USERS } from "@/lib/mockData";
 export default function SignUpPage() {
   const router = useRouter();
   const { setActiveUser } = useApp();
-  const [name, setName] = useState("Shrirang Mehta");
-  const [email, setEmail] = useState("shrirang.mehta@siliconvalley.io");
+  const [name, setName] = useState("Brijal Patel");
+  const [email, setEmail] = useState("brijal.patel@siliconvalley.io");
   const [country, setCountry] = useState("USA");
   const [password, setPassword] = useState("password123");
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ export default function SignUpPage() {
         const data = await res.json();
         if (data.user) {
           setActiveUser(data.user);
-          router.push("/onboard");
+          router.push(`/onboard?country=${encodeURIComponent(country)}`);
           setLoading(false);
           return;
         }
@@ -44,7 +44,7 @@ export default function SignUpPage() {
     }
 
     const newUser = {
-      ...DEMO_USERS.shrirang,
+      ...DEMO_USERS.brijal,
       name: name.trim(),
       email: email.trim(),
       location:
@@ -52,11 +52,11 @@ export default function SignUpPage() {
           ? "San Jose, California, USA"
           : country === "UAE"
           ? "Dubai, UAE"
-          : "Toronto, Ontario, Canada",
+          : "London, United Kingdom",
     };
 
     setActiveUser(newUser);
-    router.push("/onboard");
+    router.push(`/onboard?country=${encodeURIComponent(country)}`);
     setLoading(false);
   };
 
@@ -68,6 +68,8 @@ export default function SignUpPage() {
           <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0">
             <svg
               className="h-[20px] w-[20px] text-white"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -128,7 +130,7 @@ export default function SignUpPage() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
-                      placeholder="Shrirang Mehta"
+                      placeholder="Brijal Patel"
                       className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#3451D1] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
                     />
                   </div>
@@ -164,9 +166,7 @@ export default function SignUpPage() {
                     >
                       <option value="USA">United States (FBAR / FATCA)</option>
                       <option value="UAE">United Arab Emirates (Dubai / Abu Dhabi)</option>
-                      <option value="CAN">Canada (CRA T1135)</option>
-                      <option value="SGP">Singapore</option>
-                      <option value="UK">United Kingdom</option>
+                      <option value="UK">United Kingdom (HMRC Worldwide Disclosure)</option>
                     </select>
                   </div>
                 </div>

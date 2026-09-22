@@ -6,6 +6,10 @@ import {
   CheckCircle2,
   ArrowRight,
   Loader2,
+  Scale,
+  ShieldCheck,
+  FileText,
+  AlertTriangle,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD } from "@/lib/formatters";
@@ -13,12 +17,15 @@ import { ForgottenAssetItem } from "@/lib/mockData";
 import { BladeCard } from "@/components/ui/BladeCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { IepfClaimModal } from "@/components/dashboard/Modals/IepfClaimModal";
+import { openAiCopilot } from "@/lib/aiCopilot";
 
 export default function ForgottenAssetsPage() {
   const { forgottenAssets, totalForgottenINR, activeUser, currency } = useApp();
   const [searchPan, setSearchPan] = useState(activeUser.pan);
   const [isSearching, setIsSearching] = useState(false);
   const [activeClaimAsset, setActiveClaimAsset] = useState<ForgottenAssetItem | null>(null);
+  const [isAffidavitGenerating, setIsAffidavitGenerating] = useState(false);
+  const [affidavitReady, setAffidavitReady] = useState(false);
 
   const handleScan = async () => {
     setIsSearching(true);
@@ -69,6 +76,101 @@ export default function ForgottenAssetsPage() {
           </div>
         </div>
       </BladeCard>
+
+      {/* AI IEPF Claim Dossier & Match Confidence Engine */}
+      <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] text-white shadow-xs">
+                <FileText className="h-3.5 w-3.5" />
+              </span>
+              <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
+                Sovereign Recovery AI
+              </span>
+              <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
+                94.2% Admissibility
+              </span>
+            </div>
+            <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
+              AI IEPF Claim Dossier & Match Confidence Engine
+            </h3>
+            <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
+              Scans MCA IEPF authority records for 350 physical equity shares of <strong className="text-[#0D2266] dark:text-white">Larsen & Toubro Ltd</strong> (₹14,80,000 total liquidity). Analyzes name variation risk between PAN (<strong className="text-[#0D2266] dark:text-white">Brijal Arvind Patel</strong>) and old physical share certificates (<strong className="text-[#0D2266] dark:text-white">Brijal A. Patel</strong>).
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            <button
+              onClick={() => {
+                setIsAffidavitGenerating(true);
+                setTimeout(() => {
+                  setIsAffidavitGenerating(false);
+                  setAffidavitReady(true);
+                }, 1300);
+              }}
+              disabled={isAffidavitGenerating}
+              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm disabled:opacity-50"
+            >
+              <FileText className="h-4 w-4" />
+              <span>{isAffidavitGenerating ? "Synthesizing Legal Affidavit..." : "Draft AI Name Variance Affidavit"}</span>
+            </button>
+            <button
+              onClick={() =>
+                openAiCopilot(
+                  "What are the approval odds and required affidavits for recovering my unclaimed L&T shares from IEPF?"
+                )
+              }
+              className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
+            >
+              <span>Consult Recovery AI</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Dynamic Affidavit Generated Notification */}
+        {affidavitReady && (
+          <div className="mt-4 rounded-xl border border-emerald-200 dark:border-emerald-950/50 bg-[#DCFCE7]/50 dark:bg-emerald-950/20 p-3.5 flex items-start justify-between">
+            <div className="flex items-start gap-2.5">
+              <CheckCircle2 className="h-4 w-4 text-[#16A34A] shrink-0 mt-0.5" />
+              <div>
+                <span className="font-bold text-xs text-[#16A34A] dark:text-emerald-300 block">
+                  AI Legal Affidavit Ready: Form IEPF-5 Verification Pack
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">
+                  Notarized affidavit draft harmonizing &apos;Brijal A. Patel&apos; to &apos;Brijal Arvind Patel&apos; with SEBI ISR-2 bank confirmation ready for electronic submission to L&T Investor Services and MCA IEPF Escrow.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => setAffidavitReady(false)}
+              className="text-slate-400 hover:text-slate-600 text-xs font-bold px-1"
+            >
+              ✕
+            </button>
+          </div>
+        )}
+
+        {/* 3 Inline AI Claim Metrics */}
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
+          <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Total Unclaimed Liquidity</span>
+            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">₹14,80,000</span>
+            <span className="text-[10px] text-emerald-600 font-medium">350 Shares + 7-Yr Dividends</span>
+          </div>
+          <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Approval Probability</span>
+            <span className="font-extrabold text-sm text-[#16A34A] mt-0.5 block">94.2% Post-Affidavit</span>
+            <span className="text-[10px] text-slate-500 font-medium">Up from 38.5% baseline</span>
+          </div>
+          <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Recovery Processing Time</span>
+            <span className="font-extrabold text-sm text-[#3451D1] mt-0.5 block">45–60 Days</span>
+            <span className="text-[10px] text-[#3451D1] font-medium">Direct NRE Account Credit</span>
+          </div>
+        </div>
+      </div>
 
       {/* PAN Search Bar */}
       <BladeCard variant="default" className="p-4 min-h-0">
