@@ -219,11 +219,6 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[54%_46%] overflow-visible">
             {/* Left Column: Heading + Security Badges */}
             <div className="flex flex-col items-start z-10">
-              <div className="inline-flex items-center gap-2 rounded-[24px] border border-[rgba(99,132,255,0.25)] bg-[rgba(52,81,209,0.12)] px-4 py-[7px] text-[12px] font-medium text-[#93C5FD] mb-6 backdrop-blur-md">
-                <span className="text-[14px]">🇮🇳</span>
-                <span>Operating across USA · UAE · UK Corridors</span>
-              </div>
-
               <h1 className="tracking-[-0.02em] leading-[1.1]">
                 <span className="block font-extrabold text-[40px] sm:text-[50px] lg:text-[56px] text-white">
                   All Your Indian Assets.

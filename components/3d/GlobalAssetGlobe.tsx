@@ -68,8 +68,8 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
             {
               startLat: 20.5,
               startLng: 78.9,
-              endLat: 43.7,
-              endLng: -79.4, // Toronto, Canada
+              endLat: 51.5,
+              endLng: -0.12, // London, UK
               color: ["#F59E0B", "#8B5CF6"],
               stroke: 1.2,
             },
@@ -83,7 +83,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
           .pointsData([
             { lat: 37.7, lng: -122.4, label: "San Jose" },
             { lat: 25.2, lng: 55.3, label: "Dubai" },
-            { lat: 43.7, lng: -79.4, label: "Toronto" },
+            { lat: 51.5, lng: -0.12, label: "London" },
             { lat: 20.5, lng: 78.9, label: "India" },
           ])
           .pointColor(() => "#F59E0B")
@@ -92,7 +92,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
           .htmlElementsData([
             { lat: 37.7, lng: -122.4, label: "San Jose, CA · 🇺🇸" },
             { lat: 25.2, lng: 55.3, label: "Dubai · 🇦🇪" },
-            { lat: 43.7, lng: -79.4, label: "Toronto · 🇨🇦" },
+            { lat: 51.5, lng: -0.12, label: "London · 🇬🇧" },
           ])
           .htmlElement((d: any) => {
             const el = document.createElement("div");
