@@ -246,7 +246,7 @@ function OnboardContent() {
           </div>
           <div>
             <span className="block font-extrabold text-[16px] tracking-tight text-[#0D2266] dark:text-white leading-tight">
-              DESHVAULT
+              DESHBOARD
             </span>
             <span className="block font-medium text-[11px] text-[#9CA3AF] leading-none mt-0.5">
               NRI Wealth Portal &bull; Onboarding
@@ -1079,7 +1079,7 @@ function OnboardContent() {
           FOOTER
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <footer className="border-t border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] py-4 text-center text-xs text-[#9CA3AF]">
-        DeshVault Technologies &bull; Institutional Read-Only Sovereign Asset Aggregation for Non-Resident Indians &bull; Operating in US, UAE & UK
+        Prototype of DeshBoard &bull; Institutional Read-Only Sovereign Asset Aggregation for Non-Resident Indians &bull; Operating in US, UAE & UK
       </footer>
     </div>
   );

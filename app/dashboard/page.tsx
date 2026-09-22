@@ -23,6 +23,7 @@ import {
   FileText,
   ArrowRight,
   ShieldAlert,
+  CreditCard,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD, formatCompactINR } from "@/lib/formatters";
@@ -43,6 +44,7 @@ export default function DashboardMain() {
     totalRetirementINR,
     totalAlternatesINR,
     totalForgottenINR,
+    totalLoansINR,
     healthScore,
     alerts,
     dismissAlert,
@@ -105,6 +107,16 @@ export default function DashboardMain() {
       badge: "Due in 23d",
       badgeType: "warning",
       subtitle: "LIC Jeevan Anand + HDFC Ergo Family Floater",
+    },
+    {
+      title: "Loans & Mortgages",
+      href: "/dashboard/loans",
+      icon: CreditCard,
+      valueINR: totalLoansINR,
+      valueLabel: "Total Debt",
+      badge: "Future Planning",
+      badgeType: "neutral",
+      subtitle: "HDFC Home Loan on Oberoi Woods • 8.45% p.a.",
     },
     {
       title: "Taxes & US Filing",

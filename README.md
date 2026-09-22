@@ -1,6 +1,6 @@
-# DeshVault — NRI Financial Command Center
+# DeshBoard — NRI Wealth Command Center
 
-**DeshVault** is an institutional-grade, single-source-of-truth wealth, compliance, and asset management command center for Non-Resident Indians (NRIs) residing in the United States, UAE, Canada, and Singapore.
+**DeshBoard** is an institutional-grade, single-source-of-truth wealth, compliance, and asset management command center for Non-Resident Indians (NRIs) residing in the United States, UAE, and United Kingdom.
 
 Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Three.js**, it brings together all 12 fragmented Indian financial modules into a unified command dashboard.
 

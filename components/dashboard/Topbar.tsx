@@ -79,7 +79,7 @@ export const Topbar: React.FC<{
 
         <div>
           <span className="block font-extrabold text-[16px] tracking-tight text-[#0D2266] dark:text-white leading-tight font-sans">
-            DESHVAULT
+            DESHBOARD
           </span>
           <span className="block font-medium text-[11px] text-[#9CA3AF] leading-none mt-0.5">
             NRI Wealth Portal
@@ -239,17 +239,17 @@ export const Topbar: React.FC<{
                 {activeUser?.name || "Brijal Patel"}
               </div>
               <div className="font-normal text-[11px] text-[#9CA3AF] leading-none mt-0.5">
-                {activeUser?.role === "primary_nri" ? "NRI (USA)" : activeUser?.relation || "Family"}
+                {activeUser?.location?.split(",")[0] || "NRI"}
               </div>
             </div>
             <ChevronDown className="h-3.5 w-3.5 text-[#9CA3AF]" />
           </button>
 
-          {/* Family Switcher Dropdown */}
+          {/* User Switcher Dropdown */}
           {isFamilyOpen && (
             <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-2 shadow-xl z-50 backdrop-blur-sm">
               <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-[0.08em] text-[#9CA3AF] border-b border-[#F3F4F6] dark:border-white/[0.06]">
-                Family Members & Caretakers
+                Switch User Portfolio
               </div>
               <div className="mt-1 space-y-1">
                 {usersList.map((user) => (
@@ -273,13 +273,8 @@ export const Topbar: React.FC<{
                         {user.name}
                       </div>
                       <div className="text-[11px] text-[#9CA3AF]">
-                        {user.location}
+                        {user.location} • PAN: {user.pan}
                       </div>
-                      {user.isPOA && (
-                        <span className="mt-1 inline-block rounded-[6px] bg-[#FEF9C3] text-[#A16207] px-2 py-0.5 text-[10px] font-bold">
-                          Authorized Caretaker in India (POA)
-                        </span>
-                      )}
                     </div>
                   </button>
                 ))}

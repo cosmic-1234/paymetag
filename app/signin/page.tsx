@@ -80,7 +80,7 @@ export default function SignInPage() {
             </svg>
           </div>
           <span className="font-extrabold text-[16px] tracking-tight text-[#0D2266] dark:text-white">
-            DESHVAULT
+            DESHBOARD
           </span>
         </Link>
         <div className="text-xs text-[#9CA3AF]">

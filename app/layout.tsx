@@ -10,7 +10,7 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "DeshVault | NRI Financial Portal",
+  title: "DeshBoard | NRI Wealth Command Center",
   description: "Unified view of your bank accounts, properties, mutual funds, and taxes in India.",
 };
 

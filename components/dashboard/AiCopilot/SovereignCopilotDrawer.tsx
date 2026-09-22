@@ -63,7 +63,7 @@ const INITIAL_CONVERSATION: Message[] = [
     id: "init-1",
     sender: "assistant",
     timestamp: "Just now",
-    text: "Welcome to DeshVault Sovereign Intelligence. I have synthesized your cross-jurisdictional portfolio across the United States (US IRS / FinCEN) and India (RBI / ITD / MCA).\n\nActive Profile: **Brijal Patel** (US Tax Resident, California) with Indian domicile ties in Goregaon, Mumbai. How may I assist your cross-border wealth governance today?",
+    text: "Welcome to DeshBoard Sovereign Intelligence. I have synthesized your cross-jurisdictional portfolio across the United States (US IRS / FinCEN) and India (RBI / ITD / MCA).\n\nActive Profile: **Brijal Patel** (US Tax Resident, California) with Indian domicile ties in Goregaon, Mumbai. How may I assist your cross-border wealth governance today?",
     citations: [
       "RBI Master Direction No. 13/2015-16 (FEMA Compliance)",
       "US-India Double Taxation Avoidance Agreement (Article 10 & 11)",
@@ -310,8 +310,8 @@ export const SovereignCopilotDrawer: React.FC<SovereignCopilotDrawerProps> = ({
                 {msg.sender === "assistant" ? (
                   <>
                     <ShieldCheck className="h-3 w-3 text-[#3451D1]" />
-                    <span className="font-semibold text-[#0D2266] dark:text-slate-300">
-                      DeshVault Intelligence Engine
+                    <span className="font-semibold uppercase tracking-wider text-[#3451D1]">
+                      DeshBoard Intelligence Engine
                     </span>
                   </>
                 ) : (
@@ -505,7 +505,7 @@ export const SovereignCopilotDrawer: React.FC<SovereignCopilotDrawerProps> = ({
             </button>
           </form>
           <div className="mt-2 flex items-center justify-between text-[10px] text-[#9CA3AF]">
-            <span>Secured via DeshVault Sovereign Financial Engine</span>
+            <span>Secured via DeshBoard Sovereign Financial Engine</span>
             <span>Press ↵ to send</span>
           </div>
         </div>

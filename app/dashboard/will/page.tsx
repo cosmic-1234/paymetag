@@ -323,7 +323,7 @@ export default function WillPage() {
           <div className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl space-y-4">
             <h4 className="text-base font-bold text-[#0C2340]">Create Your Indian Will Online</h4>
             <p className="text-xs text-slate-600">
-              DeshVault will automatically put together your Mumbai flat details, bank account numbers, and stock folios into a legally binding Will valid in both India and the US.
+              DeshBoard will automatically put together your Mumbai flat details, bank account numbers, and stock folios into a legally binding Will valid in both India and the US.
             </p>
             <div className="flex justify-end gap-2">
               <button

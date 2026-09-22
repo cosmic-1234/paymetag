@@ -4,7 +4,9 @@ import React, { createContext, useContext, useState } from "react";
 import {
   DEMO_USERS,
   DEMO_ACCOUNTS,
+  DEMO_ACCOUNTS_BY_USER,
   DEMO_PROPERTIES,
+  DEMO_LOANS,
   DEMO_INSURANCE,
   DEMO_RETIREMENT,
   DEMO_STOCKS,
@@ -16,6 +18,7 @@ import {
   DEMO_ALERTS,
   UserProfile,
   BankAccount,
+  LoanItem,
   UrgentAlert,
   ForgottenAssetItem,
   KycInstitution,
@@ -27,6 +30,7 @@ interface AppContextType {
   currency: "INR" | "USD";
   setCurrency: (c: "INR" | "USD") => void;
   accounts: BankAccount[];
+  loans: LoanItem[];
   alerts: UrgentAlert[];
   forgottenAssets: ForgottenAssetItem[];
   kycList: KycInstitution[];
@@ -41,18 +45,28 @@ interface AppContextType {
   totalRetirementINR: number;
   totalAlternatesINR: number;
   totalForgottenINR: number;
+  totalLoansINR: number;
   healthScore: number;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activeUser, setActiveUser] = useState<UserProfile>(DEMO_USERS.brijal);
+  const [activeUser, setActiveUserState] = useState<UserProfile>(DEMO_USERS.brijal);
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
-  const [accounts, setAccounts] = useState<BankAccount[]>(DEMO_ACCOUNTS);
+  const [accounts, setAccounts] = useState<BankAccount[]>(DEMO_ACCOUNTS_BY_USER.usr_brijal);
+  const [loans, setLoans] = useState<LoanItem[]>(DEMO_LOANS.filter(l => l.userId === "usr_brijal"));
   const [alerts, setAlerts] = useState<UrgentAlert[]>(DEMO_ALERTS);
   const [forgottenAssets, setForgottenAssets] = useState<ForgottenAssetItem[]>(DEMO_FORGOTTEN_ASSETS);
   const [kycList, setKycList] = useState<KycInstitution[]>(DEMO_KYC);
+
+  const setActiveUser = (user: UserProfile) => {
+    setActiveUserState(user);
+    if (DEMO_ACCOUNTS_BY_USER[user.id]) {
+      setAccounts(DEMO_ACCOUNTS_BY_USER[user.id]);
+    }
+    setLoans(DEMO_LOANS.filter((l) => l.userId === user.id));
+  };
 
   // Compute live aggregates
   const totalLiquidINR = accounts.reduce((acc, a) => acc + a.balanceINR, 0);
@@ -65,6 +79,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const totalForgottenINR = forgottenAssets
     .filter((f) => f.status === "claimable")
     .reduce((acc, f) => acc + f.claimableAmountINR, 0);
+
+  const totalLoansINR = loans
+    .filter((l) => l.status === "active")
+    .reduce((acc, l) => acc + l.outstandingBalanceINR, 0);
 
   const totalNetWorthINR =
     totalLiquidINR +
@@ -127,6 +145,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         currency,
         setCurrency,
         accounts,
+        loans,
         alerts,
         forgottenAssets,
         kycList,
@@ -141,6 +160,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         totalRetirementINR,
         totalAlternatesINR,
         totalForgottenINR,
+        totalLoansINR,
         healthScore,
       }}
     >

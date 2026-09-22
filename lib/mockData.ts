@@ -26,7 +26,7 @@ export const DEMO_USERS: Record<string, UserProfile> = {
     pan: "ABCPM1234D",
     aadhaarMasked: "XXXX-XXXX-4521",
     ckycNumber: "40029104928104",
-    taxResidency: "NRI (RNOR Period Expired Mar 2023)",
+    taxResidency: "NRI (US California Resident • RNOR Expired)",
     fatherName: "Rameshchandra Patel",
     dob: "18 Oct 1984",
     indianAddress: "Flat 4B, Oberoi Woods, Mohan Gokhale Rd, Goregaon East, Mumbai 400063, Maharashtra",
@@ -35,20 +35,91 @@ export const DEMO_USERS: Record<string, UserProfile> = {
   shagun: {
     id: "usr_shagun",
     name: "Shagun Patel",
-    role: "spouse",
-    email: "shagun.patel@california.org",
-    location: "San Jose, California, USA",
+    role: "primary_nri",
+    email: "shagun.patel@globalwealth.co.uk",
+    location: "London, United Kingdom",
     pan: "BCQPM5678E",
     aadhaarMasked: "XXXX-XXXX-8912",
     ckycNumber: "40029104928199",
-    taxResidency: "NRI (RNOR Expired)",
-    relation: "Family Member (Co-Investor & POA)",
-    isPOA: true,
+    taxResidency: "NRI (UK Remittance Basis Resident)",
+    fatherName: "Mukesh Patel",
+    dob: "24 Nov 1989",
+    indianAddress: "12A, Mayfair Towers, Bandra West, Mumbai 400050, Maharashtra",
+    subRegistrarOffice: "Old Custom House Sub-Registrar, Mumbai",
   },
 };
 
+export interface LoanItem {
+  id: string;
+  userId: string;
+  bankName: string;
+  loanType: "Home Loan" | "Loan Against Property" | "Education Loan" | "Personal Loan";
+  accountNumberMasked: string;
+  propertyLinked?: string;
+  sanctionedAmountINR: number;
+  outstandingBalanceINR: number;
+  interestRate: string;
+  monthlyEmiINR: number;
+  tenureRemainingMonths: number;
+  status: "active" | "planned";
+  emiDebitAccount: string;
+  nextEmiDate: string;
+}
+
+export const DEMO_LOANS: LoanItem[] = [
+  {
+    id: "loan_hdfc_home",
+    userId: "usr_brijal",
+    bankName: "HDFC Bank NRI Banking",
+    loanType: "Home Loan",
+    accountNumberMasked: "HL-409182903",
+    propertyLinked: "Flat 4B, Oberoi Woods, Goregaon East, Mumbai",
+    sanctionedAmountINR: 6000000,
+    outstandingBalanceINR: 4250000,
+    interestRate: "8.45% p.a. (Floating)",
+    monthlyEmiINR: 41200,
+    tenureRemainingMonths: 142,
+    status: "active",
+    emiDebitAccount: "HDFC NRE Savings (****1034)",
+    nextEmiDate: "05 Oct 2026",
+  },
+  {
+    id: "loan_sbi_lap",
+    userId: "usr_brijal",
+    bankName: "State Bank of India",
+    loanType: "Loan Against Property",
+    accountNumberMasked: "LAP-891029481",
+    propertyLinked: "Nagpur Farmland (Proposed Facility)",
+    sanctionedAmountINR: 1500000,
+    outstandingBalanceINR: 0,
+    interestRate: "9.10% p.a.",
+    monthlyEmiINR: 0,
+    tenureRemainingMonths: 0,
+    status: "planned",
+    emiDebitAccount: "SBI NRO Savings (****4812)",
+    nextEmiDate: "Planned facility",
+  },
+  {
+    id: "loan_axis_lap_shagun",
+    userId: "usr_shagun",
+    bankName: "Axis Bank NRI",
+    loanType: "Home Loan",
+    accountNumberMasked: "HL-901829301",
+    propertyLinked: "Bandra West Apartment, Mumbai",
+    sanctionedAmountINR: 4500000,
+    outstandingBalanceINR: 2800000,
+    interestRate: "8.50% p.a.",
+    monthlyEmiINR: 28500,
+    tenureRemainingMonths: 120,
+    status: "active",
+    emiDebitAccount: "Axis Bank NRE (****4812)",
+    nextEmiDate: "10 Oct 2026",
+  },
+];
+
 export interface BankAccount {
   id: string;
+  userId?: string;
   bankName: string;
   accountType: "NRE Savings" | "NRO Savings" | "FCNR (B) Deposit" | "Fixed Deposit" | "Resident Savings";
   accountNumberMasked: string;
@@ -61,6 +132,127 @@ export interface BankAccount {
   branch: string;
   alerts?: string;
 }
+
+export const DEMO_ACCOUNTS_BY_USER: Record<string, BankAccount[]> = {
+  usr_brijal: [
+    {
+      id: "acc_hdfc_nre",
+      userId: "usr_brijal",
+      bankName: "HDFC Bank",
+      accountType: "NRE Savings",
+      accountNumberMasked: "50100294821034",
+      balanceINR: 1240000,
+      interestRate: "3.50% p.a.",
+      status: "active",
+      nominee: "Shagun Patel",
+      branch: "Nariman Point, Mumbai",
+    },
+    {
+      id: "acc_sbi_nro",
+      userId: "usr_brijal",
+      bankName: "State Bank of India",
+      accountType: "NRO Savings",
+      accountNumberMasked: "20194820194812",
+      balanceINR: 320000,
+      interestRate: "2.75% p.a.",
+      status: "kyc_expired",
+      nominee: "Shagun Patel",
+      branch: "Fort Branch, Mumbai",
+      alerts: "Periodic KYC overdue since Nov 2024. Account restricted for outward debits.",
+    },
+    {
+      id: "acc_axis_fd",
+      userId: "usr_brijal",
+      bankName: "Axis Bank",
+      accountType: "Fixed Deposit",
+      accountNumberMasked: "91802004810293",
+      balanceINR: 2500000,
+      interestRate: "7.10% p.a. (Cumulative)",
+      status: "active",
+      maturityDate: "18 Jan 2027",
+      nominee: "Shagun Patel",
+      branch: "BKC, Mumbai",
+    },
+    {
+      id: "acc_icici_fcnr",
+      userId: "usr_brijal",
+      bankName: "ICICI Bank",
+      accountType: "FCNR (B) Deposit",
+      accountNumberMasked: "000401928301",
+      balanceINR: 1500300,
+      balanceForeign: { amount: 18000, currency: "USD" },
+      interestRate: "5.25% USD Yield (Tax Free)",
+      status: "active",
+      maturityDate: "10 Oct 2026",
+      nominee: "Shagun Patel",
+      branch: "Overseas Branch, Mumbai",
+    },
+    {
+      id: "acc_bob_savings",
+      userId: "usr_brijal",
+      bankName: "Bank of Baroda",
+      accountType: "Resident Savings",
+      accountNumberMasked: "01820100029381",
+      balanceINR: 44000,
+      interestRate: "2.75% p.a.",
+      status: "dormant",
+      nominee: "None Registered",
+      branch: "Alkapuri, Vadodara",
+      alerts: "FEMA Violation Alert: Old resident account un-redesignated after NRI transition.",
+    },
+    {
+      id: "acc_kotak_nre",
+      userId: "usr_brijal",
+      bankName: "Kotak Mahindra Bank",
+      accountType: "NRE Savings",
+      accountNumberMasked: "748291039401",
+      balanceINR: 860000,
+      interestRate: "4.00% p.a.",
+      status: "active",
+      nominee: "Shagun Patel",
+      branch: "Khar West, Mumbai",
+    },
+  ],
+  usr_shagun: [
+    {
+      id: "acc_axis_nre_shagun",
+      userId: "usr_shagun",
+      bankName: "Axis Bank NRI",
+      accountType: "NRE Savings",
+      accountNumberMasked: "91903820194812",
+      balanceINR: 1420000,
+      interestRate: "3.75% p.a.",
+      status: "active",
+      nominee: "Brijal Patel",
+      branch: "BKC, Mumbai",
+    },
+    {
+      id: "acc_kotak_nro_shagun",
+      userId: "usr_shagun",
+      bankName: "Kotak Mahindra Bank",
+      accountType: "NRO Savings",
+      accountNumberMasked: "847291049281",
+      balanceINR: 860000,
+      interestRate: "3.50% p.a.",
+      status: "active",
+      nominee: "Brijal Patel",
+      branch: "Khar West, Mumbai",
+    },
+    {
+      id: "acc_bob_fd_shagun",
+      userId: "usr_shagun",
+      bankName: "Bank of Baroda",
+      accountType: "Fixed Deposit",
+      accountNumberMasked: "018201928401",
+      balanceINR: 1200000,
+      interestRate: "7.05% p.a.",
+      status: "active",
+      maturityDate: "14 May 2027",
+      nominee: "Brijal Patel",
+      branch: "Alkapuri, Vadodara",
+    },
+  ],
+};
 
 export const DEMO_ACCOUNTS: BankAccount[] = [
   {

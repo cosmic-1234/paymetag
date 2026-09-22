@@ -16,6 +16,8 @@ import {
   Scroll,
   Search,
   ArrowRightLeft,
+  CreditCard,
+  BrainCircuit,
 } from "lucide-react";
 
 interface StatusIndicator {
@@ -44,22 +46,21 @@ export const Sidebar: React.FC = () => {
       title: "OVERVIEW",
       items: [
         { name: "Dashboard Overview", href: "/dashboard", icon: LayoutDashboard },
+        {
+          name: "DeshBoard AI",
+          href: "/dashboard/ai",
+          icon: BrainCircuit,
+        },
       ],
     },
     {
-      title: "YOUR ASSETS",
+      title: "LIQUID & FINANCIAL ASSETS",
       items: [
         {
           name: "Bank Accounts",
           href: "/dashboard/accounts",
           icon: Landmark,
           indicator: { type: "critical", count: "1" },
-        },
-        {
-          name: "Properties",
-          href: "/dashboard/property",
-          icon: Building2,
-          indicator: { type: "warning", count: "1" },
         },
         {
           name: "Stocks & Funds",
@@ -83,6 +84,28 @@ export const Sidebar: React.FC = () => {
           href: "/dashboard/insurance",
           icon: ShieldCheck,
           indicator: { type: "warning", text: "Due" },
+        },
+      ],
+    },
+    {
+      title: "REAL ESTATE",
+      items: [
+        {
+          name: "Properties & Land",
+          href: "/dashboard/property",
+          icon: Building2,
+          indicator: { type: "warning", count: "1" },
+        },
+      ],
+    },
+    {
+      title: "LIABILITIES & PLANNING",
+      items: [
+        {
+          name: "Loans (Future Planning)",
+          href: "/dashboard/loans",
+          icon: CreditCard,
+          indicator: { type: "positive", text: "Future" },
         },
       ],
     },

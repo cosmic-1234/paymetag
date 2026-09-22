@@ -105,7 +105,7 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
             </button>
             <button
               onClick={() => {
-                alert("Pre-filled FBAR CSV file downloaded: DeshVault_FBAR_2025.csv");
+                alert("Pre-filled FBAR CSV file downloaded: DeshBoard_FBAR_2025.csv");
                 onClose();
               }}
               className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-colors cursor-pointer"
