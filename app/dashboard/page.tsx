@@ -189,18 +189,18 @@ export default function DashboardMain() {
       {/* Main Wealth & Health Cards */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* Total Wealth */}
-        <BladeCard variant="stat" className="lg:col-span-8 flex flex-col justify-between space-y-4">
+        <BladeCard variant="stat" className="lg:col-span-8 flex flex-col justify-between space-y-5">
           <div>
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+              <span className="text-xs font-bold uppercase tracking-[0.08em] text-slate-500">
                 Total Indian Wealth
               </span>
-              <span className="text-xs font-medium text-emerald-600 flex items-center gap-1">
+              <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
                 ↑ +8.4% this year
               </span>
             </div>
             <div className="mt-2 flex items-baseline gap-3">
-              <h2 className="font-mono text-[32px] sm:text-[36px] font-extrabold tracking-tight text-[#0C2340] leading-tight">
+              <h2 className="font-mono text-[32px] sm:text-[36px] font-extrabold tracking-tight text-[#0C2340] dark:text-white leading-tight">
                 {currency === "INR" ? formatINR(totalNetWorthINR) : formatUSD(totalNetWorthINR)}
               </h2>
               <span className="text-xs font-medium text-slate-500">
@@ -209,71 +209,122 @@ export default function DashboardMain() {
             </div>
           </div>
 
+          {/* Clean Segmented Allocation Bar (Without cluttered text on top) */}
           <div className="space-y-2">
-            <div className="flex justify-between text-xs text-slate-600 font-medium">
-              <span>Asset Allocation</span>
-              <span className="font-normal text-slate-500">Properties (61%) • Bank (27%) • Stocks (14%)</span>
+            <div className="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <span>Portfolio Allocation</span>
+              <span className="text-[11px] font-medium text-slate-400 capitalize tracking-normal">
+                4 Primary Asset Classes
+              </span>
             </div>
-            <div className="flex h-2 w-full overflow-hidden rounded-full bg-slate-100">
-              <div style={{ width: "61%" }} className="bg-blue-600" title="Properties: ₹1.47 Cr" />
-              <div style={{ width: "27%" }} className="bg-sky-500" title="Bank: ₹49.6L" />
-              <div style={{ width: "14%" }} className="bg-emerald-500" title="Stocks: ₹24.9L" />
-              <div style={{ width: "10%" }} className="bg-purple-500" title="PF/Pension: ₹18.1L" />
-              <div style={{ width: "8%" }} className="bg-amber-500" title="Gold: ₹14.5L" />
+            <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-white/[0.08]">
+              <div
+                style={{ width: `${totalNetWorthINR > 0 ? ((totalRealEstateINR / totalNetWorthINR) * 100).toFixed(1) : 54.6}%` }}
+                className="bg-blue-600 transition-all duration-500"
+                title={`Properties: ₹1.47 Cr (${totalNetWorthINR > 0 ? ((totalRealEstateINR / totalNetWorthINR) * 100).toFixed(1) : 54.6}%)`}
+              />
+              <div
+                style={{ width: `${totalNetWorthINR > 0 ? ((totalLiquidINR / totalNetWorthINR) * 100).toFixed(1) : 24.0}%` }}
+                className="bg-sky-500 transition-all duration-500"
+                title={`Bank Accounts: ₹64.64L (${totalNetWorthINR > 0 ? ((totalLiquidINR / totalNetWorthINR) * 100).toFixed(1) : 24.0}%)`}
+              />
+              <div
+                style={{ width: `${totalNetWorthINR > 0 ? ((totalInvestmentsINR / totalNetWorthINR) * 100).toFixed(1) : 9.3}%` }}
+                className="bg-emerald-500 transition-all duration-500"
+                title={`Stocks & Funds: ₹24.97L (${totalNetWorthINR > 0 ? ((totalInvestmentsINR / totalNetWorthINR) * 100).toFixed(1) : 9.3}%)`}
+              />
+              <div
+                style={{ width: `${totalNetWorthINR > 0 ? (((totalRetirementINR + totalAlternatesINR) / totalNetWorthINR) * 100).toFixed(1) : 11.5}%` }}
+                className="bg-purple-500 transition-all duration-500"
+                title={`Retirement & Alternates: ₹31.1L (${totalNetWorthINR > 0 ? (((totalRetirementINR + totalAlternatesINR) / totalNetWorthINR) * 100).toFixed(1) : 11.5}%)`}
+              />
+              <div
+                style={{ width: `${totalNetWorthINR > 0 ? ((totalForgottenINR / totalNetWorthINR) * 100).toFixed(1) : 0.6}%` }}
+                className="bg-amber-500 transition-all duration-500"
+                title={`Claimable Lost Money: ₹1.52L (${totalNetWorthINR > 0 ? ((totalForgottenINR / totalNetWorthINR) * 100).toFixed(1) : 0.6}%)`}
+              />
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-slate-100 pt-4 text-xs">
-            <div>
-              <span className="text-[11px] font-medium text-slate-500">BANK ACCOUNTS</span>
-              <div className="font-mono font-bold text-[#0C2340] mt-0.5">
+          {/* 4 Asset Metrics with % placed cleanly below the amount */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-slate-100 dark:border-white/10 pt-4 text-xs">
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-sky-500 shrink-0" />
+                <span>Bank Accounts</span>
+              </div>
+              <div className="font-mono font-bold text-[#0C2340] dark:text-white text-sm sm:text-base mt-0.5">
                 {formatCompactINR(totalLiquidINR)}
               </div>
+              <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                {totalNetWorthINR > 0 ? ((totalLiquidINR / totalNetWorthINR) * 100).toFixed(1) : "24.0"}% of wealth
+              </div>
             </div>
-            <div>
-              <span className="text-[11px] font-medium text-slate-500">PROPERTIES</span>
-              <div className="font-mono font-bold text-[#0C2340] mt-0.5">
+
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0" />
+                <span>Properties</span>
+              </div>
+              <div className="font-mono font-bold text-[#0C2340] dark:text-white text-sm sm:text-base mt-0.5">
                 {formatCompactINR(totalRealEstateINR)}
               </div>
-            </div>
-            <div>
-              <span className="text-[11px] font-medium text-slate-500">STOCKS & FUNDS</span>
-              <div className="font-mono font-bold text-[#0C2340] mt-0.5">
-                {formatCompactINR(totalInvestmentsINR)}
+              <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                {totalNetWorthINR > 0 ? ((totalRealEstateINR / totalNetWorthINR) * 100).toFixed(1) : "54.6"}% of wealth
               </div>
             </div>
-            <div>
-              <span className="text-[11px] font-medium text-slate-500">LOST MONEY</span>
-              <div className="font-mono font-bold text-amber-600 mt-0.5">
+
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+                <span>Stocks & Funds</span>
+              </div>
+              <div className="font-mono font-bold text-[#0C2340] dark:text-white text-sm sm:text-base mt-0.5">
+                {formatCompactINR(totalInvestmentsINR)}
+              </div>
+              <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                {totalNetWorthINR > 0 ? ((totalInvestmentsINR / totalNetWorthINR) * 100).toFixed(1) : "9.3"}% of wealth
+              </div>
+            </div>
+
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" />
+                <span>Lost Money</span>
+              </div>
+              <div className="font-mono font-bold text-amber-600 dark:text-amber-400 text-sm sm:text-base mt-0.5">
                 {formatCompactINR(totalForgottenINR)}
+              </div>
+              <div className="text-[11px] font-semibold text-amber-600 dark:text-amber-400">
+                Claimable &bull; {totalNetWorthINR > 0 ? ((totalForgottenINR / totalNetWorthINR) * 100).toFixed(1) : "0.6"}%
               </div>
             </div>
           </div>
         </BladeCard>
 
-        {/* Health Score */}
+        {/* Health Score - Positive Accessibility Framing */}
         <BladeCard variant="default" className="lg:col-span-4 flex flex-col justify-between space-y-4">
-          <div className="flex items-center justify-between w-full">
-            <span className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+          <div className="flex items-center justify-between w-full gap-2">
+            <span className="text-xs font-bold uppercase tracking-[0.08em] text-slate-500 shrink-0">
               Health Index
             </span>
-            <span className="text-xs font-semibold text-slate-600">
+            <span className="rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 whitespace-nowrap">
               Grade B+
             </span>
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center py-1">
             <div className="relative flex h-28 w-28 items-center justify-center">
               <svg className="h-28 w-28 -rotate-90 transform" viewBox="0 0 36 36">
                 <path
-                  className="text-slate-100"
+                  className="text-slate-100 dark:text-white/10"
                   strokeWidth="3.2"
                   stroke="currentColor"
                   fill="none"
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
                 <path
-                  className="text-blue-600 transition-all duration-700"
+                  className="text-[#0B72E7] transition-all duration-700"
                   strokeDasharray={`${healthScore}, 100`}
                   strokeWidth="3.2"
                   strokeLinecap="round"
@@ -282,28 +333,91 @@ export default function DashboardMain() {
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
               </svg>
-              <div className="absolute flex flex-col items-center">
-                <span className="font-mono text-2xl font-bold text-[#0C2340]">
+              <div className="absolute flex flex-col items-center justify-center">
+                <span className="font-mono text-3xl font-extrabold text-[#0C2340] dark:text-white leading-none">
                   {healthScore}
                 </span>
-                <span className="text-[9px] text-slate-400 font-bold">/ 100</span>
+                <span className="text-[10px] text-slate-400 font-bold mt-1">/ 100</span>
               </div>
+            </div>
+
+            <div className="mt-2.5 text-center">
+              <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/40 px-2.5 py-0.5 text-[11px] font-bold text-[#0B72E7] dark:text-blue-300 whitespace-nowrap">
+                +28 pts unlockable to reach Grade A
+              </span>
             </div>
           </div>
 
-          <div className="space-y-1.5 border-t border-slate-100 pt-3 text-xs">
-            <div className="flex justify-between text-slate-600 font-normal">
-              <span>SBI KYC overdue</span>
-              <span className="font-mono font-semibold text-rose-600">-12 pts</span>
+          {/* Positive Wealth Unlock Opportunities */}
+          <div className="space-y-1.5 border-t border-slate-100 dark:border-white/10 pt-3 text-xs">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              Wealth Accessibility Opportunities
             </div>
-            <div className="flex justify-between text-slate-600 font-normal">
-              <span>No Indian Will registered</span>
-              <span className="font-mono font-semibold text-amber-600">-10 pts</span>
-            </div>
-            <div className="flex justify-between text-slate-600 font-normal">
-              <span>Nagpur boundary check</span>
-              <span className="font-mono font-semibold text-amber-600">-6 pts</span>
-            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsVideoKycOpen(true)}
+              className="w-full flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors text-left group cursor-pointer"
+            >
+              <div>
+                <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors flex items-center gap-1.5">
+                  <span>Verify SBI NRO KYC</span>
+                  <span className="text-[10px] text-slate-400 font-normal">&bull; Video KYC</span>
+                </div>
+                <div className="text-[11px] text-slate-500">
+                  Unfreezes ₹3.2L liquid funds for transfers
+                </div>
+              </div>
+              <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
+                +12 pts
+              </span>
+            </button>
+
+            <Link
+              href="/dashboard/property"
+              className="block p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors group cursor-pointer"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors">
+                    Draft Sovereign NRI Will
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Protects ₹1.47 Cr family succession
+                  </div>
+                </div>
+                <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
+                  +10 pts
+                </span>
+              </div>
+            </Link>
+
+            <Link
+              href="/dashboard/property"
+              className="block p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors group cursor-pointer"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors">
+                    Re-verify Nagpur Land 7/12
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Secures ₹35L boundary & clean title
+                  </div>
+                </div>
+                <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
+                  +6 pts
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Positive Accessibility Banner */}
+          <div className="rounded-lg bg-[#F0FDF4] dark:bg-emerald-950/20 border border-[#DCFCE7] dark:border-emerald-900/30 p-2.5 text-[11px] text-[#15803D] dark:text-emerald-300 flex items-start gap-2">
+            <ShieldCheck className="h-4 w-4 shrink-0 text-[#16A34A] mt-0.5" />
+            <span>
+              <strong>Make 100% of your wealth accessible:</strong> Completing these 3 verifications protects ₹1.85 Cr across banking and real estate titles.
+            </span>
           </div>
         </BladeCard>
       </div>
