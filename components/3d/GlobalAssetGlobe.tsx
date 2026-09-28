@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import countriesData from "@/public/data/countries.json";
 
 interface GlobalAssetGlobeProps {
   className?: string;
@@ -9,7 +10,6 @@ interface GlobalAssetGlobeProps {
 
 export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = "" }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -24,9 +24,9 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
     // 1. Scene & Camera
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
-    camera.position.z = 65;
+    camera.position.z = 62;
 
-    // 2. Renderer
+    // 2. WebGL Renderer
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({
@@ -42,144 +42,135 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
       container.innerHTML = "";
       container.appendChild(renderer.domElement);
     } catch (e) {
-      console.warn("WebGL not supported, using fallback", e);
+      console.warn("WebGL not supported in browser", e);
       return;
     }
 
-    // 3. Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    // 3. Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0x38bdf8, 2.5);
-    dirLight1.position.set(40, 30, 50);
+    const dirLight1 = new THREE.DirectionalLight(0x38bdf8, 3.0);
+    dirLight1.position.set(45, 30, 50);
     scene.add(dirLight1);
 
     const dirLight2 = new THREE.DirectionalLight(0xf59e0b, 1.8);
-    dirLight2.position.set(-40, -20, 30);
+    dirLight2.position.set(-45, -25, 30);
     scene.add(dirLight2);
 
-    // 4. Main Globe Group
+    // 4. Main Rotating Globe Group
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
 
     const GLOBE_RADIUS = 20;
 
-    // Generate Procedural High-Tech Dot-Matrix Earth Texture
+    // 5. Render Real High-Resolution World Map on Equirectangular Canvas
     const canvas = document.createElement("canvas");
     canvas.width = 2048;
     canvas.height = 1024;
     const ctx = canvas.getContext("2d")!;
 
-    // Dark oceanic background
+    // Deep Institutional Navy Ocean
     ctx.fillStyle = "#071324";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw Subtle Latitude/Longitude Grid
-    ctx.strokeStyle = "rgba(56, 189, 248, 0.08)";
+    // Subtle Precision Graticule Grid
+    ctx.strokeStyle = "rgba(56, 189, 248, 0.06)";
     ctx.lineWidth = 1;
-    for (let x = 0; x < canvas.width; x += 64) {
+    for (let x = 0; x < canvas.width; x += 128) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
       ctx.lineTo(x, canvas.height);
       ctx.stroke();
     }
-    for (let y = 0; y < canvas.height; y += 64) {
+    for (let y = 0; y < canvas.height; y += 128) {
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(canvas.width, y);
       ctx.stroke();
     }
 
-    // Draw World Continents simplified high-tech landmass silhouettes
-    ctx.fillStyle = "rgba(59, 130, 246, 0.22)";
-    ctx.strokeStyle = "rgba(96, 165, 250, 0.45)";
-    ctx.lineWidth = 2;
+    // Draw Real GeoJSON Boundaries for all 177 Countries
+    const features = (countriesData as any).features || [];
+    features.forEach((feature: any) => {
+      const isIndia =
+        feature.properties?.NAME === "India" ||
+        feature.properties?.ADMIN === "India" ||
+        feature.properties?.ISO_A3 === "IND";
 
-    // Helper for approximate continent polygons on equirectangular projection
-    const drawLand = (pts: [number, number][]) => {
-      ctx.beginPath();
-      pts.forEach(([xPct, yPct], i) => {
-        const x = (xPct / 100) * canvas.width;
-        const y = (yPct / 100) * canvas.height;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      });
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-    };
+      const geom = feature.geometry;
+      if (!geom) return;
 
-    // North America
-    drawLand([
-      [12, 18], [28, 16], [32, 28], [24, 45], [18, 48], [14, 34], [9, 24]
-    ]);
-    // South America
-    drawLand([
-      [25, 52], [35, 56], [32, 78], [28, 88], [23, 72], [22, 58]
-    ]);
-    // Europe
-    drawLand([
-      [46, 20], [56, 18], [58, 30], [52, 38], [45, 34], [43, 24]
-    ]);
-    // Africa
-    drawLand([
-      [46, 40], [58, 40], [60, 58], [54, 76], [48, 68], [42, 50]
-    ]);
-    // Asia
-    drawLand([
-      [58, 18], [82, 16], [86, 32], [78, 50], [68, 45], [62, 32]
-    ]);
-    // Australia
-    drawLand([
-      [78, 65], [88, 65], [86, 82], [76, 80]
-    ]);
+      // Theme-matching colors:
+      // Non-India countries: translucent high-tech slate/navy with electric cyan outlines
+      // India: prominent Razorpay blue fill with gold boundary
+      ctx.fillStyle = isIndia ? "rgba(11, 114, 231, 0.75)" : "rgba(15, 33, 64, 0.85)";
+      ctx.strokeStyle = isIndia ? "#F59E0B" : "rgba(56, 189, 248, 0.4)";
+      ctx.lineWidth = isIndia ? 2.5 : 1;
 
-    // Highlight Indian Subcontinent in Glowing Blue & Amber
-    ctx.fillStyle = "rgba(11, 114, 231, 0.65)";
-    ctx.strokeStyle = "#F59E0B";
-    ctx.lineWidth = 2.5;
-    drawLand([
-      [68, 38], [72, 38], [74, 48], [71, 56], [68, 48]
-    ]);
+      const drawRing = (ring: [number, number][]) => {
+        if (!ring || ring.length === 0) return;
+        ctx.beginPath();
+        ring.forEach(([lng, lat], idx) => {
+          const x = ((lng + 180) / 360) * canvas.width;
+          const y = ((90 - lat) / 180) * canvas.height;
+          if (idx === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      };
+
+      if (geom.type === "Polygon") {
+        geom.coordinates.forEach((ring: [number, number][]) => drawRing(ring));
+      } else if (geom.type === "MultiPolygon") {
+        geom.coordinates.forEach((poly: [number, number][][]) => {
+          poly.forEach((ring: [number, number][]) => drawRing(ring));
+        });
+      }
+    });
 
     const earthTexture = new THREE.CanvasTexture(canvas);
+    earthTexture.wrapS = THREE.RepeatWrapping;
+    earthTexture.wrapT = THREE.ClampToEdgeWrapping;
 
-    // Globe Sphere Mesh
+    // 6. Realistic Globe Sphere Mesh
     const sphereGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
     const sphereMat = new THREE.MeshStandardMaterial({
       map: earthTexture,
-      roughness: 0.6,
-      metalness: 0.3,
+      roughness: 0.5,
+      metalness: 0.25,
       emissive: new THREE.Color("#050D19"),
-      emissiveIntensity: 0.8,
+      emissiveIntensity: 0.6,
     });
     const globeMesh = new THREE.Mesh(sphereGeo, sphereMat);
     globeGroup.add(globeMesh);
 
-    // Atmosphere Glow Outer Shell
-    const glowGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.04, 48, 48);
+    // 7. Glowing Atmospheric Outer Halo
+    const glowGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.025, 48, 48);
     const glowMat = new THREE.MeshBasicMaterial({
       color: 0x3b82f6,
       transparent: true,
-      opacity: 0.12,
+      opacity: 0.15,
       side: THREE.BackSide,
     });
     const glowMesh = new THREE.Mesh(glowGeo, glowMat);
     globeGroup.add(glowMesh);
 
-    // Outer Halo Rim
-    const haloGeo = new THREE.RingGeometry(GLOBE_RADIUS * 1.08, GLOBE_RADIUS * 1.25, 64);
-    const haloMat = new THREE.MeshBasicMaterial({
+    // 8. Equator / Orbital Ring
+    const ringGeo = new THREE.RingGeometry(GLOBE_RADIUS * 1.1, GLOBE_RADIUS * 1.28, 64);
+    const ringMat = new THREE.MeshBasicMaterial({
       color: 0x0b72e7,
       transparent: true,
-      opacity: 0.08,
+      opacity: 0.1,
       side: THREE.DoubleSide,
     });
-    const haloMesh = new THREE.Mesh(haloGeo, haloMat);
-    haloMesh.rotation.x = Math.PI / 2.2;
-    globeGroup.add(haloMesh);
+    const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+    ringMesh.rotation.x = Math.PI / 2.15;
+    globeGroup.add(ringMesh);
 
-    // Lat/Long to 3D Cartesian coordinates
+    // Helper: Convert Lat/Lng to 3D Cartesian coordinates
     const toVector3 = (lat: number, lng: number, r = GLOBE_RADIUS) => {
       const phi = (90 - lat) * (Math.PI / 180);
       const theta = (lng + 180) * (Math.PI / 180);
@@ -190,12 +181,95 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
       );
     };
 
-    // 4 Key Sovereign Hubs
+    // Helper: Create 3D Billboard Sprite Badge that tracks rotating hubs
+    const create3dTag = (
+      text: string,
+      flag: string,
+      bgColor: string,
+      borderColor: string,
+      textColor = "#ffffff"
+    ) => {
+      const c = document.createElement("canvas");
+      c.width = 360;
+      c.height = 76;
+      const cx = c.getContext("2d")!;
+
+      cx.fillStyle = bgColor;
+      cx.strokeStyle = borderColor;
+      cx.lineWidth = 3;
+      cx.beginPath();
+      // Round pill shape
+      if (typeof (cx as any).roundRect === "function") {
+        (cx as any).roundRect(4, 4, c.width - 8, c.height - 8, 16);
+      } else {
+        cx.rect(4, 4, c.width - 8, c.height - 8);
+      }
+      cx.fill();
+      cx.stroke();
+
+      cx.font = "bold 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+      cx.fillStyle = textColor;
+      cx.textAlign = "center";
+      cx.textBaseline = "middle";
+      cx.fillText(`${text}  ${flag}`, c.width / 2, c.height / 2);
+
+      const tex = new THREE.CanvasTexture(c);
+      const spriteMat = new THREE.SpriteMaterial({
+        map: tex,
+        transparent: true,
+        depthWrite: false,
+      });
+      const sprite = new THREE.Sprite(spriteMat);
+      sprite.scale.set(6.8, 1.45, 1);
+      return sprite;
+    };
+
+    // 9. Sovereign NRI Operating Hubs
     const hubs = [
-      { name: "India (Mumbai)", lat: 19.076, lng: 72.877, color: 0xf59e0b, isCenter: true },
-      { name: "San Jose, USA", lat: 37.338, lng: -121.886, color: 0x38bdf8, isCenter: false },
-      { name: "Dubai, UAE", lat: 25.204, lng: 55.270, color: 0x10b981, isCenter: false },
-      { name: "London, UK", lat: 51.507, lng: -0.1278, color: 0xa855f7, isCenter: false },
+      {
+        name: "India (Mumbai)",
+        flag: "🇮🇳",
+        lat: 19.076,
+        lng: 72.877,
+        color: 0xf59e0b,
+        bgColor: "rgba(12, 35, 64, 0.95)",
+        borderColor: "#F59E0B",
+        textColor: "#F59E0B",
+        isCenter: true,
+      },
+      {
+        name: "San Jose, CA",
+        flag: "🇺🇸",
+        lat: 37.338,
+        lng: -121.886,
+        color: 0x38bdf8,
+        bgColor: "rgba(7, 19, 36, 0.92)",
+        borderColor: "#38BDF8",
+        textColor: "#FFFFFF",
+        isCenter: false,
+      },
+      {
+        name: "Dubai",
+        flag: "🇦🇪",
+        lat: 25.204,
+        lng: 55.270,
+        color: 0x10b981,
+        bgColor: "rgba(7, 19, 36, 0.92)",
+        borderColor: "#10B981",
+        textColor: "#FFFFFF",
+        isCenter: false,
+      },
+      {
+        name: "London",
+        flag: "🇬🇧",
+        lat: 51.507,
+        lng: -0.1278,
+        color: 0xa855f7,
+        bgColor: "rgba(7, 19, 36, 0.92)",
+        borderColor: "#A855F7",
+        textColor: "#FFFFFF",
+        isCenter: false,
+      },
     ];
 
     const hubPositions = hubs.map((h) => ({
@@ -203,32 +277,36 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
       pos: toVector3(h.lat, h.lng, GLOBE_RADIUS * 1.01),
     }));
 
-    // Add Markers for Hubs
+    // Add 3D Hub Markers & Attached Tracking Billboard Badges
     hubPositions.forEach((h) => {
-      // Core Pin Dot
-      const pinGeo = new THREE.SphereGeometry(h.isCenter ? 0.65 : 0.45, 16, 16);
+      // 3D Pin
+      const pinGeo = new THREE.SphereGeometry(h.isCenter ? 0.75 : 0.5, 16, 16);
       const pinMat = new THREE.MeshBasicMaterial({ color: h.color });
       const pinMesh = new THREE.Mesh(pinGeo, pinMat);
       pinMesh.position.copy(h.pos);
       globeGroup.add(pinMesh);
 
-      // Pulse Ring
-      const ringGeo = new THREE.RingGeometry(h.isCenter ? 0.9 : 0.6, h.isCenter ? 1.2 : 0.8, 32);
-      const ringMat = new THREE.MeshBasicMaterial({
+      // Glowing Pulse Ring
+      const ringG = new THREE.RingGeometry(h.isCenter ? 1.0 : 0.7, h.isCenter ? 1.4 : 0.95, 32);
+      const ringM = new THREE.MeshBasicMaterial({
         color: h.color,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.7,
+        opacity: 0.85,
       });
-      const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-      ringMesh.position.copy(h.pos);
-      ringMesh.lookAt(new THREE.Vector3(0, 0, 0));
-      globeGroup.add(ringMesh);
+      const ringMsh = new THREE.Mesh(ringG, ringM);
+      ringMsh.position.copy(h.pos);
+      ringMsh.lookAt(new THREE.Vector3(0, 0, 0));
+      globeGroup.add(ringMsh);
+
+      // 3D Tracking Badge floating just above the pin
+      const tag = create3dTag(h.name, h.flag, h.bgColor, h.borderColor, h.textColor);
+      tag.position.copy(h.pos.clone().multiplyScalar(1.15));
+      globeGroup.add(tag);
     });
 
-    // Create 3 Sovereign Cross-Border Flight/Transfer Arcs
+    // 10. Sovereign Cross-Border Flight & Remittance Arcs
     const indiaPos = hubPositions.find((h) => h.isCenter)!.pos;
-    const arcPointsList: THREE.Vector3[][] = [];
     const arcPulses: { mesh: THREE.Mesh; points: THREE.Vector3[]; progress: number; speed: number }[] = [];
 
     const foreignHubs = hubPositions.filter((h) => !h.isCenter);
@@ -237,29 +315,28 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
       const start = hub.pos;
       const end = indiaPos;
 
-      // Arc apex elevates outward
+      // Arc apex elevates outward smoothly
       const distance = start.distanceTo(end);
       const mid = start.clone().add(end).multiplyScalar(0.5);
       const altitude = GLOBE_RADIUS + distance * 0.28;
       mid.normalize().multiplyScalar(altitude);
 
       const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
-      const points = curve.getPoints(50);
-      arcPointsList.push(points);
+      const points = curve.getPoints(60);
 
       // Arc Line
       const arcGeo = new THREE.BufferGeometry().setFromPoints(points);
       const arcMat = new THREE.LineBasicMaterial({
         color: hub.color,
         transparent: true,
-        opacity: 0.5,
+        opacity: 0.65,
         linewidth: 2,
       });
       const arcLine = new THREE.Line(arcGeo, arcMat);
       globeGroup.add(arcLine);
 
-      // Moving Light Pulse on Arc
-      const pulseGeo = new THREE.SphereGeometry(0.35, 12, 12);
+      // Moving Light Pulse (Representing live capital & data sync)
+      const pulseGeo = new THREE.SphereGeometry(0.38, 12, 12);
       const pulseMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
       const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
       globeGroup.add(pulseMesh);
@@ -268,15 +345,15 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
         mesh: pulseMesh,
         points,
         progress: Math.random(),
-        speed: 0.008 + Math.random() * 0.004,
+        speed: 0.007 + Math.random() * 0.004,
       });
     });
 
-    // Initial Angle pointing towards India and the Middle East / Europe
-    globeGroup.rotation.y = -Math.PI / 1.5;
-    globeGroup.rotation.x = 0.25;
+    // Initial View: Beautifully Centered on India and the Middle East / Europe
+    globeGroup.rotation.y = -Math.PI / 1.7;
+    globeGroup.rotation.x = 0.22;
 
-    // Mouse Drag Interaction
+    // Interactive Drag Controls
     let isDragging = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
@@ -301,7 +378,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
       isDragging = false;
     };
 
-    // Touch Support
+    // Mobile Touch Controls
     const onTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         isDragging = true;
@@ -332,7 +409,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
     window.addEventListener("touchmove", onTouchMove, { passive: true });
     window.addEventListener("touchend", onTouchEnd);
 
-    // Resize Observer
+    // Responsive Resize Observer
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
         if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
@@ -346,16 +423,16 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
     });
     resizeObserver.observe(container);
 
-    // Animation Loop (60 FPS smooth auto-rotation & traveling pulses)
+    // Animation Loop: 60 FPS Auto-Rotation & Pulse Travelling
     const animate = () => {
       if (!isMounted) return;
       animationFrameId = requestAnimationFrame(animate);
 
       if (!isDragging) {
-        globeGroup.rotation.y += 0.0022; // Smooth graceful rotation
+        globeGroup.rotation.y += 0.002;
       }
 
-      // Update light pulses travelling along arcs to India
+      // Animate Arcs Pulses
       arcPulses.forEach((pulse) => {
         pulse.progress += pulse.speed;
         if (pulse.progress >= 1) pulse.progress = 0;
@@ -369,6 +446,7 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
 
     animate();
 
+    // Cleanup
     return () => {
       isMounted = false;
       cancelAnimationFrame(animationFrameId);
@@ -389,49 +467,20 @@ export const GlobalAssetGlobe: React.FC<GlobalAssetGlobeProps> = ({ className = 
       sphereMat.dispose();
       glowGeo.dispose();
       glowMat.dispose();
-      haloGeo.dispose();
-      haloMat.dispose();
+      ringGeo.dispose();
+      ringMat.dispose();
       earthTexture.dispose();
     };
   }, []);
 
   return (
     <div
-      className={`relative w-[280px] h-[280px] min-[380px]:w-[330px] min-[380px]:h-[330px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] max-w-full flex items-center justify-center bg-transparent border-0 shadow-none select-none before:absolute before:inset-[-10%] before:rounded-full before:bg-[radial-gradient(circle,rgba(52,81,209,0.25)_0%,transparent_70%)] before:pointer-events-none before:z-0 ${className}`}
+      className={`relative w-[280px] h-[280px] min-[380px]:w-[340px] min-[380px]:h-[340px] sm:w-[460px] sm:h-[460px] lg:w-[520px] lg:h-[520px] xl:w-[560px] xl:h-[560px] max-w-full flex items-center justify-center bg-transparent border-0 shadow-none select-none before:absolute before:inset-[-10%] before:rounded-full before:bg-[radial-gradient(circle,rgba(52,81,209,0.25)_0%,transparent_70%)] before:pointer-events-none before:z-0 ${className}`}
     >
       <div
         ref={containerRef}
         className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing"
       />
-
-      {/* Floating Institutional Gateway Badges */}
-      <div className="absolute top-4 left-2 z-20 pointer-events-none hidden sm:block">
-        <div className="flex items-center gap-1.5 rounded-lg border border-blue-500/30 bg-[#071324]/85 px-2.5 py-1 text-[11px] font-semibold text-white shadow-lg backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
-          <span>San Jose, CA &bull; 🇺🇸</span>
-        </div>
-      </div>
-
-      <div className="absolute bottom-6 left-6 z-20 pointer-events-none hidden sm:block">
-        <div className="flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-[#071324]/85 px-2.5 py-1 text-[11px] font-semibold text-white shadow-lg backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Dubai &bull; 🇦🇪</span>
-        </div>
-      </div>
-
-      <div className="absolute top-12 right-2 z-20 pointer-events-none hidden sm:block">
-        <div className="flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-[#071324]/85 px-2.5 py-1 text-[11px] font-semibold text-white shadow-lg backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-          <span>London &bull; 🇬🇧</span>
-        </div>
-      </div>
-
-      <div className="absolute bottom-10 right-8 z-20 pointer-events-none hidden sm:block">
-        <div className="flex items-center gap-1.5 rounded-lg border border-amber-500/40 bg-[#071324]/90 px-3 py-1 text-[11px] font-bold text-amber-300 shadow-xl backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-amber-400 animate-ping" />
-          <span>India Hub (Mumbai) &bull; 🇮🇳</span>
-        </div>
-      </div>
     </div>
   );
 };
