@@ -251,41 +251,41 @@ export default function LandingPage() {
               </div>
 
               {/* ─── CUSTOMER TRUST & PRIVACY PILLARS ─── */}
-              <div className="mt-8 w-full max-w-[560px] grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/[0.08] pt-6">
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
-                  <ShieldCheck className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block font-bold text-xs text-white">
+              <div className="mt-8 w-full max-w-[620px] grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/[0.08] pt-6">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-3.5 flex flex-col justify-between transition-all hover:border-white/15">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <ShieldCheck className="h-4 w-4 text-[#38BDF8] shrink-0" />
+                    <span className="font-bold text-xs text-white whitespace-nowrap">
                       Bank-Grade Security
                     </span>
-                    <span className="text-[11px] text-white/60 leading-snug">
-                      Protected with the best in market technology
-                    </span>
                   </div>
+                  <p className="text-[11px] text-white/60 leading-relaxed">
+                    Protected with best-in-market technology
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
-                  <Lock className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block font-bold text-xs text-white">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-3.5 flex flex-col justify-between transition-all hover:border-white/15">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <Lock className="h-4 w-4 text-[#38BDF8] shrink-0" />
+                    <span className="font-bold text-xs text-white whitespace-nowrap">
                       100% Private
                     </span>
-                    <span className="text-[11px] text-white/60 leading-snug">
-                      Your financial data is never shared or sold
-                    </span>
                   </div>
+                  <p className="text-[11px] text-white/60 leading-relaxed">
+                    Your data is never shared or sold
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
-                  <CheckCircle2 className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block font-bold text-xs text-white">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-3.5 flex flex-col justify-between transition-all hover:border-white/15">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#38BDF8] shrink-0" />
+                    <span className="font-bold text-xs text-white whitespace-nowrap">
                       Zero Risk to Funds
                     </span>
-                    <span className="text-[11px] text-white/60 leading-snug">
-                      100% read-only &bull; cannot move your money
-                    </span>
                   </div>
+                  <p className="text-[11px] text-white/60 leading-relaxed">
+                    100% read-only &bull; cannot move money
+                  </p>
                 </div>
               </div>
             </div>
