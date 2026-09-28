@@ -17,6 +17,7 @@ import {
   Scale,
   KeyRound,
   Eye,
+  CheckCircle2,
 } from "lucide-react";
 import { GlobalAssetGlobe } from "@/components/3d/GlobalAssetGlobe";
 
@@ -249,40 +250,40 @@ export default function LandingPage() {
                 </Link>
               </div>
 
-              {/* ─── SECURITY & PRIVACY TRUST PILLARS (Replaces the 12 Modules / ₹1.84 Cr / Countries stats) ─── */}
-              <div className="mt-8 w-full max-w-[540px] grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/[0.08] pt-6">
+              {/* ─── CUSTOMER TRUST & PRIVACY PILLARS ─── */}
+              <div className="mt-8 w-full max-w-[560px] grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/[0.08] pt-6">
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
+                  <ShieldCheck className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block font-bold text-xs text-white">
+                      Bank-Grade Security
+                    </span>
+                    <span className="text-[11px] text-white/60 leading-snug">
+                      Protected with the best in market technology
+                    </span>
+                  </div>
+                </div>
+
                 <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
                   <Lock className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
                   <div>
                     <span className="block font-bold text-xs text-white">
-                      256-Bit HSM
+                      100% Private
                     </span>
-                    <span className="text-[11px] text-white/50">
-                      Zero-knowledge security
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
-                  <Eye className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block font-bold text-xs text-white">
-                      Zero Monetization
-                    </span>
-                    <span className="text-[11px] text-white/50">
-                      No selling of records
+                    <span className="text-[11px] text-white/60 leading-snug">
+                      Your financial data is never shared or sold
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] p-3">
-                  <KeyRound className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#60A5FA] shrink-0 mt-0.5" />
                   <div>
                     <span className="block font-bold text-xs text-white">
-                      DPDP Compliant
+                      Zero Risk to Funds
                     </span>
-                    <span className="text-[11px] text-white/50">
-                      1-click revocation
+                    <span className="text-[11px] text-white/60 leading-snug">
+                      100% read-only &bull; cannot move your money
                     </span>
                   </div>
                 </div>
