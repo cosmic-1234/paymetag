@@ -61,9 +61,9 @@ export default function DashboardMain() {
       href: "/dashboard/property",
       icon: Building2,
       valueINR: totalRealEstateINR,
-      badge: "Dispute Flagged",
+      badge: "Check Needed",
       badgeType: "warning",
-      subtitle: "Mumbai Oberoi flat and Nagpur land parcel",
+      subtitle: "Mumbai apartment and Nagpur land parcel",
     },
     {
       title: "Stocks & Mutual Funds",
@@ -72,7 +72,7 @@ export default function DashboardMain() {
       valueINR: totalInvestmentsINR,
       badge: "+14.3%",
       badgeType: "success",
-      subtitle: "CDSL Demat stocks + 3 mutual fund folios",
+      subtitle: "Indian stocks and 3 active mutual funds",
     },
     {
       title: "Gold, Bonds & Crypto",
@@ -81,7 +81,7 @@ export default function DashboardMain() {
       valueINR: totalAlternatesINR,
       badge: "Declared",
       badgeType: "neutral",
-      subtitle: "Sovereign Gold Bonds, RBI Bonds, MMTC Gold",
+      subtitle: "Government Gold Bonds, RBI Bonds, Vault Gold",
     },
     {
       title: "PF & Pension",
@@ -100,7 +100,7 @@ export default function DashboardMain() {
       valueLabel: "Total Cover",
       badge: "Due in 23d",
       badgeType: "warning",
-      subtitle: "LIC Jeevan Anand + HDFC Ergo Family Floater",
+      subtitle: "LIC Life Cover + Family Health Policy",
     },
     {
       title: "Loans & Mortgages",
@@ -110,37 +110,37 @@ export default function DashboardMain() {
       valueLabel: "Total Debt",
       badge: "Future Planning",
       badgeType: "neutral",
-      subtitle: "HDFC Home Loan on Oberoi Woods • 8.45% p.a.",
+      subtitle: "HDFC Home Loan on Mumbai apartment",
     },
     {
       title: "Taxes & US Filing",
       href: "/dashboard/tax",
       icon: FileSpreadsheet,
       valueINR: 18400,
-      valueLabel: "Refund Dispatched",
-      badge: "FBAR Ready",
+      valueLabel: "Refund Received",
+      badge: "US FBAR Ready",
       badgeType: "neutral",
-      subtitle: "Form 26AS matching & 15% treaty tax rate",
+      subtitle: "Tax savings & foreign tax credits",
     },
     {
-      title: "Identity & KYC",
+      title: "Identity & Verification",
       href: "/dashboard/kyc",
       icon: Fingerprint,
       valueINR: 0,
-      valueLabel: "CKYC #40029104",
-      badge: "Overdue",
+      valueLabel: "Central ID Active",
+      badge: "1 Renewal Due",
       badgeType: "danger",
-      subtitle: "4 of 7 institutions verified • SBI Video Call due",
+      subtitle: "4 of 7 institutions verified • 1 video call due",
     },
     {
-      title: "Will & Caretaker",
+      title: "Will & Family Protection",
       href: "/dashboard/will",
       icon: Scroll,
       valueINR: 0,
       valueLabel: "POA: Shagun Patel",
-      badge: "Unregistered",
+      badge: "Will Needed",
       badgeType: "danger",
-      subtitle: "Shagun has Power of Attorney • Indian Will pending",
+      subtitle: "Authorized family caretaker • Indian Will pending",
     },
     {
       title: "Lost Money Finder",
@@ -150,7 +150,7 @@ export default function DashboardMain() {
       valueLabel: "Claimable",
       badge: "4 Found",
       badgeType: "gold",
-      subtitle: "Infosys dividends, dormant BoB balance, old PF",
+      subtitle: "Old dividends, dormant account & old PF",
     },
     {
       title: "Money Sent Abroad",
@@ -160,7 +160,7 @@ export default function DashboardMain() {
       valueLabel: "Annual Gross",
       badge: "Tracked",
       badgeType: "neutral",
-      subtitle: "Rent ₹30k/mo + FD Interest ₹12k/mo",
+      subtitle: "Rent ₹30k/mo + Bank Interest ₹12k/mo",
     },
     {
       title: "Family Access",
@@ -348,10 +348,10 @@ export default function DashboardMain() {
             </div>
           </div>
 
-          {/* Positive Wealth Unlock Opportunities */}
+          {/* Recommended Next Steps */}
           <div className="space-y-1.5 border-t border-slate-100 dark:border-white/10 pt-3 text-xs">
             <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-              Wealth Accessibility Opportunities
+              Recommended Next Steps
             </div>
 
             <button
@@ -361,11 +361,11 @@ export default function DashboardMain() {
             >
               <div>
                 <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors flex items-center gap-1.5">
-                  <span>Verify SBI NRO KYC</span>
-                  <span className="text-[10px] text-slate-400 font-normal">&bull; Video KYC</span>
+                  <span>Verify SBI Bank Identity</span>
+                  <span className="text-[10px] text-slate-400 font-normal">&bull; 2-Min Video Call</span>
                 </div>
                 <div className="text-[11px] text-slate-500">
-                  Unfreezes ₹3.2L liquid funds for transfers
+                  Unlocks ₹3.2L for international transfers
                 </div>
               </div>
               <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
@@ -374,16 +374,16 @@ export default function DashboardMain() {
             </button>
 
             <Link
-              href="/dashboard/property"
+              href="/dashboard/will"
               className="block p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors group cursor-pointer"
             >
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors">
-                    Draft Sovereign NRI Will
+                    Draft Family Will
                   </div>
                   <div className="text-[11px] text-slate-500">
-                    Protects ₹1.47 Cr family succession
+                    Protects ₹1.47 Cr for your family
                   </div>
                 </div>
                 <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
@@ -399,10 +399,10 @@ export default function DashboardMain() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors">
-                    Re-verify Nagpur Land 7/12
+                    Verify Nagpur Land Record
                   </div>
                   <div className="text-[11px] text-slate-500">
-                    Secures ₹35L boundary & clean title
+                    Secures ₹35L land ownership & records
                   </div>
                 </div>
                 <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
@@ -416,7 +416,7 @@ export default function DashboardMain() {
           <div className="rounded-lg bg-[#F0FDF4] dark:bg-emerald-950/20 border border-[#DCFCE7] dark:border-emerald-900/30 p-2.5 text-[11px] text-[#15803D] dark:text-emerald-300 flex items-start gap-2">
             <ShieldCheck className="h-4 w-4 shrink-0 text-[#16A34A] mt-0.5" />
             <span>
-              <strong>Make 100% of your wealth accessible:</strong> Completing these 3 verifications protects ₹1.85 Cr across banking and real estate titles.
+              <strong>Peace of mind:</strong> Completing these 3 quick steps secures ₹1.85 Cr across your bank accounts and family property.
             </span>
           </div>
         </BladeCard>
@@ -429,7 +429,7 @@ export default function DashboardMain() {
             <div className="flex items-center gap-2">
               <Info className="h-4 w-4 text-[#9CA3AF]" />
               <h3 className="font-bold text-[12px] uppercase tracking-[0.08em] text-[#9CA3AF]">
-                ACTION ITEMS ({alerts.length})
+                Important Reminders ({alerts.length})
               </h3>
             </div>
           </div>
@@ -455,7 +455,7 @@ export default function DashboardMain() {
       {/* 12 Modules Grid */}
       <div className="space-y-4">
         <h3 className="font-bold text-[12px] uppercase tracking-[0.08em] text-[#9CA3AF]">
-          ALL 12 WEALTH MODULES
+          Your Financial Hub
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -4,16 +4,14 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   BrainCircuit,
   Send,
-  ShieldCheck,
-  Scale,
-  FileText,
-  Building2,
-  Landmark,
+  Sparkles,
   ArrowRight,
-  RefreshCw,
   Copy,
   Check,
-  AlertTriangle,
+  Building2,
+  TrendingUp,
+  FileSpreadsheet,
+  Search,
 } from "lucide-react";
 import Link from "next/link";
 import { useApp } from "@/lib/store";
@@ -30,28 +28,32 @@ interface Message {
 
 const PRESET_PROMPTS = [
   {
-    title: "US-India DTAA Dividend Arbitrage",
-    desc: "Calculate foreign tax credit (Form 1116) under Article 10 treaty rates.",
+    title: "Send Money Abroad",
+    icon: Building2,
+    desc: "How to sell Indian property & transfer funds to US bank.",
     query:
-      "Analyze DTAA Article 10 dividend withholding rates for my Indian demat portfolio vs US IRS taxation.",
+      "How do I sell my Oberoi Woods property and transfer the sale proceeds to my US bank account?",
   },
   {
-    title: "Goregaon Property Repatriation",
-    desc: "Simulate Section 195 TDS & Form 15CA/15CB on Oberoi Woods sale.",
+    title: "Save US Tax on Dividends",
+    icon: TrendingUp,
+    desc: "How the US-India tax treaty saves tax on your demat stocks.",
     query:
-      "Simulate repatriation tax liability and Form 15CA/CB procedure for selling my Oberoi Woods property.",
+      "How does the US-India DTAA treaty help me save tax on my Indian stock dividends?",
   },
   {
-    title: "Succession & Probate Legal Scan",
-    desc: "Assess Bombay High Court probate exposure and Power of Attorney validity.",
+    title: "Indian Will & Caretaker",
+    icon: FileSpreadsheet,
+    desc: "How to protect your Mumbai flat & family assets in India.",
     query:
-      "What is my legal probate exposure in Maharashtra without a registered Indian Will?",
+      "Do I need an Indian Will for my Mumbai flat, and how can I appoint a family caretaker?",
   },
   {
-    title: "IEPF Unclaimed Recovery Dossier",
-    desc: "Check MCA IEPF-5 recovery status for old dividend and physical share folios.",
+    title: "Claim Lost Indian Shares",
+    icon: Search,
+    desc: "Recover ₹1.18 Lakhs in unclaimed dividends and shares.",
     query:
-      "Outline the step-by-step IEPF Form 5 restitution workflow for my ₹1.18 Lakhs in unclaimed shares.",
+      "How can I easily claim my forgotten Infosys dividends and shares?",
   },
 ];
 
@@ -59,91 +61,125 @@ const PREPARED_RESPONSES: Record<
   string,
   {
     text: string;
-    citations: string[];
     actionLinks?: { label: string; href: string }[];
     highlightMetrics?: { label: string; value: string; change?: string }[];
   }
 > = {
-  dividend: {
-    text: `### DTAA Article 10 Sovereign Tax Assessment\n\nUnder the **India-US Double Tax Avoidance Agreement (DTAA)** Article 10(2), dividend distributions from Indian entities to a US tax resident are subject to a capped treaty withholding rate of **15%**, as opposed to the standard domestic non-resident rate of 20% (plus surcharge and cess under Section 115A).\n\n1. **Withholding Offset**: You can claim a direct dollar-for-dollar **Foreign Tax Credit (FTC)** on IRS Form 1116 against your California Federal income tax.\n2. **Estimated Recovery**: On your projected Indian dividend income of ₹2,40,000, treaty calibration saves approximately **₹12,480** in excess withholding.\n3. **Prerequisite**: A certified Form 10F and Tax Residency Certificate (TRC) issued by the US IRS must be filed with your Indian depository.`,
-    citations: [
-      "India-US DTAA (Article 10 - Dividends)",
-      "Section 90(2) & Section 115A, Indian Income Tax Act 1961",
-      "IRS Form 1116 (Foreign Tax Credit)",
-    ],
+  property: {
+    text: `### Selling Property & Sending Money to the US (Step-by-Step)
+
+For your **Oberoi Woods Flat 4B in Mumbai** (Valuation: ~₹1.12 Cr):
+
+1. **Keep More of Your Money (Lower TDS)**:
+   - Usually buyers deduct 20% tax upfront from NRIs. You can apply for a **Lower TDS Certificate (Form 13)** through the income tax portal to reduce this to your actual profit tax (often ~3% to 5%).
+
+2. **Money Deposited into NRO Account**:
+   - The sale proceeds from an Indian property must first be deposited into your Indian **NRO Bank Account**.
+
+3. **Transfer to Your US Bank (Form 15CA & 15CB)**:
+   - Under RBI rules, you are legally allowed to send up to **$1,000,000 USD every financial year** back to your US bank.
+   - Your Indian Chartered Accountant (CA) issues a simple certificate (Form 15CB), you fill Form 15CA online, and your bank (HDFC/ICICI) wires the US dollars directly to your US account.`,
     highlightMetrics: [
-      { label: "Treaty Cap Rate", value: "15.0%", change: "vs 20% + Cess" },
-      { label: "Form 1116 Credit", value: "100%", change: "Direct Offset" },
+      { label: "Annual Transfer Limit", value: "$1,000,000", change: "USD / Year" },
+      { label: "Typical CA Timeline", value: "3 - 5 Days", change: "Form 15CB" },
     ],
     actionLinks: [
-      { label: "View Tax Optimization", href: "/dashboard/tax" },
-      { label: "Check Demat Folios", href: "/dashboard/investments" },
+      { label: "View Property Details", href: "/dashboard/property" },
+      { label: "Check Money Transfer Calculator", href: "/dashboard/income" },
     ],
   },
-  property: {
-    text: `### Oberoi Woods Repatriation & Form 15CA/15CB Simulation\n\nFor your **Oberoi Woods Flat 4B, Goregaon East** (Indicative Valuation: ₹1.12 Cr, Acquired 2018 at ₹78L):\n\n1. **Capital Gain Classification**: Long-Term Capital Asset (> 24 months holding). Eligible for indexation benefit up to FY 2024.\n2. **Section 195 Withholding**: The buyer is statutorily required to deduct 20% TDS (plus surcharge) unless a **Section 197 Nil/Lower TDS Certificate** is obtained from the Mumbai Jurisdictional Assessing Officer.\n3. **FEMA Repatriation Pipeline**: Sale proceeds must be credited to your **NRO Account** first. Outward remittance to the US is fully permitted up to **$1,000,000 USD per financial year** under the RBI Liberalised Remittance Scheme (LRS) via Form 15CA (online submission) and Form 15CB (CA certification).`,
-    citations: [
-      "RBI FEMA Master Direction No. 13/2015-16 (Remittance of Assets)",
-      "Section 195 & Section 197, Indian Income Tax Act 1961",
-      "CBDT Rule 37BB (Form 15CA & Form 15CB)",
-    ],
+  dividend: {
+    text: `### Saving US Tax on Your Indian Dividends (US-India DTAA)
+
+Because you live in California and pay US taxes, you qualify for the **US-India Double Tax Treaty (Article 10)**:
+
+1. **Lower Indian Tax Rate (15% instead of 20%)**:
+   - The treaty caps Indian dividend withholding tax at **15%**. This saves you approximately **₹12,480** every year on your dividend income.
+
+2. **Claim It on Your US Tax Return (Form 1116)**:
+   - Any tax paid in India can be claimed dollar-for-dollar as a **Foreign Tax Credit (FTC)** on your US Form 1040 (via Form 1116). You will not be double-taxed!
+
+3. **What You Need to Do**:
+   - Submit a simple **Form 10F** and a US IRS Tax Residency Certificate (TRC) to your Indian broker (Zerodha/HDFC Securities) so they deduct only 15%.`,
     highlightMetrics: [
-      { label: "FEMA Annual Cap", value: "$1,000,000", change: "USD / FY" },
-      { label: "Form 15CB Protocol", value: "CA Verified", change: "Section 195" },
+      { label: "Treaty Tax Rate", value: "15%", change: "vs 20% Standard" },
+      { label: "US Tax Credit", value: "100%", change: "No Double Tax" },
     ],
     actionLinks: [
-      { label: "Inspect Property Records", href: "/dashboard/property" },
-      { label: "Simulate Outward Remittance", href: "/dashboard/income" },
+      { label: "View Tax Credits", href: "/dashboard/tax" },
+      { label: "Check Stock Portfolio", href: "/dashboard/investments" },
     ],
   },
   will: {
-    text: `### Succession Exposure & Maharashtra Probate Analysis\n\n1. **Jurisdictional Rule**: Under Section 57 and Section 213 of the **Indian Succession Act, 1925**, any immovable property located within the ordinary original civil jurisdiction of the **Bombay High Court** (including Mumbai Suburban district where Goregaon is situated) statutorily requires a **Probate** if devised under a Will.\n2. **Intestate Risk**: In the absence of a registered Will, your 50% undivided share in Oberoi Woods Flat 4B and Nagpur Farmland is governed by the **Hindu Succession Act, 1956 (Class-I Heirs)**, requiring legal heirship certificates from local civil courts.\n3. **Power of Attorney Caution**: A General Power of Attorney automatically extinguishes upon demise and cannot be utilized for post-life asset transfer.`,
-    citations: [
-      "Sections 57 & 213, Indian Succession Act 1925",
-      "Sections 8 & 10, Hindu Succession Act 1956",
-      "Bombay High Court Original Side Rules (Probate)",
-    ],
+    text: `### Protecting Your Indian Assets (Will & Succession)
+
+1. **Why You Need an Indian Will**:
+   - In Maharashtra (Mumbai), any property passed down requires a court **Probate** if disputed.
+   - Having a clear, registered Indian Will ensures your Oberoi Woods flat and bank accounts pass smoothly to your spouse or children without court delays.
+
+2. **Appointing a Family Caretaker (Power of Attorney)**:
+   - Your registered General Power of Attorney with **Shagun Patel** allows her to sign utility documents, inspect physical boundaries, and attend society meetings while you are in the US.
+   - Note: Power of Attorney is valid only during your lifetime; a Will handles inheritance.`,
     highlightMetrics: [
-      { label: "Probate Mandatory", value: "Yes", change: "Mumbai Suburbs" },
-      { label: "Intestate Risk", value: "High", change: "Class-I Heirs" },
+      { label: "Protected Assets", value: "₹1.85 Cr", change: "Mumbai & Land" },
+      { label: "Caretaker Assigned", value: "Shagun Patel", change: "Active GPA" },
     ],
-    actionLinks: [{ label: "View Will Registry", href: "/dashboard/will" }],
+    actionLinks: [
+      { label: "View Will & Caretaker Registry", href: "/dashboard/will" },
+      { label: "See Property Records", href: "/dashboard/property" },
+    ],
   },
   iepf: {
-    text: `### IEPF Form 5 Restitution Roadmap\n\nYour portfolio holds approximately **₹1,18,400** in unclaimed assets, including ₹64,200 in 120 equity shares transferred to the **Investor Education and Protection Fund (IEPF)** under Section 124(6) of the Companies Act 2013.\n\n1. **MCA IEPF-5 Filing**: Submit electronic Form IEPF-5 on the Ministry of Corporate Affairs portal.\n2. **Physical Verification Docket**: Submit notarized indemnity bond, original share certificates, and CKYC client master list (CML) to the company's Registrar & Transfer Agent (RTA).\n3. **Direct Demat Credit**: Shares and accrued dividends are restored directly into your designated PINS NRE Demat account.`,
-    citations: [
-      "Section 124(6), Companies Act 2013",
-      "IEPF (Accounting, Audit, Transfer and Refund) Rules, 2016",
-    ],
+    text: `### Claiming Forgotten Shares & Dividends (₹1.18 Lakhs)
+
+We found **₹1,18,400** in unclaimed money linked to your PAN, including 120 old Infosys shares transferred to the government's IEPF authority:
+
+1. **Submit Online Claim Form**:
+   - An online claim is submitted to government registries using your PAN.
+
+2. **Verify Documents**:
+   - Submit your PAN, Aadhaar, and bank statement to the company's registrar.
+
+3. **Direct Credit to Your Demat**:
+   - The recovered shares and cash dividends will be deposited straight into your active NRE Demat account.`,
     highlightMetrics: [
-      { label: "Traceable Capital", value: "₹1,18,400", change: "Recoverable" },
-      { label: "Restitution Time", value: "60-90 Days", change: "MCA RTA Cycle" },
+      { label: "Claimable Amount", value: "₹1,18,400", change: "100% Recoverable" },
+      { label: "Time to Credit", value: "60 Days", change: "Direct to Demat" },
     ],
-    actionLinks: [{ label: "Track IEPF Dossier", href: "/dashboard/forgotten" }],
+    actionLinks: [
+      { label: "Open Lost Money Claim", href: "/dashboard/forgotten" },
+    ],
   },
   default: {
-    text: `### Sovereign Cross-Border Analysis\n\nI have scanned your portfolio against relevant Indian and international tax frameworks:\n\n1. **Tax Residency**: Validated under Indian Section 6(1) and US Substantial Presence Test.\n2. **FEMA Compliance**: All bank accounts verified for non-resident status.\n3. **Repatriation Clearance**: Proceeds eligible for outward remittance under Form 15CA/CB protocols.`,
-    citations: [
-      "RBI FEMA Regulations 2016",
-      "Indian Income Tax Act 1961",
-      "IRS FATCA Guidelines",
+    text: `### Quick Summary of Your Indian Wealth
+
+Here is a quick look at your profile:
+- **Total Indian Net Worth**: ₹2.69 Crores (~$324,000 USD)
+- **Primary Assets**: Mumbai Oberoi Woods flat (₹1.12 Cr), 6 bank accounts across HDFC, SBI, Axis, ICICI, BoB, and Kotak (₹64.6L), and Demat investments (₹25L).
+- **Key Action Needed**: 1 dormant resident account can be converted to NRO with one click, and an SBI video KYC is ready to complete.
+
+How else can I help you today? You can ask about tax filing, repatriating money, or buying property.`,
+    actionLinks: [
+      { label: "Go to Dashboard Overview", href: "/dashboard" },
+      { label: "View Bank Accounts", href: "/dashboard/accounts" },
     ],
   },
 };
 
 export default function AiPage() {
   const { activeUser } = useApp();
+  const userName = activeUser?.name || "Brijal";
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "initial-welcome",
       sender: "assistant",
       timestamp: "Just now",
-      text: `### DeshBoard Sovereign AI Intelligence Active\n\nWelcome ${activeUser.name}. I am calibrated with your live financial portfolio, cross-border tax residency (**${activeUser.taxResidency}**), and statutory compliance matrices across India, the US, UAE, and UK.\n\nSelect one of the strategic queries below or enter a specific statutory question.`,
-      citations: [
-        "RBI FEMA Master Direction 2016",
-        "India-US DTAA Double Tax Treaty",
-        "MCGM Property Tax Registry",
-      ],
+      text: `### Hi ${userName}! 👋 I'm Sovereign AI, your NRI Financial Assistant
+
+I'm connected to your Indian wealth overview (bank accounts, Oberoi Woods property, demat stocks, and retirement funds). 
+
+Feel free to ask any question in simple terms, or tap one of the common topics above to get started!`,
     },
   ]);
   const [inputText, setInputText] = useState("");
@@ -175,232 +211,228 @@ export default function AiPage() {
     if (
       qLower.includes("dividend") ||
       qLower.includes("dtaa") ||
+      qLower.includes("stock") ||
       qLower.includes("tax") ||
-      qLower.includes("1116")
+      qLower.includes("save")
     ) {
       responseData = PREPARED_RESPONSES.dividend;
     } else if (
       qLower.includes("property") ||
       qLower.includes("repatriat") ||
-      qLower.includes("goregaon") ||
-      qLower.includes("15ca")
+      qLower.includes("flat") ||
+      qLower.includes("oberoi") ||
+      qLower.includes("sell") ||
+      qLower.includes("send money") ||
+      qLower.includes("transfer")
     ) {
       responseData = PREPARED_RESPONSES.property;
     } else if (
       qLower.includes("will") ||
       qLower.includes("probate") ||
-      qLower.includes("succession") ||
-      qLower.includes("shagun")
+      qLower.includes("inherit") ||
+      qLower.includes("caretaker") ||
+      qLower.includes("poa")
     ) {
       responseData = PREPARED_RESPONSES.will;
     } else if (
       qLower.includes("iepf") ||
       qLower.includes("unclaimed") ||
-      qLower.includes("l&t") ||
-      qLower.includes("share")
+      qLower.includes("lost") ||
+      qLower.includes("shares") ||
+      qLower.includes("recover")
     ) {
       responseData = PREPARED_RESPONSES.iepf;
     }
 
     setTimeout(() => {
-      setIsTyping(false);
-      const botResponse: Message = {
-        id: `bot-${Date.now()}`,
+      const assistantMessage: Message = {
+        id: `assistant-${Date.now()}`,
         sender: "assistant",
         timestamp: "Just now",
         text: responseData.text,
-        citations: responseData.citations,
         actionLinks: responseData.actionLinks,
         highlightMetrics: responseData.highlightMetrics,
       };
-      setMessages((prev) => [...prev, botResponse]);
-    }, 900);
+      setMessages((prev) => [...prev, assistantMessage]);
+      setIsTyping(false);
+    }, 600);
   };
 
-  const handleCopy = (text: string, id: string) => {
+  const handleCopy = (id: string, text: string) => {
     navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
-      {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-200 pb-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3451D1] text-white">
-              <BrainCircuit className="h-4 w-4" />
-            </div>
-            <h1 className="text-2xl font-bold text-[#0C2340]">
-              DeshBoard AI Intelligence
-            </h1>
-            <span className="rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1]">
-              Cross-Border Advisor
-            </span>
+    <div className="space-y-6 max-w-4xl mx-auto">
+      {/* Friendly Header (Goinri Style) */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 border-b border-slate-200/70 dark:border-white/10">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0D2266] to-[#3451D1] text-white shadow-md">
+            <BrainCircuit className="h-6 w-6" />
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Autonomous legal, FEMA, DTAA tax, and repatriation intelligence calibrated for {activeUser.name}.
-          </p>
-        </div>
-
-        <div className="text-xs font-medium text-slate-600 bg-white border border-slate-200 rounded-lg px-3 py-1.5 shadow-xs">
-          Corridor: <strong className="text-[#0C2340]">{activeUser.location} ⇄ India</strong>
-        </div>
-      </div>
-
-      {/* Suggested Quick Inquiries */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        {PRESET_PROMPTS.map((preset, idx) => (
-          <button
-            key={idx}
-            onClick={() => handleSend(preset.query)}
-            className="text-left rounded-xl border border-slate-200 bg-white p-3.5 hover:border-[#3451D1] hover:bg-blue-50/20 transition-all shadow-xs flex flex-col justify-between"
-          >
-            <div>
-              <span className="font-bold text-xs text-[#0D2266] block leading-snug">
-                {preset.title}
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-xl sm:text-2xl font-bold text-[#0D2266] dark:text-white">
+                Sovereign AI
+              </h1>
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 px-2 py-0.5 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                NRI Assistant
               </span>
-              <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
-                {preset.desc}
-              </p>
             </div>
-            <span className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#3451D1]">
-              <span>Run Analysis</span>
-              <ArrowRight className="h-3 w-3" />
-            </span>
-          </button>
-        ))}
+            <p className="text-xs text-slate-500 mt-0.5">
+              Clear, friendly answers for your Indian investments, taxes, and money transfers.
+            </p>
+          </div>
+        </div>
+
+        <div className="text-xs text-slate-500 bg-white dark:bg-[#1A1F2E] border border-slate-200 dark:border-white/10 rounded-xl px-3 py-1.5 self-start sm:self-auto shadow-2xs font-medium">
+          🇺🇸 San Jose, CA ↔ 🇮🇳 India
+        </div>
       </div>
 
-      {/* Main Conversation Container */}
-      <div className="rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col h-[600px] overflow-hidden">
-        {/* Messages Scroll Area */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-5 bg-[#F8FAFC]">
-          {messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+      {/* 4 Simple, Friendly Question Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {PRESET_PROMPTS.map((p, idx) => {
+          const Icon = p.icon;
+          return (
+            <button
+              key={idx}
+              onClick={() => handleSend(p.query)}
+              className="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#1A1F2E] hover:border-[#3451D1]/60 hover:shadow-md hover:-translate-y-0.5 text-left transition-all duration-200 group cursor-pointer"
             >
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 dark:bg-white/[0.08] text-[#3451D1] group-hover:bg-[#3451D1] group-hover:text-white transition-colors shrink-0">
+                <Icon className="h-4 w-4" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-bold text-[#0D2266] dark:text-white group-hover:text-[#3451D1] transition-colors flex items-center justify-between">
+                  <span>{p.title}</span>
+                  <ArrowRight className="h-3 w-3 text-slate-300 group-hover:text-[#3451D1] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
+                  {p.desc}
+                </p>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Chat Messages Canvas */}
+      <div className="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#1A1F2E] shadow-sm flex flex-col min-h-[420px]">
+        {/* Messages List */}
+        <div className="flex-1 p-4 sm:p-6 space-y-5 overflow-y-auto max-h-[500px]">
+          {messages.map((m) => {
+            const isUser = m.sender === "user";
+            return (
               <div
-                className={`max-w-[85%] rounded-2xl p-4 text-xs shadow-xs leading-relaxed ${
-                  msg.sender === "user"
-                    ? "bg-[#0D2266] text-white"
-                    : "bg-white border border-slate-200 text-slate-800"
-                }`}
+                key={m.id}
+                className={`flex gap-3 ${isUser ? "justify-end" : "justify-start"}`}
               >
-                {/* Header row */}
-                <div className="flex items-center justify-between mb-2 border-b border-slate-100 pb-1.5 text-[10px] text-slate-400">
-                  <span className="font-semibold uppercase tracking-wider">
-                    {msg.sender === "user" ? activeUser.name : "DeshBoard Counsel"}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span>{msg.timestamp}</span>
-                    {msg.sender === "assistant" && (
-                      <button
-                        onClick={() => handleCopy(msg.text, msg.id)}
-                        className="hover:text-slate-600 text-[10px] flex items-center gap-0.5"
-                        title="Copy counsel"
-                      >
-                        {copiedId === msg.id ? (
-                          <Check className="h-3 w-3 text-emerald-600" />
-                        ) : (
-                          <Copy className="h-3 w-3" />
-                        )}
-                      </button>
-                    )}
+                {!isUser && (
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#3451D1] text-white shrink-0 shadow-2xs">
+                    <Sparkles className="h-4 w-4" />
                   </div>
-                </div>
+                )}
 
-                {/* Markdown text */}
-                <div className="space-y-2 whitespace-pre-wrap">
-                  {msg.text.split("\n\n").map((para, pIdx) => {
-                    if (para.startsWith("### ")) {
-                      return (
-                        <h4
-                          key={pIdx}
-                          className="font-bold text-sm text-[#0D2266] border-b border-slate-100 pb-1 pt-0.5"
+                <div
+                  className={`max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 text-xs sm:text-[13px] leading-relaxed ${
+                    isUser
+                      ? "bg-[#0D2266] text-white font-medium"
+                      : "bg-slate-50 dark:bg-white/[0.04] border border-slate-200/60 dark:border-white/10 text-slate-800 dark:text-slate-200"
+                  }`}
+                >
+                  <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-line">
+                    {m.text}
+                  </div>
+
+                  {/* Highlight Metrics */}
+                  {m.highlightMetrics && (
+                    <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-200/60 dark:border-white/10">
+                      {m.highlightMetrics.map((met, i) => (
+                        <div
+                          key={i}
+                          className="bg-white dark:bg-white/[0.06] rounded-xl p-2.5 border border-slate-200/60 dark:border-white/10"
                         >
-                          {para.replace("### ", "")}
-                        </h4>
-                      );
-                    }
-                    return <p key={pIdx}>{para}</p>;
-                  })}
-                </div>
-
-                {/* Highlight Metrics */}
-                {msg.highlightMetrics && (
-                  <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-2.5">
-                    {msg.highlightMetrics.map((met, mIdx) => (
-                      <div key={mIdx} className="rounded-lg bg-slate-50 p-2 border border-slate-100">
-                        <span className="text-[10px] font-semibold text-slate-500 block">
-                          {met.label}
-                        </span>
-                        <div className="mt-0.5 flex items-baseline justify-between">
-                          <span className="font-bold text-sm text-[#0D2266] font-mono">
+                          <div className="text-[10px] font-bold text-slate-400 uppercase">
+                            {met.label}
+                          </div>
+                          <div className="text-sm font-bold text-[#0D2266] dark:text-white mt-0.5">
                             {met.value}
-                          </span>
+                          </div>
                           {met.change && (
-                            <span className="text-[10px] font-bold text-[#3451D1]">
+                            <div className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
                               {met.change}
-                            </span>
+                            </div>
                           )}
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Citations */}
-                {msg.citations && (
-                  <div className="mt-3 rounded-lg bg-slate-50 p-2.5 border border-slate-100">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
-                      Statutory Authorities & DTAA Articles
-                    </span>
-                    <ul className="space-y-0.5">
-                      {msg.citations.map((cite, cIdx) => (
-                        <li key={cIdx} className="flex items-center gap-1.5 text-[11px] text-slate-600">
-                          <Scale className="h-3 w-3 text-[#3451D1] shrink-0" />
-                          <span>{cite}</span>
-                        </li>
                       ))}
-                    </ul>
-                  </div>
-                )}
+                    </div>
+                  )}
 
-                {/* Action Links */}
-                {msg.actionLinks && (
-                  <div className="mt-3 flex flex-wrap gap-2 border-t border-slate-100 pt-2.5">
-                    {msg.actionLinks.map((link, lIdx) => (
-                      <Link
-                        key={lIdx}
-                        href={link.href}
-                        className="inline-flex items-center gap-1 rounded-md bg-blue-50 border border-blue-200 px-2.5 py-1 text-[11px] font-bold text-[#3451D1] hover:bg-[#3451D1] hover:text-white transition"
+                  {/* Direct Action Links */}
+                  {m.actionLinks && (
+                    <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-slate-200/60 dark:border-white/10">
+                      {m.actionLinks.map((link, i) => (
+                        <Link
+                          key={i}
+                          href={link.href}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF2FF] dark:bg-blue-950/40 text-[#3451D1] dark:text-blue-300 font-bold text-xs hover:bg-blue-100 transition-colors"
+                        >
+                          <span>{link.label}</span>
+                          <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Message Footer */}
+                  {!isUser && (
+                    <div className="mt-2.5 pt-2 flex items-center justify-between text-[10px] text-slate-400">
+                      <span>{m.timestamp}</span>
+                      <button
+                        onClick={() => handleCopy(m.id, m.text)}
+                        className="flex items-center gap-1 hover:text-slate-600 dark:hover:text-white transition-colors cursor-pointer"
                       >
-                        <span>{link.label}</span>
-                        <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                        {copiedId === m.id ? (
+                          <>
+                            <Check className="h-3 w-3 text-emerald-500" />
+                            <span className="text-emerald-500">Copied</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="h-3 w-3" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           {isTyping && (
-            <div className="flex justify-start">
-              <div className="rounded-xl bg-white border border-slate-200 px-4 py-3 text-xs shadow-xs text-slate-500 flex items-center gap-2">
-                <BrainCircuit className="h-4 w-4 text-[#3451D1] animate-pulse" />
-                <span>Scanning statutory cross-border provisions...</span>
+            <div className="flex gap-3 items-center text-slate-400 text-xs">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#3451D1] text-white shrink-0">
+                <Sparkles className="h-4 w-4 animate-spin" />
+              </div>
+              <div className="bg-slate-50 dark:bg-white/[0.04] border border-slate-200/60 dark:border-white/10 rounded-2xl px-4 py-2.5 flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]" />
               </div>
             </div>
           )}
+
           <div ref={messagesEndRef} />
         </div>
 
         {/* Input Bar */}
-        <div className="p-4 border-t border-slate-200 bg-white">
+        <div className="p-3 sm:p-4 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/60 dark:bg-white/[0.02] rounded-b-2xl">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -412,16 +444,16 @@ export default function AiPage() {
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="Ask about DTAA foreign credit, Section 195 TDS, Form 15CA/CB, or Mumbai probate..."
-              className="flex-1 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#3451D1] focus:outline-none transition"
+              placeholder="Ask anything about taxes, sending money, or Indian investments..."
+              className="flex-1 bg-white dark:bg-[#1A1F2E] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3451D1]/30 transition-all shadow-2xs"
             />
             <button
               type="submit"
               disabled={!inputText.trim() || isTyping}
-              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] text-white px-5 py-2.5 text-xs font-bold transition disabled:opacity-50 shadow-xs"
+              className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-r from-[#0D2266] to-[#3451D1] hover:from-[#132C7D] hover:to-[#254BD1] text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm cursor-pointer shrink-0"
+              title="Send message"
             >
-              <span>Send</span>
-              <Send className="h-3.5 w-3.5" />
+              <Send className="h-4 w-4" />
             </button>
           </form>
         </div>

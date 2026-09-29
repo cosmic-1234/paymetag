@@ -69,7 +69,7 @@ export default function TaxPage() {
         />
       </div>
 
-      {/* AI Cross-Border Tax Arbitrage & DTAA Treaty Analyzer */}
+      {/* Sovereign AI Cross-Border Tax Optimizer */}
       <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-1.5 max-w-2xl">
@@ -78,17 +78,17 @@ export default function TaxPage() {
                 <Scale className="h-3.5 w-3.5" />
               </span>
               <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
-                Sovereign Tax Intelligence
+                Sovereign AI
               </span>
               <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
-                Form 1116 Active
+                Foreign Tax Credit Active
               </span>
             </div>
             <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
-              AI Cross-Border Tax Arbitrage & DTAA Treaty Analyzer
+              US & India Tax Optimizer by Sovereign AI
             </h3>
             <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
-              Automated reconciliation of Indian Section 195 TDS (20%) with US California Marginal Tax Brackets (37% Federal + 9.3% State). Foreign Tax Credit (FTC) offsets US passive liability dollar-for-dollar.
+              Automatically checks taxes deducted in India against your US tax returns. You get dollar-for-dollar tax credits in the US so you never pay tax twice on the same income.
             </p>
           </div>
 
@@ -98,17 +98,17 @@ export default function TaxPage() {
               className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm"
             >
               <ShieldCheck className="h-4 w-4" />
-              <span>Run AI Tax Mismatch Audit</span>
+              <span>Check for Tax Mismatches</span>
             </button>
             <button
               onClick={() =>
                 openAiCopilot(
-                  "Analyze DTAA Article 10 dividend withholding rates for my Indian demat portfolio vs US IRS taxation."
+                  "Explain how my Indian taxes give me foreign tax credits on my US return, and verify my 15% treaty rate."
                 )
               }
               className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
             >
-              <span>Ask AI Counsel</span>
+              <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -117,19 +117,19 @@ export default function TaxPage() {
         {/* 3 Inline AI Tax Insights */}
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
-            <span className="block text-[10px] uppercase font-bold text-slate-400">Total FTC Reclaimable</span>
+            <span className="block text-[10px] uppercase font-bold text-slate-400">US Tax Credit Available</span>
             <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">₹1,42,000 ($1,710 USD)</span>
-            <span className="text-[10px] text-emerald-600 font-medium">IRS Form 1116 Line 8</span>
+            <span className="text-[10px] text-emerald-600 font-medium">Direct credit on your US tax return</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
-            <span className="block text-[10px] uppercase font-bold text-slate-400">Section 197 Optimization</span>
-            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">Lower Deduction Eligible</span>
-            <span className="text-[10px] text-[#3451D1] font-medium">Saves ₹2,42,000 withholding</span>
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Lower Tax Certificate</span>
+            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">Eligible for Lower Deductions</span>
+            <span className="text-[10px] text-[#3451D1] font-medium">Saves ₹2,42,000 in advance tax</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
-            <span className="block text-[10px] uppercase font-bold text-slate-400">Form 10F & TRC Filing</span>
-            <span className="font-extrabold text-sm text-[#16A34A] mt-0.5 block">Valid for FY2026-27</span>
-            <span className="text-[10px] text-slate-500 font-medium">No 30% Non-Resident Surcharge</span>
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Tax Treaty Rate</span>
+            <span className="font-extrabold text-sm text-[#16A34A] mt-0.5 block">15% Special Rate</span>
+            <span className="text-[10px] text-slate-500 font-medium">Saves you from standard 30% rate</span>
           </div>
         </div>
       </div>

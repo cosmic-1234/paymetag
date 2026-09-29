@@ -70,7 +70,7 @@ export default function WillPage() {
         onCtaClick={() => setIsConsultOpen(true)}
       />
 
-      {/* AI Cross-Border Succession & Probate Vulnerability Scanner */}
+      {/* Sovereign AI Family Protection & Will Check */}
       <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-1.5 max-w-2xl">
@@ -79,17 +79,17 @@ export default function WillPage() {
                 <Scale className="h-3.5 w-3.5" />
               </span>
               <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
-                Sovereign Succession AI
+                Sovereign AI
               </span>
-              <span className="text-xs font-bold text-[#F59E0B] bg-[#FEF9C3] dark:bg-amber-950/60 px-2 py-0.5 rounded-full">
-                Cross-Border Harmonization
+              <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
+                Protection Active
               </span>
             </div>
             <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
-              AI Cross-Border Succession & Probate Vulnerability Scanner
+              Family Protection & Will Check by Sovereign AI
             </h3>
             <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
-              Analyzes statutory conflict of laws between the <strong className="text-[#0D2266] dark:text-white">Indian Succession Act 1925</strong> (Sections 57, 213) and <strong className="text-[#0D2266] dark:text-white">California Probate Code</strong>. Identifies probate freeze risks for your ₹1.12 Cr Goregaon property and bank folios.
+              Checks how smoothly your Mumbai apartment and Indian bank accounts can pass to your family without expensive court paperwork, delays, or red tape.
             </p>
           </div>
 
@@ -106,17 +106,17 @@ export default function WillPage() {
               className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm disabled:opacity-50"
             >
               <ShieldCheck className="h-4 w-4" />
-              <span>{isAiScanning ? "Auditing Cross-Border Probate Laws..." : "Run AI Succession Scan"}</span>
+              <span>{isAiScanning ? "Checking Asset Protection..." : "Run Protection Check"}</span>
             </button>
             <button
               onClick={() =>
                 openAiCopilot(
-                  "Scan my digital will for cross-border probate bottlenecks between US Probate Courts and Bombay High Court."
+                  "Explain why I need a separate Indian Will for my Mumbai apartment if I already live in the US, and how Shagun can be named executor."
                 )
               }
               className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
             >
-              <span>Consult Estate AI</span>
+              <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -124,15 +124,15 @@ export default function WillPage() {
 
         {/* Dynamic Scan Result Banner */}
         {aiScanResult && (
-          <div className="mt-4 rounded-xl border border-amber-200 dark:border-amber-950/50 bg-[#FEF9C3]/60 dark:bg-amber-950/20 p-3.5 flex items-start justify-between">
+          <div className="mt-4 rounded-xl border border-blue-200 dark:border-blue-950/50 bg-[#F0F4FF] dark:bg-blue-950/20 p-3.5 flex items-start justify-between">
             <div className="flex items-start gap-2.5">
-              <AlertTriangle className="h-4 w-4 text-[#D97706] shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-4 w-4 text-[#3451D1] shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-xs text-[#B45309] dark:text-amber-300 block">
-                  Succession Vulnerability Identified: Ancillary Probate Mandate
+                <span className="font-bold text-xs text-[#0D2266] dark:text-blue-300 block">
+                  Recommendation: Create an Indian Will for Mumbai Property
                 </span>
                 <p className="text-[11px] text-slate-700 dark:text-slate-300 mt-0.5">
-                  Under Bombay High Court Original Side rules, a US Living Trust cannot execute title transfer for Oberoi Woods flat without high court letters of administration. Solution: Draft standalone Indian Holographic Will naming Shagun Patel as sole domestic executor.
+                  A US Will or Trust cannot easily transfer real estate in India. To protect your Oberoi Woods apartment, draft a simple Indian Will naming Shagun Patel as your domestic executor.
                 </p>
               </div>
             </div>
@@ -148,19 +148,19 @@ export default function WillPage() {
         {/* 3 Inline AI Succession Metrics */}
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
-            <span className="block text-[10px] uppercase font-bold text-slate-400">Probate Delay Without Will</span>
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Court Delay Without Will</span>
             <span className="font-extrabold text-sm text-[#DC2626] mt-0.5 block">14–22 Months</span>
-            <span className="text-[10px] text-slate-500 font-medium">Bombay High Court Backlog</span>
+            <span className="text-[10px] text-slate-500 font-medium">Estimated time if contested</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
-            <span className="block text-[10px] uppercase font-bold text-slate-400">Registered POA Protection</span>
-            <span className="font-extrabold text-sm text-[#16A34A] mt-0.5 block">100% Validated</span>
-            <span className="text-[10px] text-emerald-600 font-medium">Shagun Patel (BND-4029)</span>
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Caretaker Authority (POA)</span>
+            <span className="font-extrabold text-sm text-[#16A34A] mt-0.5 block">Active & Verified</span>
+            <span className="text-[10px] text-emerald-600 font-medium">Shagun Patel authorized</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
-            <span className="block text-[10px] uppercase font-bold text-slate-400">Nomination Coverage</span>
+            <span className="block text-[10px] uppercase font-bold text-slate-400">Nominee Coverage</span>
             <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">6 of 8 Accounts Updated</span>
-            <span className="text-[10px] text-[#3451D1] font-medium">Mutual Funds & Demat Active</span>
+            <span className="text-[10px] text-[#3451D1] font-medium">Bank & mutual funds covered</span>
           </div>
         </div>
       </div>

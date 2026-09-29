@@ -54,7 +54,7 @@ export const Topbar: React.FC<{
     : "BP";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-[64px] border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-3 sm:px-6 shadow-[0px_1px_4px_rgba(0,0,0,0.06)] flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 h-[64px] border-b border-slate-200/70 dark:border-white/[0.08] bg-white/85 dark:bg-[#0F1523]/85 backdrop-blur-md px-3 sm:px-6 shadow-[0px_1px_6px_rgba(0,0,0,0.03)] flex items-center justify-between transition-colors">
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           LEFT SECTION — Mobile Drawer Toggle & Logo lockup
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -101,65 +101,23 @@ export const Topbar: React.FC<{
       </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          CENTER SECTION — Wealth metric (Centered, no overlap)
+          CENTER SECTION — Clean Wealth metric (Centered)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2 pointer-events-auto">
-        <div className="flex flex-col items-center">
-          <span className="font-bold text-[10px] xl:text-[11px] uppercase tracking-[0.08em] text-[#9CA3AF]">
-            TOTAL INDIAN WEALTH
+      <div className="hidden lg:flex items-center gap-3 absolute left-1/2 -translate-x-1/2 pointer-events-auto">
+        <div className="flex items-center gap-3 bg-slate-50 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/10 rounded-full px-4 py-1.5 shadow-2xs">
+          <span className="font-bold text-[10px] tracking-wider text-slate-400 uppercase">
+            Indian Wealth
           </span>
-          <div className="flex items-center gap-2 mt-0.5">
-            <span className="font-extrabold text-[20px] xl:text-[24px] tracking-tight text-[#0D2266] dark:text-white leading-none font-sans">
-              {formattedWealth}
-            </span>
-
-            {/* USD toggle: small pill button */}
-            <button
-              onClick={() => setCurrency(currency === "INR" ? "USD" : "INR")}
-              className="border border-[#E5E7EB] dark:border-white/[0.1] rounded-[6px] px-2 py-[2px] font-semibold text-[11px] text-[#6B7280] dark:text-slate-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.04] transition-colors cursor-pointer select-none"
-              title="Toggle currency display"
-            >
-              {currency === "INR" ? "$ USD" : "₹ INR"}
-            </button>
-          </div>
-        </div>
-
-        {/* Health Score ring & divider: Only displayed on 2XL screens (1536px+) to prevent overlap on laptops */}
-        <div className="hidden 2xl:flex items-center gap-6">
-          <div className="h-9 w-[1px] bg-[#F0F0F0] dark:bg-white/[0.08]" />
-          <div className="flex flex-col items-center">
-            <div className="relative flex h-10 w-10 items-center justify-center">
-              <svg className="h-10 w-10 -rotate-90 transform" viewBox="0 0 36 36">
-                <defs>
-                  <linearGradient id="gold-stroke-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#F59E0B" />
-                    <stop offset="100%" stopColor="#D97706" />
-                  </linearGradient>
-                </defs>
-                <path
-                  className="text-[#F3F4F6] dark:text-white/[0.06]"
-                  strokeWidth="3.2"
-                  stroke="currentColor"
-                  fill="none"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <path
-                  stroke="url(#gold-stroke-grad)"
-                  strokeDasharray={`${healthScore}, 100`}
-                  strokeWidth="3.2"
-                  strokeLinecap="round"
-                  fill="none"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-              </svg>
-              <span className="absolute font-extrabold text-[16px] text-[#0D2266] dark:text-white font-sans leading-none">
-                {healthScore}
-              </span>
-            </div>
-            <span className="font-medium text-[11px] text-[#F59E0B] leading-none mt-0.5 whitespace-nowrap">
-              3 Reminders
-            </span>
-          </div>
+          <span className="font-extrabold text-[17px] tracking-tight text-[#0D2266] dark:text-white leading-none font-sans">
+            {formattedWealth}
+          </span>
+          <button
+            onClick={() => setCurrency(currency === "INR" ? "USD" : "INR")}
+            className="border border-slate-200 dark:border-white/15 bg-white dark:bg-white/10 rounded-full px-2.5 py-[3px] font-bold text-[10px] text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition-colors cursor-pointer select-none shadow-2xs"
+            title="Toggle currency display"
+          >
+            {currency === "INR" ? "$ USD" : "₹ INR"}
+          </button>
         </div>
       </div>
 

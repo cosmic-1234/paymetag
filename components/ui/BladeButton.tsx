@@ -45,7 +45,7 @@ export const BladeButton: React.FC<BladeButtonProps> = ({
 
   return (
     <button
-      className={`inline-flex items-center justify-center font-sans tracking-wide transition-all duration-150 select-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none ${sizeClasses} ${variantClasses} ${className}`}
+      className={`inline-flex items-center justify-center font-sans tracking-wide hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 select-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none focus:outline-none ${sizeClasses} ${variantClasses} ${className}`}
       disabled={disabled || isLoading}
       {...props}
     >

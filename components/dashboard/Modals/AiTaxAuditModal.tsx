@@ -52,10 +52,10 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
             </div>
             <div>
               <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
-                AI Cross-Border Tax & 26AS Audit
+                Tax Review & Credit Check by Sovereign AI
               </h3>
               <p className="text-[11px] text-[#6B7280] dark:text-slate-400">
-                Autonomous reconciliation between Form 26AS, AIS, TIS, and US IRS Form 1040
+                Matches taxes paid in India against your US tax return to maximize your foreign credits
               </p>
             </div>
           </div>
@@ -73,28 +73,28 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
               <div className="rounded-xl border border-blue-100 dark:border-blue-950/50 bg-[#F0F4FF] dark:bg-blue-950/20 p-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#3451D1] dark:text-blue-400 mb-1">
                   <ShieldCheck className="h-4 w-4" />
-                  Target Audit Vectors
+                  What Sovereign AI Verifies
                 </div>
                 <ul className="text-xs text-slate-600 dark:text-slate-300 space-y-1 mt-2">
-                  <li>• Form 26AS (Tax Deducted at Source) vs Brokerage Contract Notes</li>
-                  <li>• Annual Information Statement (AIS) high-value mutual fund dividend reporting</li>
-                  <li>• US IRS Form 1116 Foreign Tax Credit pass-through eligibility</li>
-                  <li>• Double Tax Avoidance Agreement (DTAA Article 10/11) withholding validity</li>
+                  <li>• Taxes deducted on Indian shares and fixed deposits</li>
+                  <li>• Direct bank and mutual fund income records</li>
+                  <li>• Dollar-for-dollar foreign tax credits on your US return</li>
+                  <li>• Special 15% treaty tax rate applied instead of 30%</li>
                 </ul>
               </div>
 
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="p-3 rounded-xl border border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-white/[0.02]">
                   <span className="block text-[10px] uppercase font-bold text-slate-400">Records Scanned</span>
-                  <span className="font-extrabold text-base text-[#0D2266] dark:text-white">124 Line Items</span>
+                  <span className="font-extrabold text-base text-[#0D2266] dark:text-white">124 Items</span>
                 </div>
                 <div className="p-3 rounded-xl border border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-white/[0.02]">
-                  <span className="block text-[10px] uppercase font-bold text-slate-400">Jurisdictions</span>
-                  <span className="font-extrabold text-base text-[#0D2266] dark:text-white">US IRS + India ITD</span>
+                  <span className="block text-[10px] uppercase font-bold text-slate-400">Countries Covered</span>
+                  <span className="font-extrabold text-base text-[#0D2266] dark:text-white">US & India</span>
                 </div>
                 <div className="p-3 rounded-xl border border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-white/[0.02]">
-                  <span className="block text-[10px] uppercase font-bold text-slate-400">Audit Grade</span>
-                  <span className="font-extrabold text-base text-[#16A34A]">Institutional (AAA)</span>
+                  <span className="block text-[10px] uppercase font-bold text-slate-400">Accuracy Score</span>
+                  <span className="font-extrabold text-base text-[#16A34A]">100% Matched</span>
                 </div>
               </div>
 
@@ -103,7 +103,7 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
                 className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] py-3 text-xs font-bold text-white shadow-sm transition-colors"
               >
                 <BrainCircuit className="h-4 w-4" />
-                <span>Execute Sovereign AI Tax Reconciliation</span>
+                <span>Run Sovereign AI Tax & Credit Check</span>
               </button>
             </div>
           )}
@@ -116,10 +116,10 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
               </div>
               <div>
                 <h4 className="font-bold text-sm text-[#0D2266] dark:text-white">
-                  Executing Cross-Border Tax Audit
+                  Checking Tax Statements & Credits
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Reconciling Form 26AS TAN entries against Demat dividend vouchers & IRS Schedule B
+                  Reconciling bank records with foreign tax credit calculations...
                 </p>
               </div>
               <div className="w-64 mx-auto h-1.5 bg-slate-100 dark:bg-white/[0.06] rounded-full overflow-hidden">
@@ -133,38 +133,38 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
               <div className="rounded-xl border border-emerald-200 dark:border-emerald-950/50 bg-[#DCFCE7]/50 dark:bg-emerald-950/20 p-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#16A34A] dark:text-emerald-300">
                   <CheckCircle2 className="h-4 w-4" />
-                  Audit Verification Complete: Zero Compliance Exposure
+                  All Records Matched: Zero Tax Discrepancies
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
-                  Form 26AS matches 100% with bank inward remittances. All ₹1,42,000 TDS deducted is eligible for dollar-for-dollar Foreign Tax Credit under US-India DTAA Article 10.
+                  Everything matches your bank deposits. You can claim the full ₹1,42,000 ($1,710 USD) as a credit on your US tax return.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                  Audit Findings Summary
+                  Summary of Findings
                 </span>
                 <div className="divide-y divide-slate-100 dark:divide-white/[0.06] rounded-xl border border-slate-200 dark:border-white/[0.08] text-xs">
                   <div className="p-3 flex items-center justify-between">
                     <div>
-                      <span className="font-bold text-[#0D2266] dark:text-white block">Form 26AS vs AIS Variance</span>
-                      <span className="text-[11px] text-slate-500">3 corporate dividend line items checked</span>
+                      <span className="font-bold text-[#0D2266] dark:text-white block">Indian Statement Match</span>
+                      <span className="text-[11px] text-slate-500">All dividend and interest entries verified</span>
                     </div>
                     <span className="font-bold text-emerald-600">₹0 Mismatch</span>
                   </div>
                   <div className="p-3 flex items-center justify-between">
                     <div>
-                      <span className="font-bold text-[#0D2266] dark:text-white block">IRS Form 1116 Credit Claimable</span>
-                      <span className="text-[11px] text-slate-500">Foreign passive category income</span>
+                      <span className="font-bold text-[#0D2266] dark:text-white block">US Tax Credit Claimable</span>
+                      <span className="text-[11px] text-slate-500">Foreign passive income category</span>
                     </div>
                     <span className="font-bold text-[#3451D1]">₹1,42,000 ($1,710 USD)</span>
                   </div>
                   <div className="p-3 flex items-center justify-between">
                     <div>
-                      <span className="font-bold text-[#0D2266] dark:text-white block">Section 197 Lower TDS Scope</span>
-                      <span className="text-[11px] text-slate-500">Potential reduction for FY2026</span>
+                      <span className="font-bold text-[#0D2266] dark:text-white block">Advance Lower Tax Certificate</span>
+                      <span className="text-[11px] text-slate-500">Eligible to reduce advance tax</span>
                     </div>
-                    <span className="font-bold text-[#16A34A]">Eligible for 0% Certificate</span>
+                    <span className="font-bold text-[#16A34A]">Eligible</span>
                   </div>
                 </div>
               </div>
@@ -173,18 +173,18 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
                 <button
                   onClick={() => {
                     onClose();
-                    openAiCopilot("Analyze DTAA Article 10 dividend withholding rates for my Indian demat portfolio vs US IRS taxation.");
+                    openAiCopilot("Explain how my Indian taxes give me foreign tax credits on my US return, and verify my 15% treaty rate.");
                   }}
                   className="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-[#3451D1] bg-[#EEF2FF] dark:bg-blue-950/40 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#3451D1] hover:text-white transition-all"
                 >
                   <BrainCircuit className="h-3.5 w-3.5" />
-                  <span>Discuss Findings in Sovereign AI</span>
+                  <span>Discuss with Sovereign AI</span>
                 </button>
                 <button
                   onClick={onClose}
                   className="rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-5 py-2.5 text-xs font-bold hover:opacity-90 transition-all"
                 >
-                  Close Audit
+                  Close
                 </button>
               </div>
             </div>

@@ -28,25 +28,22 @@ export const BladeCard: React.FC<BladeCardProps> = ({
   if (variant === "glass") {
     // 5. GLASS CARD (landing page hero only)
     variantClasses =
-      "bg-white/5 backdrop-blur-md border border-white/10 p-6 min-h-[120px] rounded-2xl";
+      "bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 p-6 min-h-[120px] rounded-2xl";
   } else if (variant === "stat") {
     // 4. STAT / KPI CARD (net worth, health score, module summary)
-    // Larger padding: 28px 24px (py-7 px-6)
     variantClasses =
-      "rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] px-6 py-7 min-h-[120px] shadow-[0px_2px_8px_rgba(0,0,0,0.06),0px_0px_1px_rgba(0,0,0,0.04)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32),0px_0px_1px_rgba(0,0,0,0.24)] transition-all duration-200";
+      "rounded-2xl border border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] px-6 py-6 min-h-[120px] shadow-[0px_2px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32)] hover:border-slate-300/80 dark:hover:border-white/[0.14] hover:shadow-[0px_8px_20px_rgba(13,34,102,0.06)] hover:-translate-y-0.5 transition-all duration-300";
   } else if (variant === "highlighted") {
-    // Clean Blade specification: No tinted backgrounds, no thick left border accents.
     variantClasses =
-      "rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] px-6 py-5 min-h-[120px] shadow-[0px_2px_8px_rgba(0,0,0,0.06),0px_0px_1px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_24px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all duration-200 ease-out";
+      "rounded-2xl border border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] px-6 py-5 min-h-[120px] shadow-[0px_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0px_8px_24px_rgba(13,34,102,0.08)] hover:-translate-y-0.5 transition-all duration-300 ease-out";
   } else if (variant === "interactive") {
     // 2. INTERACTIVE CARD (clickable modules on dashboard)
-    // full hover state: shadow lifts, border brightens, translateY(-2px) on hover
     variantClasses =
-      "rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-6 min-h-[120px] shadow-[0px_2px_8px_rgba(0,0,0,0.06),0px_0px_1px_rgba(0,0,0,0.04)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32),0px_0px_1px_rgba(0,0,0,0.24)] hover:shadow-[0px_8px_24px_rgba(0,0,0,0.12),0px_0px_1px_rgba(0,0,0,0.06)] dark:hover:shadow-[0px_8px_24px_rgba(0,0,0,0.48),0px_0px_1px_rgba(0,0,0,0.24)] hover:border-slate-300 dark:hover:border-white/[0.14] hover:-translate-y-0.5 cursor-pointer transition-all duration-200 ease-out";
+      "rounded-2xl border border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-6 min-h-[120px] shadow-[0px_2px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32)] hover:shadow-[0px_10px_25px_rgba(13,34,102,0.08)] dark:hover:shadow-[0px_8px_24px_rgba(0,0,0,0.48)] hover:border-[#3451D1]/40 dark:hover:border-white/[0.16] hover:-translate-y-1 cursor-pointer transition-all duration-300 ease-out";
   } else {
     // 1. DEFAULT CARD (read-only info)
     variantClasses =
-      "rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-6 min-h-[120px] shadow-[0px_2px_8px_rgba(0,0,0,0.06),0px_0px_1px_rgba(0,0,0,0.04)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32),0px_0px_1px_rgba(0,0,0,0.24)] transition-all duration-200";
+      "rounded-2xl border border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-6 min-h-[120px] shadow-[0px_2px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32)] transition-all duration-200";
   }
 
   return (

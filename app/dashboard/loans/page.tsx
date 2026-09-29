@@ -42,17 +42,17 @@ export default function LoansPage() {
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Track NRI Home Loans, EMI debit schedules, and mortgage liabilities against Indian assets.
+            Track your Indian home loans, monthly EMI schedules, and property mortgages in one place.
           </p>
         </div>
 
         <div className="flex items-center gap-2.5">
           <button
-            onClick={() => alert("Downloading consolidated Loan Interest Certificate (Section 24b / 80C)")}
+            onClick={() => alert("Downloading consolidated Home Loan Interest Certificate")}
             className="flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-slate-400 transition shadow-sm"
           >
             <Download className="h-3.5 w-3.5 text-[#3451D1]" />
-            <span>Interest Certificate (Sec 24b)</span>
+            <span>Download Tax Certificate</span>
           </button>
         </div>
       </div>
@@ -65,15 +65,15 @@ export default function LoansPage() {
           </div>
           <div>
             <span className="font-bold text-xs text-[#0D2266] block">
-              Liability Command Center (Roadmap Feature)
+              Loan Management Feature (Coming Soon)
             </span>
             <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-              Automated Account Aggregator integration for Indian home loans, loan against mutual funds (LAMF), and EMI autopay debit synchronization with your NRE accounts.
+              Soon you will be able to link your Indian home loans directly, view automatic payment schedules, and set up autopay from your bank.
             </p>
           </div>
         </div>
         <span className="self-start sm:self-center shrink-0 text-[10px] font-bold uppercase tracking-wider bg-white border border-blue-200 text-[#3451D1] px-2.5 py-1 rounded-md">
-          Planned for Q4
+          Coming Soon
         </span>
       </div>
 
@@ -85,17 +85,17 @@ export default function LoansPage() {
           value={currency === "INR" ? formatINR(totalLoansINR) : formatUSD(totalLoansINR)}
           subtitle={
             activeLoans.length > 0
-              ? `${activeLoans.length} active loan facility`
+              ? `${activeLoans.length} active loan`
               : "No active borrowings"
           }
-          trend={{ direction: "down", text: "Principal reducing" }}
+          trend={{ direction: "down", text: "Balance reducing" }}
         />
 
         {/* Monthly EMI Outflow */}
         <BladeStatCard
-          label="Monthly EMI Commitment"
+          label="Monthly EMI Payment"
           value={currency === "INR" ? `${formatINR(totalMonthlyEmiINR)} / mo` : `${formatUSD(totalMonthlyEmiINR)} / mo`}
-          subtitle="Auto-debited from NRE account"
+          subtitle="Auto-debited from your bank"
           trend={{ direction: "down", text: "Due on 5th of each month" }}
         />
 
@@ -124,7 +124,7 @@ export default function LoansPage() {
           <div>
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-                Sec 24(b) Tax Deduction
+                Home Loan Tax Deduction
               </span>
               <StatusBadge status="active" label="Eligible" />
             </div>
@@ -133,7 +133,7 @@ export default function LoansPage() {
             </div>
           </div>
           <div className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500">
-            Max interest deduction on Indian ITR-2
+            Deduct up to ₹2L interest on Indian taxes
           </div>
         </BladeCard>
       </div>
