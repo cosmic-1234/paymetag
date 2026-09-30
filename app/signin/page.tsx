@@ -10,10 +10,6 @@ import {
   ShieldCheck,
   Loader2,
   KeyRound,
-  Landmark,
-  Building2,
-  TrendingUp,
-  FileCheck2,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { DEMO_USERS } from "@/lib/mockData";
@@ -181,68 +177,15 @@ export default function SignInPage() {
             </div>
           </div>
 
-          {/* Right Clean Institutional Feature Panel (Simple, Perfect, No 3D, No Numbers) */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#001535] to-[#042038] p-8 md:p-10 text-white flex flex-col justify-between">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#336765]/20 border border-[#336765]/40 px-3 py-1 text-xs font-semibold text-[#66C3BF]">
-                <ShieldCheck className="h-4 w-4 text-[#66C3BF]" />
-                <span>RBI Account Aggregator Framework</span>
-              </div>
-
-              <h3 className="mt-4 text-xl font-bold text-white leading-snug">
-                One Clean Portal for All Your Indian Assets
-              </h3>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
-                Connect your Indian bank accounts, land registries, mutual funds, and tax filings in direct view-only mode.
-              </p>
-            </div>
-
-            {/* Feature Highlights (No numbers) */}
-            <div className="my-6 space-y-3">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.05] border border-white/[0.08]">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#336765]/30 text-[#66C3BF]">
-                  <Landmark className="h-4 w-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">NRE / NRO Bank Accounts</div>
-                  <div className="text-[11px] text-slate-300">Centralized balances, fixed deposits & periodic Re-KYC</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.05] border border-white/[0.08]">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#336765]/30 text-[#66C3BF]">
-                  <TrendingUp className="h-4 w-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Mutual Funds & Demat Stocks</div>
-                  <div className="text-[11px] text-slate-300">Automated portfolio consolidation via CAMS & CDSL</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.05] border border-white/[0.08]">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#336765]/30 text-[#66C3BF]">
-                  <Building2 className="h-4 w-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Properties & Land Registries</div>
-                  <div className="text-[11px] text-slate-300">Official title tracking and municipal tax verification</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.05] border border-white/[0.08]">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#336765]/30 text-[#66C3BF]">
-                  <FileCheck2 className="h-4 w-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Tax & Compliance Tracking</div>
-                  <div className="text-[11px] text-slate-300">Annual tax summaries, capital gains, and foreign disclosure readiness</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-              <span>Strictly Read-Only Access</span>
-              <span className="text-[#66C3BF] font-semibold">Zero Transaction Authority</span>
+          {/* Right Panel - Logo Only */}
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#001535] to-[#042038] p-8 md:p-12 flex flex-col items-center justify-center relative overflow-hidden min-h-[300px] lg:min-h-full">
+            <div className="relative flex flex-col items-center justify-center">
+              <div className="absolute -inset-6 rounded-full bg-[#336765]/25 blur-2xl pointer-events-none" />
+              <img
+                src="/deshboard-logo-dark.png"
+                alt="DeshBoard"
+                className="relative w-64 max-w-full h-auto object-contain"
+              />
             </div>
           </div>
         </div>
