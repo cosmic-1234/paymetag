@@ -149,9 +149,9 @@ function OnboardContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0A0E17] text-slate-900 dark:text-slate-100 flex flex-col justify-between font-sans">
+    <div className="min-h-screen bg-[#F4F7F8] text-slate-900 flex flex-col justify-between font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-6 md:px-12 shadow-[0px_1px_4px_rgba(0,0,0,0.04)]">
+      <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between border-b border-[#E2EBEA] bg-white px-6 md:px-12 shadow-[0px_1px_4px_rgba(0,0,0,0.04)]">
         <Link href="/" className="flex items-center group cursor-pointer select-none">
           <img
             src="/deshboard-logo.png"
@@ -161,7 +161,7 @@ function OnboardContent() {
         </Link>
 
         {/* Security Badge */}
-        <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
+        <div className="flex items-center gap-1.5 rounded-full border border-[#336765]/20 bg-[#EEF5F4] px-3 py-1 text-[11px] font-bold text-[#336765]">
           <ShieldCheck className="h-3.5 w-3.5" />
           <span>Bank-Grade 256-Bit Security</span>
         </div>
@@ -171,7 +171,7 @@ function OnboardContent() {
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 md:py-10">
         <div className="w-full max-w-xl">
           {/* Simple 4-Step Stepper */}
-          <div className="mb-6 rounded-2xl border border-slate-200 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] px-4 py-3.5 sm:px-6 shadow-xs">
+          <div className="mb-6 rounded-2xl border border-[#E2EBEA] bg-white px-4 py-3.5 sm:px-6 shadow-xs">
             <div className="flex items-center justify-between">
               {steps.map((s, idx) => {
                 const isPassed = s.num < step;
@@ -182,10 +182,10 @@ function OnboardContent() {
                       <div
                         className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold transition-all ${
                           isPassed
-                            ? "bg-[#10B981] text-white"
+                            ? "bg-[#336765] text-white"
                             : isCurrent
-                            ? "bg-[#336765] text-white shadow-[0_0_0_4px_#EEF5F4] dark:shadow-[0_0_0_4px_rgba(52,81,209,0.25)]"
-                            : "border border-slate-300 dark:border-white/20 bg-white dark:bg-white/[0.04] text-slate-400"
+                            ? "bg-[#336765] text-white shadow-[0_0_0_4px_#EEF5F4]"
+                            : "border border-slate-300 bg-white text-slate-400"
                         }`}
                       >
                         {isPassed ? <Check className="h-3.5 w-3.5 stroke-[3]" /> : s.num}
@@ -193,9 +193,9 @@ function OnboardContent() {
                       <span
                         className={`mt-1.5 text-[11px] text-center leading-tight ${
                           isCurrent
-                            ? "font-bold text-[#001535] dark:text-white"
+                            ? "font-bold text-[#001535]"
                             : isPassed
-                            ? "font-semibold text-emerald-600 dark:text-emerald-400"
+                            ? "font-semibold text-[#336765]"
                             : "font-medium text-slate-400"
                         }`}
                       >
@@ -205,7 +205,7 @@ function OnboardContent() {
                     {idx < 3 && (
                       <div
                         className={`h-[2px] flex-1 mx-2 sm:mx-3 transition-colors ${
-                          s.num < step ? "bg-[#10B981]" : "bg-slate-200 dark:bg-white/[0.08]"
+                          s.num < step ? "bg-[#336765]" : "bg-slate-200"
                         }`}
                       />
                     )}
@@ -216,18 +216,18 @@ function OnboardContent() {
           </div>
 
           {/* Form Card */}
-          <BladeCard variant="default" className="p-6 sm:p-8 bg-white dark:bg-[#1A1F2E] shadow-sm relative">
+          <BladeCard variant="default" className="p-6 sm:p-8 bg-white border border-[#E2EBEA] shadow-sm relative">
             {/* STEP 1: Country */}
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] uppercase tracking-wider">
                     Step 1 of 4
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535]">
                     Where do you currently live?
                   </h2>
-                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs text-slate-500">
                     We customize your taxes, currencies, and money transfer limits based on where you reside.
                   </p>
                 </div>
@@ -242,8 +242,8 @@ function OnboardContent() {
                         onClick={() => setSelectedCountry(c.code)}
                         className={`w-full flex items-center justify-between p-4 rounded-xl border text-left transition-all cursor-pointer ${
                           isSelected
-                            ? "border-[#336765] bg-[#EEF5F4]/50 dark:bg-blue-950/20 ring-1 ring-[#336765]"
-                            : "border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20"
+                            ? "border-[#336765] bg-[#EEF5F4]/60 ring-1 ring-[#336765]"
+                            : "border-slate-200 hover:border-slate-300"
                         }`}
                       >
                         <div className="flex items-center gap-3.5">
@@ -298,20 +298,20 @@ function OnboardContent() {
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] uppercase tracking-wider">
                     Step 2 of 4
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535]">
                     Enter your Indian PAN Number
                   </h2>
-                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs text-slate-500">
                     Your PAN allows us to find your Indian bank accounts, property records, and mutual funds.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       10-Digit PAN Number
                     </label>
                     <div className="relative">
@@ -323,7 +323,7 @@ function OnboardContent() {
                         onChange={(e) => setPan(e.target.value.toUpperCase())}
                         disabled={isPanQuerying || panVerified}
                         placeholder="ABCPM1234D"
-                        className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.04] pl-10 pr-4 font-bold tracking-widest text-sm text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none uppercase"
+                        className="w-full h-11 rounded-xl border border-slate-300 bg-slate-50/60 pl-10 pr-4 font-bold tracking-widest text-sm text-[#001535] focus:border-[#336765] focus:ring-2 focus:ring-[#336765]/20 focus:bg-white focus:outline-none uppercase"
                       />
                     </div>
                   </div>
@@ -397,20 +397,20 @@ function OnboardContent() {
             {step === 3 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] uppercase tracking-wider">
                     Step 3 of 4
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535]">
                     Confirm your Identity
                   </h2>
-                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs text-slate-500">
                     We&apos;ll send a 6-digit confirmation code to your phone to confirm your Indian address.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       Aadhaar Number
                     </label>
                     <input
@@ -418,7 +418,7 @@ function OnboardContent() {
                       value={aadhaarNumber}
                       onChange={(e) => setAadhaarNumber(e.target.value)}
                       disabled={otpSent || aadhaarVerified}
-                      className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.04] px-4 font-bold tracking-wider text-sm text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none"
+                      className="w-full h-11 rounded-xl border border-slate-300 bg-slate-50/60 px-4 font-bold tracking-wider text-sm text-[#001535] focus:border-[#336765] focus:ring-2 focus:ring-[#336765]/20 focus:bg-white focus:outline-none"
                     />
                   </div>
 
@@ -437,7 +437,7 @@ function OnboardContent() {
                   {otpSent && !aadhaarVerified && (
                     <div className="space-y-3 pt-2">
                       <div className="flex items-center justify-between">
-                        <label className="block text-xs font-bold text-[#001535] dark:text-white">
+                        <label className="block text-xs font-bold text-[#001535]">
                           Enter 6-Digit Code
                         </label>
                         <span className="text-[11px] text-slate-400">Sent to ••••••4521</span>
@@ -450,7 +450,7 @@ function OnboardContent() {
                         onChange={(e) => setOtpCode(e.target.value)}
                         placeholder="452109"
                         disabled={isOtpVerifying}
-                        className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-white px-4 font-bold tracking-widest text-center text-lg text-[#001535] focus:border-[#336765] focus:outline-none"
+                        className="w-full h-11 rounded-xl border border-slate-300 bg-white px-4 font-bold tracking-widest text-center text-lg text-[#001535] focus:border-[#336765] focus:ring-2 focus:ring-[#336765]/20 focus:outline-none"
                       />
 
                       <div className="flex items-center justify-between text-xs text-slate-400">
@@ -519,13 +519,13 @@ function OnboardContent() {
             {step === 4 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] uppercase tracking-wider">
                     Step 4 of 4 &bull; Consent
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535]">
                     Authorize Account Discovery
                   </h2>
-                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs text-slate-500">
                     We use RBI-regulated Account Aggregator technology to retrieve your Indian balances and property records in secure, read-only mode.
                   </p>
                 </div>
