@@ -1,22 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Fingerprint,
   CheckCircle2,
   AlertTriangle,
   Clock,
-  Video,
+  ExternalLink,
   Check,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
-import { VideoKycModal } from "@/components/dashboard/Modals/VideoKycModal";
 import { BladeCard, BladeStatCard } from "@/components/ui/BladeCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
+const BANK_KYC_URLS: Record<string, string> = {
+  "State Bank of India": "https://sbi.co.in/web/nri/quick-banking/re-kyc",
+  "Axis Bank Ltd": "https://www.axisbank.com/nri/services/re-kyc",
+  "LIC of India": "https://licindia.in/web/guest/customer-portal",
+  "HDFC Bank Ltd": "https://www.hdfcbank.com/personal/useful-links/re-kyc",
+  "Kotak Mahindra Bank": "https://www.kotak.com/en/personal-banking/nri-banking/re-kyc.html",
+  "Bank of Baroda": "https://www.bankofbaroda.in/personal-banking/nri-banking/services/re-kyc",
+  "ICICI Bank": "https://www.icicibank.com/nri-banking/nri-services/re-kyc",
+  "CAMS (Mutual Funds)": "https://www.camsonline.com/Investors/Service-requests/KYC",
+  "CDSL (Zerodha Broking)": "https://zerodha.com/re-kyc",
+};
+
+function getBankKycUrl(institution: string): string {
+  for (const [key, url] of Object.entries(BANK_KYC_URLS)) {
+    if (
+      institution.toLowerCase().includes(key.toLowerCase()) ||
+      key.toLowerCase().includes(institution.toLowerCase())
+    ) {
+      return url;
+    }
+  }
+  return "https://www.cvlkra.com/";
+}
+
 export default function KycPage() {
   const { kycList, activeUser } = useApp();
-  const [selectedInstitution, setSelectedInstitution] = useState<string | null>(null);
 
   const verifiedCount = kycList.filter((k) => k.ckycStatus === "verified").length;
   const issuesCount = kycList.length - verifiedCount;
@@ -29,7 +51,7 @@ export default function KycPage() {
             Identity & Bank KYC Check
           </h1>
           <p className="text-xs text-slate-500">
-            Check which banks have verified your identity and renew overdue accounts with a quick 2-minute video call
+            Check which banks have verified your identity and renew overdue accounts directly on your bank&apos;s official KYC portal
           </p>
         </div>
       </div>
@@ -85,7 +107,7 @@ export default function KycPage() {
                 <span className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
                   Action Required
                 </span>
-                <StatusBadge status="critical" label="1 Video Call" />
+                <StatusBadge status="critical" label={`${issuesCount} Renewal${issuesCount > 1 ? "s" : ""} Due`} />
               </div>
               <div className="mt-2 text-[32px] font-extrabold text-[#001535] leading-tight font-sans">
                 {issuesCount} Bank
@@ -141,13 +163,15 @@ export default function KycPage() {
                   </td>
                   <td className="px-5 py-4 text-right">
                     {k.ckycStatus !== "verified" ? (
-                      <button
-                        onClick={() => setSelectedInstitution(k.institution)}
-                        className="inline-flex items-center gap-1 rounded-xl bg-[#336765] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#234947] transition shadow-sm ml-auto cursor-pointer"
+                      <a
+                        href={getBankKycUrl(k.institution)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-xl bg-[#336765] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#234947] transition shadow-sm ml-auto cursor-pointer"
                       >
-                        <Video className="h-3.5 w-3.5" />
-                        <span>Start Video Call</span>
-                      </button>
+                        <span>Go to Bank KYC</span>
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
                     ) : (
                       <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 inline-flex items-center gap-1">
                         <Check className="h-3.5 w-3.5" />
@@ -161,12 +185,6 @@ export default function KycPage() {
           </table>
         </div>
       </BladeCard>
-
-      <VideoKycModal
-        isOpen={!!selectedInstitution}
-        onClose={() => setSelectedInstitution(null)}
-        institutionName={selectedInstitution || undefined}
-      />
     </div>
   );
 }

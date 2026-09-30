@@ -12,12 +12,9 @@ import {
   Loader2,
   Smartphone,
   ChevronLeft,
-  Building2,
-  Sparkles,
 } from "lucide-react";
 import { BladeCard } from "@/components/ui/BladeCard";
 import { BladeButton } from "@/components/ui/BladeButton";
-import { formatINR } from "@/lib/formatters";
 import { useApp } from "@/lib/store";
 import { DEMO_USERS } from "@/lib/mockData";
 
@@ -26,8 +23,8 @@ function OnboardContent() {
   const searchParams = useSearchParams();
   const { setActiveUser } = useApp();
 
-  // Simple 5-step flow
-  const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
+  // Simple 4-step flow
+  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
 
   // Step 1: Country
   const initialCountry = searchParams.get("country") || "USA";
@@ -49,11 +46,9 @@ function OnboardContent() {
   const [aadhaarVerified, setAadhaarVerified] = useState(false);
   const [otpCountdown, setOtpCountdown] = useState(30);
 
-  // Step 4: Asset Discovery
-  const [isDiscovering, setIsDiscovering] = useState(false);
-  const [discoveredCount, setDiscoveredCount] = useState(0);
-
-  // Step 5: Activation
+  // Step 4: Consent & Completion
+  const [consentAgreed, setConsentAgreed] = useState(false);
+  const [readOnlyAcknowledged, setReadOnlyAcknowledged] = useState(true);
   const [isActivating, setIsActivating] = useState(false);
 
   // Countries
@@ -83,21 +78,6 @@ function OnboardContent() {
     "Checking official tax records...",
     "Confirming your identity details...",
     "Finding your linked Indian accounts...",
-  ];
-
-  // Asset items discovered
-  const assetNodes = [
-    { name: "HDFC Bank (NRE Savings)", detail: "Account ending 1034", amount: 1240000 },
-    { name: "State Bank of India (NRO Savings)", detail: "Account ending 4812", amount: 320000 },
-    { name: "Axis Bank (Fixed Deposit)", detail: "Matures Jan 2027", amount: 2500000 },
-    { name: "ICICI Bank (USD Deposit)", detail: "$18,000 USD Deposit", amount: 1500300 },
-    { name: "Kotak Mahindra Bank (NRE)", detail: "Account ending 9401", amount: 860000 },
-    { name: "Indian Shares (CDSL Demat)", detail: "Reliance, Infosys, Tata & HDFC", amount: 826600 },
-    { name: "Mutual Funds (CAMS)", detail: "3 Active Funds", amount: 1670000 },
-    { name: "Mumbai Apartment (Oberoi Woods)", detail: "Flat 4B, Goregaon East", amount: 11200000 },
-    { name: "Nagpur Farmland", detail: "2.4 Acres, Kalmeshwar", amount: 3500000 },
-    { name: "Unclaimed Dividends (Infosys)", detail: "Ready to claim", amount: 18400 },
-    { name: "Old Bank of Baroda Account", detail: "Ready to reactivate", amount: 44000 },
   ];
 
   // Countdown timer for OTP
@@ -144,19 +124,6 @@ function OnboardContent() {
   };
 
   // Handle Asset Discovery
-  const handleStartDiscovery = () => {
-    setIsDiscovering(true);
-    let count = 0;
-    const interval = setInterval(() => {
-      count += 1;
-      setDiscoveredCount(count);
-      if (count >= assetNodes.length) {
-        clearInterval(interval);
-        setIsDiscovering(false);
-      }
-    }, 180);
-  };
-
   // Finish Onboarding
   const handleCompleteActivation = () => {
     setIsActivating(true);
@@ -178,8 +145,7 @@ function OnboardContent() {
     { num: 1, title: "Country" },
     { num: 2, title: "PAN" },
     { num: 3, title: "Verify" },
-    { num: 4, title: "Accounts" },
-    { num: 5, title: "Ready" },
+    { num: 4, title: "Consent" },
   ];
 
   return (
@@ -204,7 +170,7 @@ function OnboardContent() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 md:py-10">
         <div className="w-full max-w-xl">
-          {/* Simple 5-Step Stepper */}
+          {/* Simple 4-Step Stepper */}
           <div className="mb-6 rounded-2xl border border-slate-200 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] px-4 py-3.5 sm:px-6 shadow-xs">
             <div className="flex items-center justify-between">
               {steps.map((s, idx) => {
@@ -236,7 +202,7 @@ function OnboardContent() {
                         {s.title}
                       </span>
                     </div>
-                    {idx < 4 && (
+                    {idx < 3 && (
                       <div
                         className={`h-[2px] flex-1 mx-2 sm:mx-3 transition-colors ${
                           s.num < step ? "bg-[#10B981]" : "bg-slate-200 dark:bg-white/[0.08]"
@@ -256,7 +222,7 @@ function OnboardContent() {
               <div className="space-y-6">
                 <div>
                   <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
-                    Step 1 of 5
+                    Step 1 of 4
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Where do you currently live?
@@ -333,7 +299,7 @@ function OnboardContent() {
               <div className="space-y-6">
                 <div>
                   <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
-                    Step 2 of 5
+                    Step 2 of 4
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Enter your Indian PAN Number
@@ -432,7 +398,7 @@ function OnboardContent() {
               <div className="space-y-6">
                 <div>
                   <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
-                    Step 3 of 5
+                    Step 3 of 4
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Confirm your Identity
@@ -549,93 +515,79 @@ function OnboardContent() {
               </div>
             )}
 
-            {/* STEP 4: Asset Discovery */}
+            {/* STEP 4: Consent & Authorization */}
             {step === 4 && (
               <div className="space-y-6">
                 <div>
                   <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
-                    Step 4 of 5
+                    Step 4 of 4 &bull; Consent
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
-                    Finding your Indian Accounts & Assets
+                    Authorize Account Discovery
                   </h2>
                   <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                    We automatically organize your bank accounts, properties, mutual funds, and lost money.
+                    We use RBI-regulated Account Aggregator technology to retrieve your Indian balances and property records in secure, read-only mode.
                   </p>
                 </div>
 
-                {discoveredCount === 0 && (
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 text-center space-y-4">
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EEF5F4] text-[#336765]">
-                      <Building2 className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-[#001535]">
-                        Ready to connect your Indian accounts
-                      </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">
-                        We will securely retrieve your bank balances, mutual funds, and property records.
-                      </p>
-                    </div>
-                    <BladeButton
-                      variant="primary"
-                      size="md"
-                      onClick={handleStartDiscovery}
-                    >
-                      Find My Indian Accounts
-                    </BladeButton>
+                {/* Profile Summary Card */}
+                <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5 text-xs">
+                  <div className="flex justify-between items-center border-b border-slate-200/80 pb-2">
+                    <span className="text-slate-500">Account Holder:</span>
+                    <span className="font-bold text-[#001535]">Brijal Patel</span>
                   </div>
-                )}
+                  <div className="flex justify-between items-center border-b border-slate-200/80 pb-2">
+                    <span className="text-slate-500">Verified PAN:</span>
+                    <span className="font-mono font-bold text-[#001535]">{pan}</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-slate-200/80 pb-2">
+                    <span className="text-slate-500">Current Residence:</span>
+                    <span className="font-bold text-[#001535]">
+                      {countries.find((c) => c.code === selectedCountry)?.name}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-0.5">
+                    <span className="text-slate-500">Protection Level:</span>
+                    <span className="font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
+                      100% Read-Only (Zero Transaction Authority)
+                    </span>
+                  </div>
+                </div>
 
-                {discoveredCount > 0 && (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-[#001535]">
-                        Connected Accounts: {discoveredCount} of {assetNodes.length}
+                {/* Consent Checkboxes */}
+                <div className="space-y-3 pt-1">
+                  <label className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-[#336765]/40 bg-white cursor-pointer transition-colors">
+                    <input
+                      type="checkbox"
+                      checked={consentAgreed}
+                      onChange={(e) => setConsentAgreed(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#336765] focus:ring-[#336765]/20 cursor-pointer accent-[#336765]"
+                    />
+                    <div className="text-xs text-slate-700 leading-relaxed">
+                      <span className="font-bold text-[#001535] block">
+                        I authorize DeshBoard to fetch my financial records
                       </span>
-                      {isDiscovering && (
-                        <span className="flex items-center gap-1.5 text-xs text-[#336765] font-semibold">
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                          <span>Searching records...</span>
-                        </span>
-                      )}
+                      I give my explicit consent to securely connect my Indian bank accounts, fixed deposits, mutual funds, demat shares, and registered properties linked to PAN <strong className="font-mono">{pan}</strong> via RBI-approved Account Aggregator framework.
                     </div>
+                  </label>
 
-                    <div className="max-h-60 overflow-y-auto space-y-2 rounded-xl border border-slate-200 p-2 bg-slate-50/50">
-                      {assetNodes.slice(0, discoveredCount).map((node, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between p-2.5 rounded-lg border border-slate-200 bg-white text-xs"
-                        >
-                          <div>
-                            <div className="font-bold text-[#001535]">{node.name}</div>
-                            <div className="text-[11px] text-slate-500">{node.detail}</div>
-                          </div>
-                          <div className="font-bold font-mono text-[#001535]">
-                            {formatINR(node.amount)}
-                          </div>
-                        </div>
-                      ))}
+                  <label className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-[#336765]/40 bg-white cursor-pointer transition-colors">
+                    <input
+                      type="checkbox"
+                      checked={readOnlyAcknowledged}
+                      onChange={(e) => setReadOnlyAcknowledged(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#336765] focus:ring-[#336765]/20 cursor-pointer accent-[#336765]"
+                    />
+                    <div className="text-xs text-slate-700 leading-relaxed">
+                      <span className="font-bold text-[#001535] block">
+                        I acknowledge this access is strictly read-only
+                      </span>
+                      I understand that DeshBoard cannot withdraw funds, execute trades, transfer money, or make changes to any of my Indian accounts.
                     </div>
+                  </label>
+                </div>
 
-                    {!isDiscovering && discoveredCount === assetNodes.length && (
-                      <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 flex items-center justify-between">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 block">
-                            Total Indian Wealth Discovered
-                          </span>
-                          <span className="text-2xl font-extrabold text-[#001535]">
-                            ₹1,84,73,500
-                          </span>
-                        </div>
-                        <span className="rounded-md bg-emerald-600 text-white px-2.5 py-1 text-xs font-bold">
-                          11 Accounts Linked
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                )}
-
+                {/* Navigation Buttons */}
                 <div className="flex items-center justify-between pt-2">
                   <BladeButton
                     variant="secondary"
@@ -649,70 +601,15 @@ function OnboardContent() {
                   <BladeButton
                     variant="primary"
                     size="md"
-                    onClick={() => setStep(5)}
-                    disabled={isDiscovering || discoveredCount < assetNodes.length}
+                    onClick={handleCompleteActivation}
+                    disabled={!consentAgreed || !readOnlyAcknowledged || isActivating}
+                    isLoading={isActivating}
                     icon={<ArrowRight className="h-4 w-4" />}
                     iconPosition="right"
                   >
-                    Continue to Final Step
+                    Agree & Open Dashboard
                   </BladeButton>
                 </div>
-              </div>
-            )}
-
-            {/* STEP 5: Ready / Completion */}
-            {step === 5 && (
-              <div className="space-y-6 text-center py-2">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600">
-                  <Sparkles className="h-7 w-7" />
-                </div>
-
-                <div>
-                  <span className="rounded-md bg-emerald-50 text-emerald-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider">
-                    Step 5 of 5 &bull; All Set!
-                  </span>
-                  <h2 className="mt-2 text-2xl font-bold text-[#001535]">
-                    Your Account is Ready!
-                  </h2>
-                  <p className="mt-1 text-xs text-slate-500 max-w-sm mx-auto">
-                    Your Indian bank accounts, properties, and family assets are now all in one place.
-                  </p>
-                </div>
-
-                {/* Clean summary */}
-                <div className="text-left rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2.5 text-xs">
-                  <div className="flex justify-between border-b border-slate-200 pb-2">
-                    <span className="text-slate-500">Account Name:</span>
-                    <span className="font-bold text-[#001535]">Brijal Patel</span>
-                  </div>
-                  <div className="flex justify-between border-b border-slate-200 pb-2">
-                    <span className="text-slate-500">Country of Residence:</span>
-                    <span className="font-bold text-[#001535]">
-                      {countries.find((c) => c.code === selectedCountry)?.name}
-                    </span>
-                  </div>
-                  <div className="flex justify-between border-b border-slate-200 pb-2">
-                    <span className="text-slate-500">Connected Accounts:</span>
-                    <span className="font-bold text-emerald-700">11 Financial Assets</span>
-                  </div>
-                  <div className="flex justify-between pt-1">
-                    <span className="text-slate-500 font-bold">Total Indian Wealth:</span>
-                    <span className="font-mono text-base font-extrabold text-[#001535]">
-                      ₹1,84,73,500
-                    </span>
-                  </div>
-                </div>
-
-                <BladeButton
-                  variant="primary"
-                  size="lg"
-                  onClick={handleCompleteActivation}
-                  disabled={isActivating}
-                  isLoading={isActivating}
-                  className="w-full"
-                >
-                  Go to My Dashboard
-                </BladeButton>
               </div>
             )}
           </BladeCard>

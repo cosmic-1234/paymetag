@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD, formatCompactINR } from "@/lib/formatters";
-import { VideoKycModal } from "@/components/dashboard/Modals/VideoKycModal";
 import { BladeCard } from "@/components/ui/BladeCard";
 import { BladeActionCard } from "@/components/ui/BladeActionCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -43,8 +42,6 @@ export default function DashboardMain() {
     alerts,
     dismissAlert,
   } = useApp();
-
-  const [isVideoKycOpen, setIsVideoKycOpen] = useState(false);
 
   const moduleCards = [
     {
@@ -469,12 +466,6 @@ export default function DashboardMain() {
           })}
         </div>
       </div>
-
-      <VideoKycModal
-        isOpen={isVideoKycOpen}
-        onClose={() => setIsVideoKycOpen(false)}
-        institutionName="State Bank of India"
-      />
     </div>
   );
 }

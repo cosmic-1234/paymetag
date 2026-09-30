@@ -12,14 +12,12 @@ import {
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { formatINR, formatUSD } from "@/lib/formatters";
-import { VideoKycModal } from "@/components/dashboard/Modals/VideoKycModal";
 import { RedesignateModal } from "@/components/dashboard/Modals/RedesignateModal";
 import { BladeCard, BladeStatCard } from "@/components/ui/BladeCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
 export default function AccountsPage() {
   const { accounts, currency, totalLiquidINR } = useApp();
-  const [selectedKycBank, setSelectedKycBank] = useState<string | null>(null);
   const [redesignateAccountItem, setRedesignateAccountItem] = useState<any | null>(null);
 
   const activeCount = accounts.filter((a) => a.status === "active").length;
@@ -196,12 +194,6 @@ export default function AccountsPage() {
           </table>
         </div>
       </BladeCard>
-
-      <VideoKycModal
-        isOpen={!!selectedKycBank}
-        onClose={() => setSelectedKycBank(null)}
-        institutionName={selectedKycBank || undefined}
-      />
 
       {redesignateAccountItem && (
         <RedesignateModal
