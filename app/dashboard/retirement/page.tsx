@@ -17,7 +17,7 @@ export default function RetirementPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0C2340]">
+          <h1 className="text-2xl font-bold text-[#001535]">
             PF & Government Retirement Savings
           </h1>
           <p className="text-xs text-slate-500">
@@ -58,8 +58,8 @@ export default function RetirementPage() {
             onClick={() => setActiveTab(tab)}
             className={`rounded-lg px-4 py-2 text-xs font-bold transition ${
               activeTab === tab
-                ? "bg-blue-600 text-white shadow-blue-sm"
-                : "text-slate-600 hover:text-slate-900 bg-white border border-slate-200"
+                ? "bg-[#001535] text-white shadow-sm"
+                : "text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-[#336765]"
             }`}
           >
             {tab === "EPFO" ? "Old Employer PF (TCS)" : tab === "NPS" ? "National Pension System" : "15-Year PPF Account"}
@@ -71,10 +71,10 @@ export default function RetirementPage() {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-100 pb-4">
             <div>
-              <span className="text-xs font-bold text-blue-600">
+              <span className="text-xs font-bold text-[#336765]">
                 {activeAsset.identifierLabel}: {activeAsset.identifier}
               </span>
-              <h3 className="text-xl font-bold text-[#0C2340]">
+              <h3 className="text-xl font-bold text-[#001535]">
                 {activeAsset.institution}
               </h3>
             </div>
@@ -82,7 +82,7 @@ export default function RetirementPage() {
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                 Accumulated Balance
               </span>
-              <div className="font-mono text-2xl font-bold text-[#0C2340]">
+              <div className="font-mono text-2xl font-bold text-[#001535]">
                 {formatINR(activeAsset.balanceINR)}
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function RetirementPage() {
             {Object.entries(activeAsset.details).map(([k, v]) => (
               <div key={k} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs">
                 <div className="text-slate-500 font-medium">{k}</div>
-                <div className="mt-1 font-mono text-sm font-bold text-[#0C2340]">
+                <div className="mt-1 font-mono text-sm font-bold text-[#001535]">
                   {typeof v === "number" ? formatINR(v) : v}
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function RetirementPage() {
               </div>
               <button
                 onClick={() => alert("EPFO online claim initiated. Money will be transferred directly to your registered NRO account.")}
-                className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700 shadow-blue-sm transition"
+                className="shrink-0 rounded-lg bg-[#336765] hover:bg-[#234947] px-4 py-2 text-xs font-bold text-white shadow-sm transition"
               >
                 Claim Full PF (₹4,82,000)
               </button>

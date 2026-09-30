@@ -30,11 +30,11 @@ export const BladeButton: React.FC<BladeButtonProps> = ({
   // Razorpay Blade Variant styles
   const variantClasses = {
     primary:
-      "bg-[#0B72E7] hover:bg-[#095ec0] active:bg-[#074ea3] text-white font-bold shadow-xs hover:shadow focus:ring-2 focus:ring-[#0B72E7]/25",
+      "bg-[#336765] hover:bg-[#234947] active:bg-[#1a3837] text-white font-bold shadow-xs hover:shadow focus:ring-2 focus:ring-[#336765]/25",
     secondary:
       "border border-[#CBD5E1] dark:border-white/10 bg-white dark:bg-[#1A1F2E] hover:bg-[#F8FAFC] dark:hover:bg-white/[0.04] text-[#334155] dark:text-slate-200 font-semibold focus:ring-2 focus:ring-slate-300",
     outline:
-      "border border-[#0B72E7] bg-transparent text-[#0B72E7] hover:bg-[#F0F7FF] dark:hover:bg-blue-950/20 font-bold",
+      "border border-[#336765] bg-transparent text-[#336765] hover:bg-[#EEF5F4] dark:hover:bg-teal-950/20 font-bold",
     danger:
       "bg-[#EF4444] hover:bg-[#dc2626] active:bg-[#b91c1c] text-white font-bold shadow-xs",
     success:

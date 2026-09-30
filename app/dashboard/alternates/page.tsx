@@ -64,7 +64,7 @@ export default function AlternatesPage() {
             <div className="space-y-3">
               {/* Row 1: Top Bar */}
               <div className="flex items-start justify-between">
-                <span className="rounded-[6px] bg-[#F0F4FF] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.06em] text-[#336765] dark:text-blue-300">
+                <span className="rounded-[6px] bg-[#EEF5F4] border border-[#C6DFDD] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.06em] text-[#336765] dark:text-teal-300">
                   {asset.category}
                 </span>
                 <span className="rounded-[6px] bg-[#DCFCE7] dark:bg-emerald-950/40 px-2.5 py-0.5 text-[11px] font-bold text-[#16A34A] dark:text-emerald-400">

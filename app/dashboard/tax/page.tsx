@@ -27,7 +27,7 @@ export default function TaxPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0C2340]">
+          <h1 className="text-2xl font-bold text-[#001535]">
             Indian Taxes & US Tax Reporting (FBAR)
           </h1>
           <p className="text-xs text-slate-500">
@@ -37,7 +37,7 @@ export default function TaxPage() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsFbarModalOpen(true)}
-            className="flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700 shadow-blue-sm transition"
+            className="flex items-center gap-1.5 rounded-lg bg-[#336765] hover:bg-[#234947] px-4 py-2 text-xs font-bold text-white shadow-sm transition"
           >
             <Download className="h-3.5 w-3.5" />
             <span>Download Pre-Filled FBAR Sheet</span>
@@ -77,7 +77,7 @@ export default function TaxPage() {
               <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#336765] to-[#234947] text-white shadow-xs">
                 <Scale className="h-3.5 w-3.5" />
               </span>
-              <span className="rounded-md bg-[#EEF5F4] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
+              <span className="rounded-md bg-[#EEF5F4] dark:bg-[#001535]/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
                 Sovereign AI
               </span>
               <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
@@ -106,7 +106,7 @@ export default function TaxPage() {
                   "Explain how my Indian taxes give me foreign tax credits on my US return, and verify my 15% treaty rate."
                 )
               }
-              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-blue-300 hover:bg-[#EEF5F4] transition"
+              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-[#001535]/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-teal-300 hover:bg-[#EEF5F4] transition"
             >
               <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -186,8 +186,8 @@ export default function TaxPage() {
                 <tbody className="divide-y divide-slate-100 dark:divide-white/[0.05]">
                   {DEMO_TAX.inflowSources.map((s, idx) => (
                     <tr key={idx} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                      <td className="px-5 py-4 font-bold text-[#0C2340]">{s.source}</td>
-                      <td className="px-5 py-4 text-right font-mono font-bold text-[#0C2340]">
+                      <td className="px-5 py-4 font-bold text-[#001535]">{s.source}</td>
+                      <td className="px-5 py-4 text-right font-mono font-bold text-[#001535]">
                         {formatINR(s.amountINR)}
                       </td>
                       <td className="px-5 py-4 text-right font-mono text-emerald-700 font-semibold">
@@ -211,16 +211,16 @@ export default function TaxPage() {
         <div className="lg:col-span-5">
           <BladeCard variant="default" className="p-6 space-y-4 bg-white">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#336765] uppercase tracking-wider">
                 US-India Tax Treaty
               </span>
-              <span className="rounded-[6px] bg-[#DBEAFE] px-2 py-0.5 text-[10px] font-bold text-[#1D4ED8]">
+              <span className="rounded-[6px] bg-[#EEF5F4] px-2 py-0.5 text-[10px] font-bold text-[#336765] border border-[#C6DFDD]">
                 Form 10F Active
               </span>
             </div>
 
             <div>
-              <h4 className="text-base font-bold text-[#0C2340]">
+              <h4 className="text-base font-bold text-[#001535]">
                 Avoid Double Taxation
               </h4>
               <p className="mt-1 text-xs font-normal text-slate-500 leading-relaxed">
@@ -243,7 +243,7 @@ export default function TaxPage() {
               </div>
               <div className="flex justify-between pt-1 border-t border-slate-200">
                 <span className="text-slate-500 font-bold">Total Money Saved:</span>
-                <span className="font-mono font-bold text-[#0C2340]">
+                <span className="font-mono font-bold text-[#001535]">
                   {formatINR(DEMO_TAX.dtaaTreaty.savingINR)}
                 </span>
               </div>
@@ -253,7 +253,7 @@ export default function TaxPage() {
               onClick={() => alert("Downloading your Form 10F and Tax Residency Certificate packet")}
               className="w-full flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition shadow-sm"
             >
-              <FileCheck className="h-3.5 w-3.5 text-blue-600" />
+              <FileCheck className="h-3.5 w-3.5 text-[#336765]" />
               <span>Download Tax Treaty Papers (PDF)</span>
             </button>
           </BladeCard>

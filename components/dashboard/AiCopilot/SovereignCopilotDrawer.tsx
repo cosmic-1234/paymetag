@@ -409,7 +409,7 @@ export const SovereignCopilotDrawer: React.FC<{
                         key={lIdx}
                         href={link.href}
                         onClick={onClose}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#336765] bg-[#EEF5F4] dark:bg-blue-950/40 px-3 py-1.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 hover:bg-[#336765] hover:text-white transition-all"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#336765] bg-[#EEF5F4] dark:bg-[#001535]/40 px-3 py-1.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 hover:bg-[#336765] hover:text-white transition-all"
                       >
                         <span>{link.label}</span>
                         <ArrowRight className="h-3 w-3" />

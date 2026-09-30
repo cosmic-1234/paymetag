@@ -25,7 +25,7 @@ export default function KycPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0C2340]">
+          <h1 className="text-2xl font-bold text-[#001535]">
             Identity & Bank KYC Check
           </h1>
           <p className="text-xs text-slate-500">
@@ -41,17 +41,17 @@ export default function KycPage() {
           <BladeCard variant="default" className="p-6 space-y-6 bg-white">
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-[#336765] uppercase tracking-wider">
                   Government of India Central ID
                 </span>
-                <Fingerprint className="h-6 w-6 text-blue-600" />
+                <Fingerprint className="h-6 w-6 text-[#336765]" />
               </div>
 
               <div>
                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                   CENTRAL KYC NUMBER (KIN)
                 </span>
-                <div className="font-mono text-xl font-extrabold tracking-widest text-[#0C2340]">
+                <div className="font-mono text-xl font-extrabold tracking-widest text-[#001535]">
                   4002 9104 9281 04
                 </div>
               </div>
@@ -59,11 +59,11 @@ export default function KycPage() {
               <div className="grid grid-cols-2 gap-4 border-t border-slate-100 pt-4 text-xs">
                 <div>
                   <span className="text-[10px] text-slate-500 font-medium">NAME</span>
-                  <div className="font-bold text-[#0C2340]">{activeUser.name}</div>
+                  <div className="font-bold text-[#001535]">{activeUser.name}</div>
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 font-medium">PAN CARD</span>
-                  <div className="font-mono font-bold text-[#0C2340]">{activeUser.pan}</div>
+                  <div className="font-mono font-bold text-[#001535]">{activeUser.pan}</div>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function KycPage() {
                 </span>
                 <StatusBadge status="critical" label="1 Video Call" />
               </div>
-              <div className="mt-2 text-[32px] font-extrabold text-[#0C2340] leading-tight font-sans">
+              <div className="mt-2 text-[32px] font-extrabold text-[#001535] leading-tight font-sans">
                 {issuesCount} Bank
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function KycPage() {
             <tbody className="divide-y divide-slate-100">
               {kycList.map((k) => (
                 <tr key={k.institution} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-5 py-4 font-bold text-[#0C2340]">
+                  <td className="px-5 py-4 font-bold text-[#001535]">
                     {k.institution}
                     {k.issueDetails && (
                       <div className="text-[11px] font-normal text-rose-600 mt-0.5">

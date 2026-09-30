@@ -59,7 +59,7 @@ export default function InsurancePage() {
               </span>
               <StatusBadge status="warning" label="2 Reminders" />
             </div>
-            <div className="mt-2 text-[32px] font-extrabold text-[#0C2340] leading-tight font-sans">
+            <div className="mt-2 text-[32px] font-extrabold text-[#001535] leading-tight font-sans">
               2 Items
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function InsurancePage() {
               </div>
 
               <div>
-                <h4 className="text-base font-bold text-[#0C2340]">{p.policyName}</h4>
+                <h4 className="text-base font-bold text-[#001535]">{p.policyName}</h4>
                 <div className="text-xs font-normal text-slate-500">{p.provider}</div>
                 <div className="mt-1 font-mono text-[11px] text-slate-400">
                   Policy #: {p.policyNumber}

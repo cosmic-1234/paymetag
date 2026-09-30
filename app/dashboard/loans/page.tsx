@@ -34,10 +34,10 @@ export default function LoansPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-[#0C2340]">
+            <h1 className="text-2xl font-bold text-[#001535]">
               Loans & Liabilities
             </h1>
-            <span className="rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[11px] font-bold text-[#336765]">
+            <span className="rounded-full bg-[#EEF5F4] border border-[#C6DFDD] px-2.5 py-0.5 text-[11px] font-bold text-[#336765]">
               Future Planning
             </span>
           </div>
@@ -58,7 +58,7 @@ export default function LoansPage() {
       </div>
 
       {/* Future Planning Concept Banner */}
-      <div className="rounded-xl border border-blue-100 bg-[#F4F7FF] p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div className="rounded-xl border border-[#C6DFDD] bg-[#EEF5F4] p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-start gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#336765] text-white shrink-0 mt-0.5">
             <CreditCard className="h-4 w-4" />
@@ -72,7 +72,7 @@ export default function LoansPage() {
             </p>
           </div>
         </div>
-        <span className="self-start sm:self-center shrink-0 text-[10px] font-bold uppercase tracking-wider bg-white border border-blue-200 text-[#336765] px-2.5 py-1 rounded-md">
+        <span className="self-start sm:self-center shrink-0 text-[10px] font-bold uppercase tracking-wider bg-white border border-[#C6DFDD] text-[#336765] px-2.5 py-1 rounded-md">
           Coming Soon
         </span>
       </div>
@@ -110,7 +110,7 @@ export default function LoansPage() {
                 Assets - Debt
               </span>
             </div>
-            <div className="mt-2 text-[26px] font-extrabold text-[#0C2340] leading-tight font-sans">
+            <div className="mt-2 text-[26px] font-extrabold text-[#001535] leading-tight font-sans">
               {currency === "INR" ? formatINR(netWealthAfterDebtINR) : formatUSD(netWealthAfterDebtINR)}
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function LoansPage() {
                     <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-700">
                       {loan.loanType}
                     </span>
-                    <h4 className="mt-2 text-base font-bold text-[#0C2340]">
+                    <h4 className="mt-2 text-base font-bold text-[#001535]">
                       {loan.bankName}
                     </h4>
                     <span className="font-mono text-xs text-slate-500">
@@ -182,7 +182,7 @@ export default function LoansPage() {
                     <span className="text-[10px] text-slate-400 uppercase font-semibold">
                       Outstanding Balance
                     </span>
-                    <div className="font-mono text-base font-bold text-[#0C2340] mt-0.5">
+                    <div className="font-mono text-base font-bold text-[#001535] mt-0.5">
                       {formatINR(loan.outstandingBalanceINR)}
                     </div>
                     <span className="text-[11px] text-slate-500">
@@ -207,7 +207,7 @@ export default function LoansPage() {
                   <div className="rounded-lg bg-slate-50 p-2.5 text-xs space-y-1 border border-slate-100">
                     <div className="flex items-center justify-between text-slate-600">
                       <span>Debit Account:</span>
-                      <span className="font-medium text-[#0C2340]">{loan.emiDebitAccount}</span>
+                      <span className="font-medium text-[#001535]">{loan.emiDebitAccount}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-600">
                       <span>Next EMI Date:</span>

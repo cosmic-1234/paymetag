@@ -303,7 +303,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
               onClick={() => handleSend(p.query)}
               className="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#1A1F2E] hover:border-[#336765]/60 hover:shadow-md hover:-translate-y-0.5 text-left transition-all duration-200 group cursor-pointer"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 dark:bg-white/[0.08] text-[#336765] group-hover:bg-[#336765] group-hover:text-white transition-colors shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#EEF5F4] dark:bg-white/[0.08] text-[#336765] group-hover:bg-[#336765] group-hover:text-white transition-colors shrink-0">
                 <Icon className="h-4 w-4" />
               </div>
               <div className="flex-1 min-w-0">
@@ -379,7 +379,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
                         <Link
                           key={i}
                           href={link.href}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF5F4] dark:bg-blue-950/40 text-[#336765] dark:text-blue-300 font-bold text-xs hover:bg-blue-100 transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF5F4] dark:bg-blue-950/40 text-[#336765] dark:text-blue-300 font-bold text-xs hover:bg-[#C6DFDD] transition-colors"
                         >
                           <span>{link.label}</span>
                           <ArrowRight className="h-3 w-3" />

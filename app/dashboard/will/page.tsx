@@ -51,7 +51,7 @@ export default function WillPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0C2340]">
+          <h1 className="text-2xl font-bold text-[#001535]">
             Will, Caretakers & Legal Protection
           </h1>
           <p className="text-xs text-slate-500">
@@ -78,7 +78,7 @@ export default function WillPage() {
               <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#336765] to-[#234947] text-white shadow-xs">
                 <Scale className="h-3.5 w-3.5" />
               </span>
-              <span className="rounded-md bg-[#EEF5F4] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
+              <span className="rounded-md bg-[#EEF5F4] dark:bg-[#001535]/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
                 Sovereign AI
               </span>
               <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
@@ -114,7 +114,7 @@ export default function WillPage() {
                   "Explain why I need a separate Indian Will for my Mumbai apartment if I already live in the US, and how Shagun can be named executor."
                 )
               }
-              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-blue-300 hover:bg-[#EEF5F4] transition"
+              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-[#001535]/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-teal-300 hover:bg-[#EEF5F4] transition"
             >
               <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -124,11 +124,11 @@ export default function WillPage() {
 
         {/* Dynamic Scan Result Banner */}
         {aiScanResult && (
-          <div className="mt-4 rounded-xl border border-blue-200 dark:border-blue-950/50 bg-[#F0F4FF] dark:bg-blue-950/20 p-3.5 flex items-start justify-between">
+          <div className="mt-4 rounded-xl border border-[#C6DFDD] dark:border-slate-800 bg-[#EEF5F4] dark:bg-[#001535]/30 p-3.5 flex items-start justify-between">
             <div className="flex items-start gap-2.5">
               <CheckCircle2 className="h-4 w-4 text-[#336765] shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-xs text-[#001535] dark:text-blue-300 block">
+                <span className="font-bold text-xs text-[#001535] dark:text-emerald-300 block">
                   Recommendation: Create an Indian Will for Mumbai Property
                 </span>
                 <p className="text-[11px] text-slate-700 dark:text-slate-300 mt-0.5">
@@ -181,7 +181,7 @@ export default function WillPage() {
 
             <div>
               <div className="text-xs text-slate-500 font-medium">YOUR LEGAL CARETAKER IN INDIA:</div>
-              <h4 className="text-base font-bold text-[#0C2340]">
+              <h4 className="text-base font-bold text-[#001535]">
                 Shagun Patel (Family Trustee & Caretaker)
               </h4>
               <p className="text-xs font-normal text-slate-500">Prabhadevi, Mumbai 400025</p>
@@ -190,7 +190,7 @@ export default function WillPage() {
             <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 text-xs">
               <div className="flex justify-between">
                 <span className="text-slate-500">Registered At:</span>
-                <span className="font-bold text-[#0C2340]">Bandra Sub-Registrar Office</span>
+                <span className="font-bold text-[#001535]">Bandra Sub-Registrar Office</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Document Number:</span>
@@ -214,7 +214,7 @@ export default function WillPage() {
               onClick={() => alert("Downloading certified copy of registered Power of Attorney (PDF)")}
               className="w-full flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition shadow-sm"
             >
-              <Download className="h-3.5 w-3.5 text-blue-600" />
+              <Download className="h-3.5 w-3.5 text-[#336765]" />
               <span>Download Registered POA Deed (PDF)</span>
             </button>
           </BladeCard>
@@ -289,7 +289,7 @@ export default function WillPage() {
 
       {/* Lawyers Directory */}
       <div className="space-y-4">
-        <h3 className="font-bold text-[16px] text-[#0C2340]">
+        <h3 className="font-bold text-[16px] text-[#001535]">
           Verified Lawyers for NRIs
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -300,8 +300,8 @@ export default function WillPage() {
               className="space-y-4 flex flex-col justify-between"
             >
               <div>
-                <h4 className="text-sm font-bold text-[#0C2340]">{lawyer.name}</h4>
-                <div className="text-xs text-blue-600 font-bold">{lawyer.firm}</div>
+                <h4 className="text-sm font-bold text-[#001535]">{lawyer.name}</h4>
+                <div className="text-xs text-[#336765] font-bold">{lawyer.firm}</div>
                 <div className="mt-1 text-[11px] font-normal text-slate-500">{lawyer.location} • {lawyer.experience} experience</div>
                 <p className="mt-2 text-xs font-normal text-slate-600 leading-relaxed">{lawyer.specialization}</p>
               </div>
@@ -309,7 +309,7 @@ export default function WillPage() {
                 onClick={() => alert(`Consultation request submitted for ${lawyer.name}. A zoom link will be sent to your email.`)}
                 className="w-full flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition shadow-sm"
               >
-                <PhoneCall className="h-3.5 w-3.5 text-blue-600" />
+                <PhoneCall className="h-3.5 w-3.5 text-[#336765]" />
                 <span>Book 30-Min Video Call</span>
               </button>
             </BladeCard>
@@ -321,7 +321,7 @@ export default function WillPage() {
       {isConsultOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
           <div className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl space-y-4">
-            <h4 className="text-base font-bold text-[#0C2340]">Create Your Indian Will Online</h4>
+            <h4 className="text-base font-bold text-[#001535]">Create Your Indian Will Online</h4>
             <p className="text-xs text-slate-600">
               DeshBoard will automatically put together your Mumbai flat details, bank account numbers, and stock folios into a legally binding Will valid in both India and the US.
             </p>
@@ -337,7 +337,7 @@ export default function WillPage() {
                   alert("Your asset schedule has been sent to our legal partner.");
                   setIsConsultOpen(false);
                 }}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700 shadow-blue-sm"
+                className="rounded-lg bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-colors"
               >
                 Start Will Questionnaire
               </button>

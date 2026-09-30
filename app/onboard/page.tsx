@@ -255,7 +255,7 @@ function OnboardContent() {
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
                     Step 1 of 5
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
@@ -276,7 +276,7 @@ function OnboardContent() {
                         onClick={() => setSelectedCountry(c.code)}
                         className={`w-full flex items-center justify-between p-4 rounded-xl border text-left transition-all cursor-pointer ${
                           isSelected
-                            ? "border-[#336765] bg-[#F4F7FF] dark:bg-blue-950/20 ring-1 ring-[#336765]"
+                            ? "border-[#336765] bg-[#EEF5F4]/50 dark:bg-blue-950/20 ring-1 ring-[#336765]"
                             : "border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20"
                         }`}
                       >
@@ -332,7 +332,7 @@ function OnboardContent() {
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
                     Step 2 of 5
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
@@ -375,7 +375,7 @@ function OnboardContent() {
                   )}
 
                   {isPanQuerying && (
-                    <div className="rounded-xl border border-blue-200 bg-blue-50/40 p-4 space-y-3 text-center">
+                    <div className="rounded-xl border border-[#C6DFDD] bg-[#EEF5F4]/60 p-4 space-y-3 text-center">
                       <Loader2 className="h-6 w-6 animate-spin text-[#336765] mx-auto" />
                       <p className="font-bold text-xs text-[#001535]">
                         {panStages[panStageIndex]}
@@ -431,7 +431,7 @@ function OnboardContent() {
             {step === 3 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
                     Step 3 of 5
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
@@ -553,7 +553,7 @@ function OnboardContent() {
             {step === 4 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-[#EEF5F4] dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 uppercase tracking-wider">
                     Step 4 of 5
                   </span>
                   <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
@@ -566,7 +566,7 @@ function OnboardContent() {
 
                 {discoveredCount === 0 && (
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 text-center space-y-4">
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-[#336765]">
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EEF5F4] text-[#336765]">
                       <Building2 className="h-6 w-6" />
                     </div>
                     <div>

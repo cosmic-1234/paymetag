@@ -90,7 +90,7 @@ export const BladeStatCard: React.FC<StatCardProps> = ({
       const colorMap: Record<string, string> = {
         green: "bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-400",
         yellow: "bg-[#FEF9C3] text-[#A16207] dark:bg-amber-950/40 dark:text-amber-400",
-        blue: "bg-[#DBEAFE] text-[#1D4ED8] dark:bg-blue-950/40 dark:text-blue-400",
+        blue: "bg-[#EEF5F4] text-[#336765] border border-[#C6DFDD] dark:bg-[#336765]/20 dark:text-teal-300",
         red: "bg-[#FEE2E2] text-[#DC2626] dark:bg-rose-950/40 dark:text-rose-400",
       };
       const badgeColor = badge.color || "blue";

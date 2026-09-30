@@ -18,7 +18,7 @@ export default function InvestmentsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0C2340]">
+          <h1 className="text-2xl font-bold text-[#001535]">
             Indian Shares & Mutual Funds
           </h1>
           <p className="text-xs text-slate-500">
@@ -30,7 +30,7 @@ export default function InvestmentsPage() {
             onClick={() => alert("Downloading your investment holding statement (PDF)")}
             className="flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-slate-400 transition shadow-sm"
           >
-            <Download className="h-3.5 w-3.5 text-blue-600" />
+            <Download className="h-3.5 w-3.5 text-[#336765]" />
             <span>Download Portfolio Statement</span>
           </button>
         </div>

@@ -22,31 +22,31 @@ export const BladeNotice: React.FC<BladeNoticeProps> = ({
 }) => {
   const styles = {
     info: {
-      container: "border-[#BFDBFE] dark:border-blue-900/40 bg-[#F0F7FF] dark:bg-blue-950/20 text-[#1E3A8A] dark:text-blue-200",
-      iconBg: "bg-[#0B72E7] text-white",
-      badge: "bg-[#DBEAFE] text-[#0B72E7] dark:bg-blue-900/60 dark:text-blue-300",
-      titleColor: "text-[#0C2340] dark:text-white",
+      container: "border-[#C6DFDD] dark:border-slate-800 bg-[#EEF5F4] dark:bg-[#001535]/30 text-[#001535] dark:text-slate-200",
+      iconBg: "bg-[#336765] text-white",
+      badge: "bg-white text-[#336765] border border-[#C6DFDD] dark:bg-white/10 dark:text-teal-300",
+      titleColor: "text-[#001535] dark:text-white",
       defaultIcon: <Info className="h-4 w-4" />,
     },
     success: {
       container: "border-[#BBF7D0] dark:border-emerald-900/40 bg-[#F0FDF4] dark:bg-emerald-950/20 text-[#14532D] dark:text-emerald-200",
       iconBg: "bg-[#10B981] text-white",
       badge: "bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-900/60 dark:text-emerald-300",
-      titleColor: "text-[#0C2340] dark:text-white",
+      titleColor: "text-[#001535] dark:text-white",
       defaultIcon: <CheckCircle2 className="h-4 w-4" />,
     },
     warning: {
       container: "border-[#FDE68A] dark:border-amber-900/40 bg-[#FFFBEB] dark:bg-amber-950/20 text-[#78350F] dark:text-amber-200",
       iconBg: "bg-[#F59E0B] text-white",
       badge: "bg-[#FEF3C7] text-[#D97706] dark:bg-amber-900/60 dark:text-amber-300",
-      titleColor: "text-[#0C2340] dark:text-white",
+      titleColor: "text-[#001535] dark:text-white",
       defaultIcon: <AlertTriangle className="h-4 w-4" />,
     },
     negative: {
       container: "border-[#FECACA] dark:border-red-900/40 bg-[#FEF2F2] dark:bg-red-950/20 text-[#7F1D1D] dark:text-red-200",
       iconBg: "bg-[#EF4444] text-white",
       badge: "bg-[#FEE2E2] text-[#DC2626] dark:bg-red-900/60 dark:text-red-300",
-      titleColor: "text-[#0C2340] dark:text-white",
+      titleColor: "text-[#001535] dark:text-white",
       defaultIcon: <AlertCircle className="h-4 w-4" />,
     },
   }[variant];

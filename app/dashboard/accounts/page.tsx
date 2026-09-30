@@ -30,7 +30,7 @@ export default function AccountsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0C2340]">
+          <h1 className="text-2xl font-bold text-[#001535]">
             All Bank Accounts & Fixed Deposits
           </h1>
           <p className="text-xs text-slate-500">
@@ -42,7 +42,7 @@ export default function AccountsPage() {
             onClick={() => alert("Downloading consolidated bank interest certificate for tax filing")}
             className="flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-slate-400 transition shadow-sm"
           >
-            <Download className="h-3.5 w-3.5 text-blue-600" />
+            <Download className="h-3.5 w-3.5 text-[#336765]" />
             <span>Download Bank Interest Certificate</span>
           </button>
         </div>
@@ -72,7 +72,7 @@ export default function AccountsPage() {
               </span>
               <StatusBadge status="warning" label={`${issuesCount} Actions`} />
             </div>
-            <div className="mt-2 text-[32px] font-extrabold text-[#0C2340] leading-tight font-sans">
+            <div className="mt-2 text-[32px] font-extrabold text-[#001535] leading-tight font-sans">
               {issuesCount} Accounts
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function AccountsPage() {
               {accounts.map((acc) => (
                 <tr key={acc.id} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
                   <td className="px-5 py-4">
-                    <div className="font-bold text-[#0C2340]">{acc.bankName}</div>
+                    <div className="font-bold text-[#001535]">{acc.bankName}</div>
                     <div className="text-[11px] font-normal text-slate-500">{acc.branch}</div>
                   </td>
                   <td className="px-5 py-4">
@@ -144,11 +144,11 @@ export default function AccountsPage() {
                     </span>
                   </td>
                   <td className="px-5 py-4 text-right">
-                    <div className="font-mono font-bold text-[#0C2340]">
+                    <div className="font-mono font-bold text-[#001535]">
                       {formatINR(acc.balanceINR)}
                     </div>
                     {acc.balanceForeign && (
-                      <div className="font-mono text-[11px] text-blue-700 font-semibold">
+                      <div className="font-mono text-[11px] text-[#336765] font-semibold">
                         ${acc.balanceForeign.amount.toLocaleString()} USD
                       </div>
                     )}
@@ -168,7 +168,7 @@ export default function AccountsPage() {
                     {acc.status === "kyc_expired" && (
                       <Link
                         href="/dashboard/kyc"
-                        className="inline-flex items-center rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 transition shadow-blue-sm"
+                        className="inline-flex items-center rounded-lg bg-[#336765] hover:bg-[#234947] px-3.5 py-1.5 text-xs font-semibold text-white transition shadow-sm"
                       >
                         Complete KYC
                       </Link>
@@ -184,7 +184,7 @@ export default function AccountsPage() {
                     {acc.status === "active" && (
                       <button
                         onClick={() => alert(`Showing statements for ${acc.bankName} ${acc.accountNumberMasked}`)}
-                        className="text-xs font-semibold text-blue-600 hover:text-blue-800"
+                        className="text-xs font-semibold text-[#336765] hover:text-[#234947]"
                       >
                         Statement →
                       </button>

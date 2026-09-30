@@ -229,8 +229,8 @@ export default function ForgottenAssetsPage() {
                   />
                 </div>
 
-                <h4 className="text-base font-bold text-[#0C2340]">{asset.assetTitle}</h4>
-                <div className="text-xs text-blue-600 font-bold">{asset.entityName}</div>
+                <h4 className="text-base font-bold text-[#001535]">{asset.assetTitle}</h4>
+                <div className="text-xs text-[#336765] font-bold">{asset.entityName}</div>
                 <div className="text-[11px] text-slate-500">{asset.period}</div>
                 <p className="text-xs text-slate-600 mt-2 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
                   {asset.claimProcess}

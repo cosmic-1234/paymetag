@@ -70,8 +70,8 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
         <div className="p-6 space-y-6">
           {auditStep === "idle" && (
             <div className="space-y-4">
-              <div className="rounded-xl border border-blue-100 dark:border-blue-950/50 bg-[#F0F4FF] dark:bg-blue-950/20 p-4">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#336765] dark:text-blue-400 mb-1">
+              <div className="rounded-xl border border-[#C6DFDD] dark:border-slate-800 bg-[#EEF5F4] dark:bg-[#001535]/30 p-4">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#336765] dark:text-teal-400 mb-1">
                   <ShieldCheck className="h-4 w-4" />
                   What Sovereign AI Verifies
                 </div>
@@ -175,14 +175,14 @@ export const AiTaxAuditModal: React.FC<AiTaxAuditModalProps> = ({
                     onClose();
                     openAiCopilot("Explain how my Indian taxes give me foreign tax credits on my US return, and verify my 15% treaty rate.");
                   }}
-                  className="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-[#336765] bg-[#EEF5F4] dark:bg-blue-950/40 py-2.5 text-xs font-bold text-[#336765] dark:text-blue-300 hover:bg-[#336765] hover:text-white transition-all"
+                  className="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-[#336765] bg-[#EEF5F4] dark:bg-[#001535]/40 py-2.5 text-xs font-bold text-[#336765] dark:text-teal-300 hover:bg-[#336765] hover:text-white transition-all"
                 >
                   <BrainCircuit className="h-3.5 w-3.5" />
                   <span>Discuss with Sovereign AI</span>
                 </button>
                 <button
                   onClick={onClose}
-                  className="rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-5 py-2.5 text-xs font-bold hover:opacity-90 transition-all"
+                  className="rounded-xl bg-[#001535] text-white dark:bg-white dark:text-[#001535] px-5 py-2.5 text-xs font-bold hover:opacity-90 transition-all"
                 >
                   Close
                 </button>

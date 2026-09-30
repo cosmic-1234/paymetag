@@ -134,7 +134,7 @@ export default function IncomePage() {
               <span className="text-xs font-bold text-[#336765] uppercase tracking-wider">
                 Remittance Estimator
               </span>
-              <span className="rounded-[6px] bg-[#F0F4FF] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300">
+              <span className="rounded-[6px] bg-[#EEF5F4] border border-[#C6DFDD] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300">
                 NRE Account Transfer
               </span>
             </div>
@@ -147,7 +147,7 @@ export default function IncomePage() {
                 type="number"
                 value={remitInr}
                 onChange={(e) => setRemitInr(Number(e.target.value))}
-                className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50 dark:bg-white/[0.04] px-3.5 py-2.5 font-mono text-sm font-bold text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+                className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50 dark:bg-white/[0.04] px-3.5 py-2.5 font-mono text-sm font-bold text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#336765]/20 transition-all"
               />
             </div>
 

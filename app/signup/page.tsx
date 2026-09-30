@@ -195,9 +195,9 @@ export default function SignUpPage() {
           </div>
 
           {/* Right 3D Visual Panel */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#0C2340] to-[#07162C] p-8 text-white flex flex-col justify-between items-center text-center relative overflow-hidden">
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#001535] to-[#000E24] p-8 text-white flex flex-col justify-between items-center text-center relative overflow-hidden">
             <div className="z-10">
-              <span className="text-xs font-mono tracking-widest text-blue-300 uppercase">
+              <span className="text-xs font-mono tracking-widest text-teal-300 uppercase">
                 Bank-Grade Protection
               </span>
               <h3 className="mt-1 text-lg font-bold text-white">
@@ -210,8 +210,8 @@ export default function SignUpPage() {
             </div>
 
             <div className="z-10 space-y-1">
-              <div className="flex items-center justify-center gap-2 text-xs text-blue-200 font-medium">
-                <CheckCircle2 className="h-4 w-4 text-blue-300" />
+              <div className="flex items-center justify-center gap-2 text-xs text-teal-200 font-medium">
+                <CheckCircle2 className="h-4 w-4 text-teal-300" />
                 Account Aggregator Framework
               </div>
               <p className="text-[11px] text-slate-300">

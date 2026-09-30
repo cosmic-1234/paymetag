@@ -172,9 +172,9 @@ export default function SignInPage() {
           </div>
 
           {/* Right 3D Visual Panel */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#0C2340] to-[#07162C] p-8 text-white flex flex-col justify-between items-center text-center relative overflow-hidden">
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#001535] to-[#000E24] p-8 text-white flex flex-col justify-between items-center text-center relative overflow-hidden">
             <div className="z-10">
-              <span className="text-xs font-mono tracking-widest text-blue-300 uppercase">
+              <span className="text-xs font-mono tracking-widest text-teal-300 uppercase">
                 3D Interactive Node
               </span>
               <h3 className="mt-1 text-lg font-bold text-white">

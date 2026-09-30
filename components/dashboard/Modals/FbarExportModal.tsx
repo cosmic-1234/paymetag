@@ -42,7 +42,7 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
         <div className="py-5 space-y-4">
           <div className="flex items-center justify-between rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-slate-50/60 dark:bg-white/[0.02] p-3.5 text-xs">
             <div className="flex items-center gap-2">
-              <span className="rounded-[6px] bg-[#DBEAFE] dark:bg-blue-950/40 text-[#1D4ED8] dark:text-blue-300 font-bold text-[11px] px-2 py-0.5">
+              <span className="rounded-[6px] bg-[#EEF5F4] dark:bg-emerald-950/40 text-[#336765] dark:text-emerald-300 border border-[#C6DFDD] font-bold text-[11px] px-2 py-0.5">
                 FinCEN 114
               </span>
               <span className="text-slate-700 dark:text-slate-300 font-medium">
