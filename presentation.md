@@ -84,22 +84,20 @@
 
 ---
 
-## Slide 5: The 12 Core Wealth Modules
+## Slide 5: The 10 Core Wealth Modules
 
 ### **Complete Coverage of NRI Financial Life**
 
 1. **Bank Accounts & FDs:** Real-time visibility across NRE, NRO, FCNR-B, and Fixed Deposits. Automatic alerts for overdue KYC.
 2. **Properties & Land Records:** Verified digital deeds, mutation notices, land boundary maps, rental yields, and municipal property tax tracking.
 3. **Stocks & Mutual Funds:** Live CDSL/NSDL demat holdings and CAMS/KFintech mutual fund folios with SIP auto-debit schedules.
-4. **Gold, Bonds & Crypto:** Sovereign Gold Bonds (SGB 2.5% yield), RBI Floating Rate Bonds, digital vaulted bullion, and declared digital assets.
+4. **Gold, Bonds & Alternates:** Sovereign Gold Bonds (SGB 2.5% yield), RBI Floating Rate Bonds, digital vaulted bullion, and fixed-income assets.
 5. **PF & Retirement Savings:** Old employer Provident Fund (EPFO) tracking, National Pension System (NPS), and tax-free 15-year PPF accounts.
 6. **Insurance Policies:** Family health floaters and LIC life cover policies with automated premium reminder alerts.
-7. **Loans & Mortgages:** Indian home loan tracking, monthly EMI schedules, and Section 24(b) home loan tax deduction certificates.
-8. **Taxes & US Filing (FBAR):** Form 26AS matching, 15% special treaty rate lock-in, and instant one-click pre-filled US FBAR spreadsheets.
-9. **Identity & Central Verification:** Central KYC (CKYC) registry check with 2-minute video re-KYC actions for restricted accounts.
-10. **Will, Caretaker & Succession:** Registered Power of Attorney (POA) repository, nominee coverage audit, and Indian Will drafting.
-11. **Lost Money Finder:** Deep scan across government registers (IEPF, UDGAM, EPFO) to recover unclaimed dividends and dormant balances.
-12. **Repatriation & Remittance:** Monthly rental/interest inflow tracker, live currency conversion, and step-by-step repatriation guidance.
+7. **Taxes & US Filing (FBAR):** Form 26AS matching, 15% special treaty rate lock-in, and instant one-click pre-filled US FBAR spreadsheets.
+8. **Identity & Central Verification:** Central KYC (CKYC) registry check with direct redirect to Complete KYC for restricted accounts.
+9. **Will, Caretaker & Succession:** Registered Power of Attorney (POA) repository, nominee coverage audit, and Indian Will drafting.
+10. **Lost Money Finder:** Deep scan across government registers (IEPF, UDGAM, EPFO) to recover unclaimed dividends and dormant balances.
 
 ---
 

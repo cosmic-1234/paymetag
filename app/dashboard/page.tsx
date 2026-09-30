@@ -103,16 +103,6 @@ export default function DashboardMain() {
       subtitle: "LIC Life Cover + Family Health Policy",
     },
     {
-      title: "Loans & Mortgages",
-      href: "/dashboard/loans",
-      icon: CreditCard,
-      valueINR: totalLoansINR,
-      valueLabel: "Total Debt",
-      badge: "Future Planning",
-      badgeType: "neutral",
-      subtitle: "HDFC Home Loan on Mumbai apartment",
-    },
-    {
       title: "Taxes & US Filing",
       href: "/dashboard/tax",
       icon: FileSpreadsheet,
@@ -130,7 +120,7 @@ export default function DashboardMain() {
       valueLabel: "Central ID Active",
       badge: "1 Renewal Due",
       badgeType: "danger",
-      subtitle: "4 of 7 institutions verified • 1 video call due",
+      subtitle: "4 of 7 institutions verified • Complete KYC due",
     },
     {
       title: "Will & Family Protection",
@@ -151,16 +141,6 @@ export default function DashboardMain() {
       badge: "4 Found",
       badgeType: "gold",
       subtitle: "Old dividends, dormant account & old PF",
-    },
-    {
-      title: "Money Sent Abroad",
-      href: "/dashboard/income",
-      icon: ArrowRightLeft,
-      valueINR: 516000,
-      valueLabel: "Annual Gross",
-      badge: "Tracked",
-      badgeType: "neutral",
-      subtitle: "Rent ₹30k/mo + Bank Interest ₹12k/mo",
     },
     {
       title: "Family Access",
@@ -354,15 +334,14 @@ export default function DashboardMain() {
               Recommended Next Steps
             </div>
 
-            <button
-              type="button"
-              onClick={() => setIsVideoKycOpen(true)}
+            <Link
+              href="/dashboard/kyc"
               className="w-full flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors text-left group cursor-pointer"
             >
               <div>
                 <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors flex items-center gap-1.5">
                   <span>Verify SBI Bank Identity</span>
-                  <span className="text-[10px] text-slate-400 font-normal">&bull; 2-Min Video Call</span>
+                  <span className="text-[10px] text-slate-400 font-normal">&bull; Complete KYC</span>
                 </div>
                 <div className="text-[11px] text-slate-500">
                   Unlocks ₹3.2L for international transfers
@@ -371,7 +350,7 @@ export default function DashboardMain() {
               <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
                 +12 pts
               </span>
-            </button>
+            </Link>
 
             <Link
               href="/dashboard/will"
@@ -442,9 +421,9 @@ export default function DashboardMain() {
                 severity={alert.severity as any}
                 title={alert.title}
                 description={alert.description}
-                ctaText={alert.id === "alt_sbi_kyc" ? "Start Video Call" : "Resolve"}
-                ctaHref={alert.id === "alt_sbi_kyc" ? undefined : alert.route}
-                onCtaClick={alert.id === "alt_sbi_kyc" ? () => setIsVideoKycOpen(true) : undefined}
+                ctaText={alert.id === "alt_sbi_kyc" ? "Complete KYC" : "Resolve"}
+                ctaHref={alert.route}
+                onCtaClick={undefined}
                 onDismiss={() => dismissAlert(alert.id)}
               />
             ))}

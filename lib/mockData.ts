@@ -861,8 +861,8 @@ export const DEMO_ALERTS: UrgentAlert[] = [
     title: "SBI Account Identity Verification Due",
     description: "₹3,20,000 balance is temporarily restricted from international transfers until verified.",
     module: "Bank Accounts",
-    route: "/dashboard/accounts",
-    actionText: "Start 2-Min Video Call",
+    route: "/dashboard/kyc",
+    actionText: "Complete KYC",
     impactINR: 320000,
   },
   {

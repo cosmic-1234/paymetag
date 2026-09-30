@@ -18,6 +18,7 @@ import {
   KeyRound,
   Eye,
   CheckCircle2,
+  Users,
 } from "lucide-react";
 import { GlobalAssetGlobe } from "@/components/3d/GlobalAssetGlobe";
 
@@ -84,26 +85,14 @@ export default function LandingPage() {
       icon: Search,
       href: "/dashboard/forgotten",
     },
-    {
-      name: "Money Sent Abroad",
-      desc: "Track Indian rental income and outwards LRS repatriation transfers",
-      icon: ArrowRightLeft,
-      href: "/dashboard/income",
-    },
-    {
-      name: "Loans & Mortgages",
-      desc: "Cross-border home loans, interest certificates (Sec 24b), and EMI schedules",
-      icon: CreditCard,
-      href: "/dashboard/loans",
-    },
   ];
 
   const upcomingFeatures = [
     {
-      title: "Cross-Border NRI Loans & Mortgages",
-      tag: "Future Planning",
-      desc: "Automated liability tracking for Indian home loans, loan against mutual funds (LAMF), and EMI autopay synchronization with NRE accounts.",
-      icon: CreditCard,
+      title: "Automated Nominee Health & Succession Audit",
+      tag: "Estate Security",
+      desc: "Instant automated cross-check across all bank accounts and demat folios to verify active nominees and prevent dormant asset lockup.",
+      icon: Users,
     },
     {
       title: "Direct FinCEN FBAR & IRS Form 8938 E-Filing",

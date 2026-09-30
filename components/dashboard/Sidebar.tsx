@@ -74,26 +74,25 @@ export const Sidebar: React.FC<SidebarProps> = ({
       badge: "+14.3%",
     },
     {
-      name: "Taxation",
-      href: "/dashboard/tax",
-      icon: FileSpreadsheet,
-      isActive: pathname === "/dashboard/tax" || pathname === "/dashboard/income",
-      badge: "FBAR",
-    },
-    {
       name: "Services",
       href: "/dashboard/accounts",
       icon: Grid,
       isActive:
         pathname === "/dashboard/accounts" ||
         pathname === "/dashboard/property" ||
-        pathname === "/dashboard/loans" ||
         pathname === "/dashboard/insurance" ||
         pathname === "/dashboard/will" ||
         pathname === "/dashboard/forgotten" ||
         pathname === "/dashboard/kyc",
       hasSubmenu: true,
       badge: "Action",
+    },
+    {
+      name: "Taxation",
+      href: "/dashboard/tax",
+      icon: FileSpreadsheet,
+      isActive: pathname === "/dashboard/tax",
+      badge: "FBAR",
     },
     {
       name: "Sovereign AI",
@@ -108,12 +107,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const serviceSubItems = [
     { name: "Bank Accounts", href: "/dashboard/accounts", icon: Landmark, badge: "1 Alert" },
     { name: "Properties & Land", href: "/dashboard/property", icon: Building2 },
-    { name: "NRI Home Loans", href: "/dashboard/loans", icon: CreditCard },
     { name: "Insurance Cover", href: "/dashboard/insurance", icon: ShieldCheck },
     { name: "Will & Caretaker", href: "/dashboard/will", icon: Scroll },
     { name: "Find Lost Money", href: "/dashboard/forgotten", icon: Search, badge: "₹1.18L" },
     { name: "Identity & KYC", href: "/dashboard/kyc", icon: Fingerprint },
-    { name: "Send Money Abroad", href: "/dashboard/income", icon: ArrowRightLeft },
     { name: "Gold & Bonds", href: "/dashboard/alternates", icon: Coins },
     { name: "PF & Pension", href: "/dashboard/retirement", icon: PiggyBank },
   ];

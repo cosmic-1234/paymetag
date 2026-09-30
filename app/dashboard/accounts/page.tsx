@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   Landmark,
   AlertTriangle,
@@ -76,7 +77,7 @@ export default function AccountsPage() {
             </div>
           </div>
           <div className="mt-4 border-t border-slate-100 pt-3 text-xs font-normal text-rose-600">
-            1 KYC Video Call Due • 1 Old Savings Account
+            1 KYC Overdue • 1 Old Savings Account
           </div>
         </BladeCard>
       </div>
@@ -165,12 +166,12 @@ export default function AccountsPage() {
                   </td>
                   <td className="px-5 py-4 text-right">
                     {acc.status === "kyc_expired" && (
-                      <button
-                        onClick={() => setSelectedKycBank(acc.bankName)}
-                        className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 transition shadow-blue-sm"
+                      <Link
+                        href="/dashboard/kyc"
+                        className="inline-flex items-center rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 transition shadow-blue-sm"
                       >
-                        Quick Video Call
-                      </button>
+                        Complete KYC
+                      </Link>
                     )}
                     {acc.status === "dormant" && (
                       <button
