@@ -204,7 +204,7 @@ iNRI pairs a modern sans-serif workhorse with a luxury serif display face:
 
 | Dimension | **iNRI (`app.goinri.com`)** | **DeshBoard (`deshvault`)** |
 |---|---|---|
-| **Primary Color Theme** | Royal Amethyst & Purple (`#7743a5`, `#7B45E0`) | Sovereign Institutional Navy & Cobalt (`#0D2266`, `#3451D1`) |
+| **Primary Color Theme** | Royal Amethyst & Purple (`#7743a5`, `#7B45E0`) | Sovereign Institutional Navy & Cobalt (`#001535`, `#336765`) |
 | **Typography** | `Inter` + `Playfair Display` (Luxury serif display) | `Inter` + `JetBrains Mono` (High-density fintech tabular ledger) |
 | **Operational Model** | Certified Mutual Fund Distributor (AMFI) + Marketplace | Read-Only Sovereign Command Center (RBI Account Aggregator) |
 | **Hero 3D Feature** | Glassmorphic glow cards & animated AI persona (Reva) | Interactive Three.js WebGL Global Asset Corridor Globe |

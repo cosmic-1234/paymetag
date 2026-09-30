@@ -110,7 +110,7 @@ export default function RetirementPage() {
                     <span className="rounded-[6px] bg-[#FEF9C3] px-2.5 py-0.5 font-bold text-[11px] uppercase tracking-[0.06em] text-[#A16207]">
                       Withdrawal Action
                     </span>
-                    <span className="font-bold text-[14px] text-[#0D2266]">
+                    <span className="font-bold text-[14px] text-[#001535]">
                       How to withdraw this PF money
                     </span>
                   </div>

@@ -26,11 +26,11 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
         </button>
 
         <div className="flex items-center gap-3 border-b border-[#F0F0F0] dark:border-white/[0.06] pb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4FF] dark:bg-white/10 text-[#3451D1] dark:text-blue-300">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4FF] dark:bg-white/10 text-[#336765] dark:text-blue-300">
             <FileSpreadsheet className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-[#0D2266] dark:text-white tracking-tight">
+            <h3 className="text-base font-bold text-[#001535] dark:text-white tracking-tight">
               US Foreign Account Tax Report (FBAR Form 114)
             </h3>
             <p className="text-xs text-[#9CA3AF]">
@@ -49,7 +49,7 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
                 Your Indian balances exceed $10,000 USD. You must report this to the US IRS by April 15.
               </span>
             </div>
-            <span className="font-mono font-bold text-[#0D2266] dark:text-white ml-2 whitespace-nowrap">
+            <span className="font-mono font-bold text-[#001535] dark:text-white ml-2 whitespace-nowrap">
               Peak: {formatUSD(totalNetWorthINR)}
             </span>
           </div>
@@ -67,7 +67,7 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
               <tbody className="divide-y divide-slate-100 dark:divide-white/[0.05]">
                 {accounts.map((acc) => (
                   <tr key={acc.id} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                    <td className="px-4 py-3 font-bold text-[#0D2266] dark:text-white">{acc.bankName}</td>
+                    <td className="px-4 py-3 font-bold text-[#001535] dark:text-white">{acc.bankName}</td>
                     <td className="px-4 py-3 font-mono text-[#9CA3AF]">{acc.accountNumberMasked}</td>
                     <td className="px-4 py-3 text-slate-600 dark:text-slate-300">{acc.accountType}</td>
                     <td className="px-4 py-3 text-right font-mono font-bold text-[#16A34A] dark:text-emerald-400">
@@ -76,13 +76,13 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
                   </tr>
                 ))}
                 <tr className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-4 py-3 font-bold text-[#0D2266] dark:text-white">Demat Stocks (CDSL)</td>
+                  <td className="px-4 py-3 font-bold text-[#001535] dark:text-white">Demat Stocks (CDSL)</td>
                   <td className="px-4 py-3 font-mono text-[#9CA3AF]">120816009821034</td>
                   <td className="px-4 py-3 text-slate-600 dark:text-slate-300">Indian Shares</td>
                   <td className="px-4 py-3 text-right font-mono font-bold text-[#16A34A] dark:text-emerald-400">$9,920</td>
                 </tr>
                 <tr className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-4 py-3 font-bold text-[#0D2266] dark:text-white">Mutual Funds (CAMS)</td>
+                  <td className="px-4 py-3 font-bold text-[#001535] dark:text-white">Mutual Funds (CAMS)</td>
                   <td className="px-4 py-3 font-mono text-[#9CA3AF]">10928391/44</td>
                   <td className="px-4 py-3 text-slate-600 dark:text-slate-300">Mutual Fund Folios</td>
                   <td className="px-4 py-3 text-right font-mono font-bold text-[#16A34A] dark:text-emerald-400">$20,030</td>
@@ -108,7 +108,7 @@ export const FbarExportModal: React.FC<FbarExportModalProps> = ({ isOpen, onClos
                 alert("Pre-filled FBAR CSV file downloaded: DeshBoard_FBAR_2025.csv");
                 onClose();
               }}
-              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 rounded-xl bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-colors cursor-pointer"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Download Pre-Filled Spreadsheet (CSV)</span>

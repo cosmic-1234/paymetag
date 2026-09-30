@@ -73,7 +73,7 @@ export default function InvestmentsPage() {
           onClick={() => setActiveView("stocks")}
           className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
             activeView === "stocks"
-              ? "bg-[#3451D1] text-white shadow-sm"
+              ? "bg-[#336765] text-white shadow-sm"
               : "text-[#374151] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/[0.04] bg-white dark:bg-[#1A1F2E] border border-[#E5E7EB] dark:border-white/[0.1]"
           }`}
         >
@@ -83,7 +83,7 @@ export default function InvestmentsPage() {
           onClick={() => setActiveView("mutual_funds")}
           className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
             activeView === "mutual_funds"
-              ? "bg-[#3451D1] text-white shadow-sm"
+              ? "bg-[#336765] text-white shadow-sm"
               : "text-[#374151] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/[0.04] bg-white dark:bg-[#1A1F2E] border border-[#E5E7EB] dark:border-white/[0.1]"
           }`}
         >
@@ -111,14 +111,14 @@ export default function InvestmentsPage() {
                 {DEMO_STOCKS.map((s) => (
                   <tr key={s.ticker} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
                     <td className="px-5 py-4">
-                      <div className="font-bold text-[#0D2266] dark:text-white">{s.name}</div>
-                      <div className="font-mono text-[11px] text-[#3451D1] font-semibold">{s.ticker}</div>
+                      <div className="font-bold text-[#001535] dark:text-white">{s.name}</div>
+                      <div className="font-mono text-[11px] text-[#336765] font-semibold">{s.ticker}</div>
                     </td>
                     <td className="px-5 py-4 font-mono text-[#9CA3AF]">{s.depository}</td>
                     <td className="px-5 py-4 text-right font-mono font-semibold text-slate-800 dark:text-slate-200">{s.shares}</td>
                     <td className="px-5 py-4 text-right font-mono text-[#9CA3AF]">₹{s.avgBuyPrice}</td>
                     <td className="px-5 py-4 text-right font-mono text-slate-900 dark:text-white font-medium">₹{s.cmp}</td>
-                    <td className="px-5 py-4 text-right font-mono font-bold text-[#0D2266] dark:text-white">
+                    <td className="px-5 py-4 text-right font-mono font-bold text-[#001535] dark:text-white">
                       {formatINR(s.currentValue)}
                     </td>
                     <td className="px-5 py-4 text-right font-mono">
@@ -158,7 +158,7 @@ export default function InvestmentsPage() {
                 {DEMO_MUTUAL_FUNDS.map((mf) => (
                   <tr key={mf.folio} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
                     <td className="px-5 py-4">
-                      <div className="font-bold text-[#0D2266] dark:text-white">{mf.fundName}</div>
+                      <div className="font-bold text-[#001535] dark:text-white">{mf.fundName}</div>
                       <div className="text-[11px] text-[#9CA3AF]">{mf.category}</div>
                     </td>
                     <td className="px-5 py-4 font-mono text-[#9CA3AF]">{mf.folio}</td>
@@ -166,10 +166,10 @@ export default function InvestmentsPage() {
                     <td className="px-5 py-4 text-right font-mono text-[#9CA3AF]">
                       {formatINR(mf.investedINR)}
                     </td>
-                    <td className="px-5 py-4 text-right font-mono font-bold text-[#0D2266] dark:text-white">
+                    <td className="px-5 py-4 text-right font-mono font-bold text-[#001535] dark:text-white">
                       {formatINR(mf.currentValueINR)}
                     </td>
-                    <td className="px-5 py-4 text-right font-mono font-bold text-[#3451D1]">
+                    <td className="px-5 py-4 text-right font-mono font-bold text-[#336765]">
                       {mf.sipAmount ? `₹${mf.sipAmount.toLocaleString()}/mo` : "Lumpsum"}
                     </td>
                     <td className="px-5 py-4 text-right font-mono text-[#16A34A] dark:text-emerald-400 font-bold">

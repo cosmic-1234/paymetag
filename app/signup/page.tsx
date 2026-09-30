@@ -64,32 +64,16 @@ export default function SignUpPage() {
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col justify-between">
       {/* Top Navbar */}
       <header className="flex h-16 w-full items-center justify-between border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-6 md:px-12">
-        <Link href="/" className="flex items-center gap-[10px]">
-          <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0">
-            <svg
-              className="h-[20px] w-[20px] text-white"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-              <path d="M12 8v8" />
-              <path d="M9.5 10.5h5" />
-              <path d="M9.5 13.5h5" />
-            </svg>
-          </div>
-          <span className="font-extrabold text-[16px] tracking-tight text-[#0D2266] dark:text-white">
-            DESHBOARD
-          </span>
+        <Link href="/" className="flex items-center group cursor-pointer select-none">
+          <img
+            src="/deshboard-logo.png"
+            alt="DeshBoard"
+            className="h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+          />
         </Link>
         <div className="text-xs text-[#9CA3AF]">
           Already have an account?{" "}
-          <Link href="/signin" className="font-semibold text-[#3451D1] hover:text-[#1D3FAD] transition-colors">
+          <Link href="/signin" className="font-semibold text-[#336765] hover:text-[#234947] transition-colors">
             Sign In
           </Link>
         </div>
@@ -101,10 +85,10 @@ export default function SignUpPage() {
           {/* Left Form */}
           <div className="lg:col-span-6 p-8 md:p-10 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-bold text-[#3451D1] uppercase tracking-[0.06em]">
+              <span className="text-xs font-bold text-[#336765] uppercase tracking-[0.06em]">
                 Create Free NRI Account
               </span>
-              <h2 className="mt-1 text-2xl font-bold text-[#0D2266] dark:text-white tracking-tight">
+              <h2 className="mt-1 text-2xl font-bold text-[#001535] dark:text-white tracking-tight">
                 Take Control of Your Assets in India
               </h2>
               <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
@@ -131,7 +115,7 @@ export default function SignUpPage() {
                       onChange={(e) => setName(e.target.value)}
                       required
                       placeholder="Brijal Patel"
-                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#3451D1] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#336765] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
                     />
                   </div>
                 </div>
@@ -148,7 +132,7 @@ export default function SignUpPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       placeholder="you@example.com"
-                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#3451D1] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#336765] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
                     />
                   </div>
                 </div>
@@ -162,7 +146,7 @@ export default function SignUpPage() {
                     <select
                       value={country}
                       onChange={(e) => setCountry(e.target.value)}
-                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#3451D1] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#336765] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
                     >
                       <option value="USA">United States (FBAR / FATCA)</option>
                       <option value="UAE">United Arab Emirates (Dubai / Abu Dhabi)</option>
@@ -183,7 +167,7 @@ export default function SignUpPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       required
                       placeholder="••••••••"
-                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#3451D1] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+                      className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.03] pl-10 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:border-[#336765] focus:bg-white dark:focus:bg-[#1A1F2E] focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
                     />
                   </div>
                 </div>

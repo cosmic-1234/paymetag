@@ -26,7 +26,7 @@ export default function InsurancePage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0D2266] dark:text-white tracking-tight">
+          <h1 className="text-2xl font-bold text-[#001535] dark:text-white tracking-tight">
             Life & Health Insurance Policies
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -128,7 +128,7 @@ export default function InsurancePage() {
               {p.status === "due_soon" && (
                 <button
                   onClick={() => handlePayPremium(p.id)}
-                  className="w-full flex items-center justify-center gap-1.5 rounded-xl bg-[#3451D1] py-2.5 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition"
+                  className="w-full flex items-center justify-center gap-1.5 rounded-xl bg-[#336765] py-2.5 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition"
                 >
                   <CreditCard className="h-3.5 w-3.5" />
                   <span>Pay {formatINR(p.annualPremium)} Premium</span>
@@ -137,7 +137,7 @@ export default function InsurancePage() {
               {p.status === "lapsed" && (
                 <button
                   onClick={() => alert("Reactivation request sent to Star Health team")}
-                  className="w-full rounded-xl bg-[#0D2266] py-2.5 text-xs font-bold text-white hover:bg-[#081745] transition"
+                  className="w-full rounded-xl bg-[#001535] py-2.5 text-xs font-bold text-white hover:bg-[#081745] transition"
                 >
                   Restart Policy or Claim ₹28,000
                 </button>

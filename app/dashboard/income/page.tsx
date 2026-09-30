@@ -46,7 +46,7 @@ export default function IncomePage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0D2266] dark:text-white tracking-tight">
+          <h1 className="text-2xl font-bold text-[#001535] dark:text-white tracking-tight">
             Indian Earnings & Money Sent Abroad
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -102,7 +102,7 @@ export default function IncomePage() {
                     const total = m.rent + m.interest + m.dividend;
                     return (
                       <tr key={m.name} className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                        <td className="px-5 py-3.5 font-bold text-[#0D2266] dark:text-white">{m.name}</td>
+                        <td className="px-5 py-3.5 font-bold text-[#001535] dark:text-white">{m.name}</td>
                         <td className="px-5 py-3.5 text-right font-mono text-slate-700 dark:text-slate-300">
                           {formatINR(m.rent)}
                         </td>
@@ -112,7 +112,7 @@ export default function IncomePage() {
                         <td className="px-5 py-3.5 text-right font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
                           {formatINR(m.dividend)}
                         </td>
-                        <td className="px-5 py-3.5 text-right font-mono font-bold text-[#0D2266] dark:text-white">
+                        <td className="px-5 py-3.5 text-right font-mono font-bold text-[#001535] dark:text-white">
                           {formatINR(total)}
                         </td>
                       </tr>
@@ -131,10 +131,10 @@ export default function IncomePage() {
           </h3>
           <BladeCard variant="default" className="space-y-4">
             <div className="flex items-center justify-between border-b border-[#E8E8E8] dark:border-white/[0.08] pb-3">
-              <span className="text-xs font-bold text-[#3451D1] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#336765] uppercase tracking-wider">
                 Remittance Estimator
               </span>
-              <span className="rounded-[6px] bg-[#F0F4FF] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300">
+              <span className="rounded-[6px] bg-[#F0F4FF] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300">
                 NRE Account Transfer
               </span>
             </div>
@@ -147,7 +147,7 @@ export default function IncomePage() {
                 type="number"
                 value={remitInr}
                 onChange={(e) => setRemitInr(Number(e.target.value))}
-                className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50 dark:bg-white/[0.04] px-3.5 py-2.5 font-mono text-sm font-bold text-[#0D2266] dark:text-white focus:border-[#3451D1] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+                className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50 dark:bg-white/[0.04] px-3.5 py-2.5 font-mono text-sm font-bold text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
               />
             </div>
 
@@ -164,13 +164,13 @@ export default function IncomePage() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-500 dark:text-slate-400">Transfer Time:</span>
-                <span className="text-[#3451D1] font-bold">Same Day / 24 Hours</span>
+                <span className="text-[#336765] font-bold">Same Day / 24 Hours</span>
               </div>
             </div>
 
             <button
               onClick={() => alert("Wire transfer form generated for your HDFC NRE account")}
-              className="w-full flex items-center justify-center gap-1.5 rounded-xl bg-[#3451D1] py-3 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-all"
+              className="w-full flex items-center justify-center gap-1.5 rounded-xl bg-[#336765] py-3 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-all"
             >
               <span>Start Transfer to US Account</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -194,7 +194,7 @@ export default function IncomePage() {
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono font-bold text-[#0D2266] dark:text-white text-sm">
+                  <span className="font-mono font-bold text-[#001535] dark:text-white text-sm">
                     ${log.amountUSD.toLocaleString()} USD
                   </span>
                   <span className="text-slate-500 dark:text-slate-400 text-xs">({formatINR(log.amountINR)})</span>

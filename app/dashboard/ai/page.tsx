@@ -269,12 +269,12 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
       {/* Friendly Header (Goinri Style) */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 border-b border-slate-200/70 dark:border-white/10">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0D2266] to-[#3451D1] text-white shadow-md">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#001535] to-[#336765] text-white shadow-md">
             <BrainCircuit className="h-6 w-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-xl sm:text-2xl font-bold text-[#0D2266] dark:text-white">
+              <h1 className="text-xl sm:text-2xl font-bold text-[#001535] dark:text-white">
                 Sovereign AI
               </h1>
               <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 px-2 py-0.5 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
@@ -301,15 +301,15 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
             <button
               key={idx}
               onClick={() => handleSend(p.query)}
-              className="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#1A1F2E] hover:border-[#3451D1]/60 hover:shadow-md hover:-translate-y-0.5 text-left transition-all duration-200 group cursor-pointer"
+              className="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#1A1F2E] hover:border-[#336765]/60 hover:shadow-md hover:-translate-y-0.5 text-left transition-all duration-200 group cursor-pointer"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 dark:bg-white/[0.08] text-[#3451D1] group-hover:bg-[#3451D1] group-hover:text-white transition-colors shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 dark:bg-white/[0.08] text-[#336765] group-hover:bg-[#336765] group-hover:text-white transition-colors shrink-0">
                 <Icon className="h-4 w-4" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold text-[#0D2266] dark:text-white group-hover:text-[#3451D1] transition-colors flex items-center justify-between">
+                <div className="text-xs font-bold text-[#001535] dark:text-white group-hover:text-[#336765] transition-colors flex items-center justify-between">
                   <span>{p.title}</span>
-                  <ArrowRight className="h-3 w-3 text-slate-300 group-hover:text-[#3451D1] group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="h-3 w-3 text-slate-300 group-hover:text-[#336765] group-hover:translate-x-0.5 transition-all" />
                 </div>
                 <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
                   {p.desc}
@@ -332,7 +332,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
                 className={`flex gap-3 ${isUser ? "justify-end" : "justify-start"}`}
               >
                 {!isUser && (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#3451D1] text-white shrink-0 shadow-2xs">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#336765] text-white shrink-0 shadow-2xs">
                     <Sparkles className="h-4 w-4" />
                   </div>
                 )}
@@ -340,7 +340,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
                 <div
                   className={`max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 text-xs sm:text-[13px] leading-relaxed ${
                     isUser
-                      ? "bg-[#0D2266] text-white font-medium"
+                      ? "bg-[#001535] text-white font-medium"
                       : "bg-slate-50 dark:bg-white/[0.04] border border-slate-200/60 dark:border-white/10 text-slate-800 dark:text-slate-200"
                   }`}
                 >
@@ -359,7 +359,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
                           <div className="text-[10px] font-bold text-slate-400 uppercase">
                             {met.label}
                           </div>
-                          <div className="text-sm font-bold text-[#0D2266] dark:text-white mt-0.5">
+                          <div className="text-sm font-bold text-[#001535] dark:text-white mt-0.5">
                             {met.value}
                           </div>
                           {met.change && (
@@ -379,7 +379,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
                         <Link
                           key={i}
                           href={link.href}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF2FF] dark:bg-blue-950/40 text-[#3451D1] dark:text-blue-300 font-bold text-xs hover:bg-blue-100 transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF5F4] dark:bg-blue-950/40 text-[#336765] dark:text-blue-300 font-bold text-xs hover:bg-blue-100 transition-colors"
                         >
                           <span>{link.label}</span>
                           <ArrowRight className="h-3 w-3" />
@@ -417,7 +417,7 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
 
           {isTyping && (
             <div className="flex gap-3 items-center text-slate-400 text-xs">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#3451D1] text-white shrink-0">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#336765] text-white shrink-0">
                 <Sparkles className="h-4 w-4 animate-spin" />
               </div>
               <div className="bg-slate-50 dark:bg-white/[0.04] border border-slate-200/60 dark:border-white/10 rounded-2xl px-4 py-2.5 flex items-center gap-1.5">
@@ -445,12 +445,12 @@ Feel free to ask any question in simple terms, or tap one of the common topics a
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Ask anything about taxes, sending money, or Indian investments..."
-              className="flex-1 bg-white dark:bg-[#1A1F2E] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3451D1]/30 transition-all shadow-2xs"
+              className="flex-1 bg-white dark:bg-[#1A1F2E] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#336765]/30 transition-all shadow-2xs"
             />
             <button
               type="submit"
               disabled={!inputText.trim() || isTyping}
-              className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-r from-[#0D2266] to-[#3451D1] hover:from-[#132C7D] hover:to-[#254BD1] text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm cursor-pointer shrink-0"
+              className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-r from-[#001535] to-[#336765] hover:from-[#132C7D] hover:to-[#254BD1] text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm cursor-pointer shrink-0"
               title="Send message"
             >
               <Send className="h-4 w-4" />

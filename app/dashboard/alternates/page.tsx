@@ -13,7 +13,7 @@ export default function AlternatesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0D2266] dark:text-white tracking-tight">
+          <h1 className="text-2xl font-bold text-[#001535] dark:text-white tracking-tight">
             Gold, Government Bonds & Crypto
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -47,7 +47,7 @@ export default function AlternatesPage() {
 
       {/* Section Header */}
       <div className="flex items-center gap-2">
-        <span className="text-xs text-[#3451D1]">ⓘ</span>
+        <span className="text-xs text-[#336765]">ⓘ</span>
         <h2 className="text-xs font-bold uppercase tracking-[0.08em] text-[#6B7280]">
           HOLDINGS & CERTIFICATES ({DEMO_ALTERNATES.length})
         </h2>
@@ -64,7 +64,7 @@ export default function AlternatesPage() {
             <div className="space-y-3">
               {/* Row 1: Top Bar */}
               <div className="flex items-start justify-between">
-                <span className="rounded-[6px] bg-[#F0F4FF] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.06em] text-[#3451D1] dark:text-blue-300">
+                <span className="rounded-[6px] bg-[#F0F4FF] dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.06em] text-[#336765] dark:text-blue-300">
                   {asset.category}
                 </span>
                 <span className="rounded-[6px] bg-[#DCFCE7] dark:bg-emerald-950/40 px-2.5 py-0.5 text-[11px] font-bold text-[#16A34A] dark:text-emerald-400">
@@ -74,7 +74,7 @@ export default function AlternatesPage() {
 
               {/* Row 2: Title */}
               <div className="pt-1">
-                <h3 className="text-base font-bold text-[#0D2266] dark:text-white tracking-tight">
+                <h3 className="text-base font-bold text-[#001535] dark:text-white tracking-tight">
                   {asset.title}
                 </h3>
                 <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -92,7 +92,7 @@ export default function AlternatesPage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-slate-500 dark:text-slate-400">Today's Value:</span>
-                  <span className="font-mono font-bold text-[#0D2266] dark:text-white text-sm">
+                  <span className="font-mono font-bold text-[#001535] dark:text-white text-sm">
                     {formatINR(asset.currentValueINR)}
                   </span>
                 </div>
@@ -110,7 +110,7 @@ export default function AlternatesPage() {
               <span className="text-slate-500 dark:text-slate-400 font-normal">Depository Record</span>
               <button
                 onClick={() => alert(`Certificate of holding generated for ${asset.title}`)}
-                className="font-bold text-[#3451D1] hover:text-[#1D3FAD] transition-colors inline-flex items-center gap-1"
+                className="font-bold text-[#336765] hover:text-[#234947] transition-colors inline-flex items-center gap-1"
               >
                 <span>View Certificate</span>
                 <span>→</span>

@@ -256,7 +256,7 @@ export default function PropertyPage() {
                   className={`w-full rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
                     item.status === "paid"
                       ? "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-                      : "bg-[#3451D1] text-white hover:bg-[#1D3FAD] shadow-xs"
+                      : "bg-[#336765] text-white hover:bg-[#234947] shadow-xs"
                   }`}
                 >
                   {item.status === "paid" ? "Mark as Unpaid" : "Pay / Mark as Paid"}
@@ -287,7 +287,7 @@ export default function PropertyPage() {
               onClick={() => setSelectedProperty(prop)}
               className={`p-5 space-y-3 cursor-pointer ${
                 selectedProperty.id === prop.id
-                  ? "border-[#3451D1] bg-blue-50/20"
+                  ? "border-[#336765] bg-blue-50/20"
                   : ""
               }`}
             >
@@ -440,7 +440,7 @@ export default function PropertyPage() {
             <div className="flex justify-end">
               <button
                 onClick={() => setActiveDocPreview(null)}
-                className="rounded-lg bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm"
+                className="rounded-lg bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm"
               >
                 Close
               </button>

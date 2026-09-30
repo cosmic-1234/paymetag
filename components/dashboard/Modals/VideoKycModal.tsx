@@ -67,11 +67,11 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
         </button>
 
         <div className="flex items-center gap-3 border-b border-[#F0F0F0] dark:border-white/[0.06] pb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4FF] dark:bg-white/10 text-[#3451D1] dark:text-blue-300">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4FF] dark:bg-white/10 text-[#336765] dark:text-blue-300">
             <Video className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-[#0D2266] dark:text-white tracking-tight">
+            <h3 className="text-base font-bold text-[#001535] dark:text-white tracking-tight">
               Quick 2-Minute Video KYC Call
             </h3>
             <p className="text-xs text-[#9CA3AF]">
@@ -84,12 +84,12 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
           {step === 1 && (
             <div className="space-y-4">
               <div className="rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-slate-50/60 dark:bg-white/[0.02] p-4">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#3451D1] dark:text-blue-400">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#336765] dark:text-blue-400">
                   <MapPin className="h-4 w-4" />
                   <span>Location Verification Passed</span>
                 </div>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Detected IP: <span className="font-mono font-bold text-[#0D2266] dark:text-white">San Jose, California, USA</span>.
+                  Detected IP: <span className="font-mono font-bold text-[#001535] dark:text-white">San Jose, California, USA</span>.
                   RBI guidelines permit overseas NRIs to update KYC completely online without traveling to India.
                 </p>
               </div>
@@ -97,11 +97,11 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
               <div className="rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-4 space-y-2 text-xs text-slate-600 dark:text-slate-300 shadow-sm">
                 <div className="flex justify-between">
                   <span className="text-[#9CA3AF]">Bank Account:</span>
-                  <span className="font-mono font-bold text-[#0D2266] dark:text-white">SBI NRO Savings (#...4812)</span>
+                  <span className="font-mono font-bold text-[#001535] dark:text-white">SBI NRO Savings (#...4812)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#9CA3AF]">Name on Record:</span>
-                  <span className="font-mono font-bold text-[#0D2266] dark:text-white">{activeUser?.name || "Brijal Patel"}</span>
+                  <span className="font-mono font-bold text-[#001535] dark:text-white">{activeUser?.name || "Brijal Patel"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#9CA3AF]">KYC Status:</span>
@@ -145,8 +145,8 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
           {step === 3 && (
             <div className="space-y-4 text-center">
               <div className="relative mx-auto flex h-48 w-full max-w-sm flex-col items-center justify-center rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-slate-50/80 dark:bg-white/[0.03] overflow-hidden">
-                <Camera className="h-10 w-10 text-[#3451D1] animate-pulse" />
-                <p className="mt-2 text-xs font-bold text-[#0D2266] dark:text-white">
+                <Camera className="h-10 w-10 text-[#336765] animate-pulse" />
+                <p className="mt-2 text-xs font-bold text-[#001535] dark:text-white">
                   Live Video Verification Officer
                 </p>
                 <p className="text-[11px] text-[#9CA3AF]">
@@ -166,7 +166,7 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
                 <CheckCircle2 className="h-8 w-8" />
               </div>
               <div>
-                <h4 className="text-base font-bold text-[#0D2266] dark:text-white">
+                <h4 className="text-base font-bold text-[#001535] dark:text-white">
                   KYC Verified Successfully!
                 </h4>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
@@ -192,7 +192,7 @@ export const VideoKycModal: React.FC<VideoKycModalProps> = ({
               <button
                 onClick={handleNextStep}
                 disabled={isProcessing}
-                className="flex items-center gap-2 rounded-xl bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm disabled:opacity-50 transition-colors cursor-pointer"
+                className="flex items-center gap-2 rounded-xl bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm disabled:opacity-50 transition-colors cursor-pointer"
               >
                 {isProcessing && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                 {step === 3 ? "Complete & Unlock Account" : "Next Step"}

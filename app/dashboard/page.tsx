@@ -200,12 +200,12 @@ export default function DashboardMain() {
             <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-white/[0.08]">
               <div
                 style={{ width: `${totalNetWorthINR > 0 ? ((totalRealEstateINR / totalNetWorthINR) * 100).toFixed(1) : 54.6}%` }}
-                className="bg-blue-600 transition-all duration-500"
+                className="bg-[#001535] transition-all duration-500"
                 title={`Properties: ₹1.47 Cr (${totalNetWorthINR > 0 ? ((totalRealEstateINR / totalNetWorthINR) * 100).toFixed(1) : 54.6}%)`}
               />
               <div
                 style={{ width: `${totalNetWorthINR > 0 ? ((totalLiquidINR / totalNetWorthINR) * 100).toFixed(1) : 24.0}%` }}
-                className="bg-sky-500 transition-all duration-500"
+                className="bg-[#336765] transition-all duration-500"
                 title={`Bank Accounts: ₹64.64L (${totalNetWorthINR > 0 ? ((totalLiquidINR / totalNetWorthINR) * 100).toFixed(1) : 24.0}%)`}
               />
               <div
@@ -230,10 +230,10 @@ export default function DashboardMain() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-slate-100 dark:border-white/10 pt-4 text-xs">
             <div className="space-y-0.5">
               <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                <span className="h-2 w-2 rounded-full bg-sky-500 shrink-0" />
+                <span className="h-2 w-2 rounded-full bg-[#336765] shrink-0" />
                 <span>Bank Accounts</span>
               </div>
-              <div className="font-mono font-bold text-[#0C2340] dark:text-white text-sm sm:text-base mt-0.5">
+              <div className="font-mono font-bold text-[#001535] dark:text-white text-sm sm:text-base mt-0.5">
                 {formatCompactINR(totalLiquidINR)}
               </div>
               <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
@@ -243,10 +243,10 @@ export default function DashboardMain() {
 
             <div className="space-y-0.5">
               <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0" />
+                <span className="h-2 w-2 rounded-full bg-[#001535] shrink-0" />
                 <span>Properties</span>
               </div>
-              <div className="font-mono font-bold text-[#0C2340] dark:text-white text-sm sm:text-base mt-0.5">
+              <div className="font-mono font-bold text-[#001535] dark:text-white text-sm sm:text-base mt-0.5">
                 {formatCompactINR(totalRealEstateINR)}
               </div>
               <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
@@ -259,7 +259,7 @@ export default function DashboardMain() {
                 <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
                 <span>Stocks & Funds</span>
               </div>
-              <div className="font-mono font-bold text-[#0C2340] dark:text-white text-sm sm:text-base mt-0.5">
+              <div className="font-mono font-bold text-[#001535] dark:text-white text-sm sm:text-base mt-0.5">
                 {formatCompactINR(totalInvestmentsINR)}
               </div>
               <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
@@ -288,7 +288,7 @@ export default function DashboardMain() {
             <span className="text-xs font-bold uppercase tracking-[0.08em] text-slate-500 shrink-0">
               Health Index
             </span>
-            <span className="rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 whitespace-nowrap">
+            <span className="rounded-full bg-teal-50 dark:bg-teal-950/40 border border-[#C6DFDD] dark:border-teal-800/40 px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 whitespace-nowrap">
               Grade B+
             </span>
           </div>
@@ -304,7 +304,7 @@ export default function DashboardMain() {
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
                 <path
-                  className="text-[#0B72E7] transition-all duration-700"
+                  className="text-[#336765] transition-all duration-700"
                   strokeDasharray={`${healthScore}, 100`}
                   strokeWidth="3.2"
                   strokeLinecap="round"
@@ -314,7 +314,7 @@ export default function DashboardMain() {
                 />
               </svg>
               <div className="absolute flex flex-col items-center justify-center">
-                <span className="font-mono text-3xl font-extrabold text-[#0C2340] dark:text-white leading-none">
+                <span className="font-mono text-3xl font-extrabold text-[#001535] dark:text-white leading-none">
                   {healthScore}
                 </span>
                 <span className="text-[10px] text-slate-400 font-bold mt-1">/ 100</span>
@@ -322,7 +322,7 @@ export default function DashboardMain() {
             </div>
 
             <div className="mt-2.5 text-center">
-              <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/40 px-2.5 py-0.5 text-[11px] font-bold text-[#0B72E7] dark:text-blue-300 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-[#C6DFDD] dark:border-teal-900/40 px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-teal-300 whitespace-nowrap">
                 +28 pts unlockable to reach Grade A
               </span>
             </div>
@@ -339,7 +339,7 @@ export default function DashboardMain() {
               className="w-full flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors text-left group cursor-pointer"
             >
               <div>
-                <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors flex items-center gap-1.5">
+                <div className="font-bold text-[#001535] dark:text-white group-hover:text-[#336765] transition-colors flex items-center gap-1.5">
                   <span>Verify SBI Bank Identity</span>
                   <span className="text-[10px] text-slate-400 font-normal">&bull; Complete KYC</span>
                 </div>
@@ -347,7 +347,7 @@ export default function DashboardMain() {
                   Unlocks ₹3.2L for international transfers
                 </div>
               </div>
-              <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
+              <span className="shrink-0 rounded-md bg-[#EEF5F4] text-[#336765] border border-[#C6DFDD] px-2 py-0.5 font-mono text-[11px] font-bold">
                 +12 pts
               </span>
             </Link>
@@ -358,14 +358,14 @@ export default function DashboardMain() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors">
+                  <div className="font-bold text-[#001535] dark:text-white group-hover:text-[#336765] transition-colors">
                     Draft Family Will
                   </div>
                   <div className="text-[11px] text-slate-500">
                     Protects ₹1.47 Cr for your family
                   </div>
                 </div>
-                <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
+                <span className="shrink-0 rounded-md bg-[#EEF5F4] text-[#336765] border border-[#C6DFDD] px-2 py-0.5 font-mono text-[11px] font-bold">
                   +10 pts
                 </span>
               </div>
@@ -377,14 +377,14 @@ export default function DashboardMain() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-[#0C2340] dark:text-white group-hover:text-[#0B72E7] transition-colors">
+                  <div className="font-bold text-[#001535] dark:text-white group-hover:text-[#336765] transition-colors">
                     Verify Nagpur Land Record
                   </div>
                   <div className="text-[11px] text-slate-500">
                     Secures ₹35L land ownership & records
                   </div>
                 </div>
-                <span className="shrink-0 rounded-md bg-[#DCFCE7] text-[#16A34A] dark:bg-emerald-950/40 dark:text-emerald-300 px-2 py-0.5 font-mono text-[11px] font-bold">
+                <span className="shrink-0 rounded-md bg-[#EEF5F4] text-[#336765] border border-[#C6DFDD] px-2 py-0.5 font-mono text-[11px] font-bold">
                   +6 pts
                 </span>
               </div>
@@ -449,13 +449,13 @@ export default function DashboardMain() {
                 >
                   <div>
                     <div className="flex items-center justify-between">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#F0F4FF] dark:bg-white/[0.08] text-[#3451D1] dark:text-blue-300 group-hover:bg-[#3451D1] group-hover:text-white transition-colors duration-200">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#EEF5F4] dark:bg-white/[0.08] text-[#336765] dark:text-teal-300 group-hover:bg-[#336765] group-hover:text-white transition-colors duration-200">
                         <Icon className="h-4 w-4" />
                       </div>
                       <StatusBadge status={m.badgeType as any} label={m.badge} />
                     </div>
 
-                    <h4 className="mt-4 text-sm font-bold text-[#0C2340] group-hover:text-blue-600 transition-colors duration-150">
+                    <h4 className="mt-4 text-sm font-bold text-[#001535] group-hover:text-[#336765] transition-colors duration-150">
                       {m.title}
                     </h4>
                     <p className="mt-1 text-xs font-normal text-slate-500 leading-relaxed">
@@ -464,14 +464,14 @@ export default function DashboardMain() {
                   </div>
 
                   <div className="flex items-baseline justify-between border-t border-slate-100 pt-3">
-                    <span className="font-mono text-sm font-bold text-[#0C2340]">
+                    <span className="font-mono text-sm font-bold text-[#001535]">
                       {isValuePresent
                         ? currency === "INR"
                           ? formatINR(m.valueINR)
                           : formatUSD(m.valueINR)
                         : m.valueLabel}
                     </span>
-                    <ArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150" />
+                    <ArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-[#336765] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150" />
                   </div>
                 </BladeCard>
               </Link>

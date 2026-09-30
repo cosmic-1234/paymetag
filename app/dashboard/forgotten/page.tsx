@@ -42,7 +42,7 @@ export default function ForgottenAssetsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0D2266] dark:text-white tracking-tight">
+          <h1 className="text-2xl font-bold text-[#001535] dark:text-white tracking-tight">
             Lost & Unclaimed Money Finder
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -58,7 +58,7 @@ export default function ForgottenAssetsPage() {
             <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">
               Total Lost Money Found For You
             </span>
-            <div className="font-mono text-4xl font-extrabold text-[#0D2266] dark:text-white">
+            <div className="font-mono text-4xl font-extrabold text-[#001535] dark:text-white">
               {currency === "INR" ? formatINR(totalForgottenINR) : formatUSD(totalForgottenINR)}
             </div>
             <p className="text-xs font-normal text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
@@ -69,7 +69,7 @@ export default function ForgottenAssetsPage() {
           <div>
             <button
               onClick={() => alert("Initiating full batch claim for all 4 items")}
-              className="rounded-xl bg-[#3451D1] px-6 py-3 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition"
+              className="rounded-xl bg-[#336765] px-6 py-3 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition"
             >
               Claim All ₹1,18,400 Now
             </button>
@@ -78,21 +78,21 @@ export default function ForgottenAssetsPage() {
       </BladeCard>
 
       {/* Sovereign AI Lost Share Recovery */}
-      <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
+      <div className="rounded-2xl border border-[#336765]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF5F4] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-1.5 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] text-white shadow-xs">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#336765] to-[#234947] text-white shadow-xs">
                 <FileText className="h-3.5 w-3.5" />
               </span>
-              <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
+              <span className="rounded-md bg-[#EEF5F4] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
                 Sovereign AI
               </span>
               <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
                 High Match Accuracy
               </span>
             </div>
-            <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
+            <h3 className="font-extrabold text-[15px] text-[#001535] dark:text-white">
               Claim Forgotten Shares & Dividends with Sovereign AI
             </h3>
             <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
@@ -110,7 +110,7 @@ export default function ForgottenAssetsPage() {
                 }, 1300);
               }}
               disabled={isAffidavitGenerating}
-              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm disabled:opacity-50"
+              className="flex items-center gap-1.5 rounded-xl bg-[#336765] hover:bg-[#234947] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm disabled:opacity-50"
             >
               <FileText className="h-4 w-4" />
               <span>{isAffidavitGenerating ? "Preparing Verification Letter..." : "Prepare Name Match Letter"}</span>
@@ -121,7 +121,7 @@ export default function ForgottenAssetsPage() {
                   "Help me claim my unclaimed L&T shares and dividends. What documents do I need to sign?"
                 )
               }
-              className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
+              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-blue-300 hover:bg-[#EEF5F4] transition"
             >
               <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -153,10 +153,10 @@ export default function ForgottenAssetsPage() {
         )}
 
         {/* 3 Inline AI Claim Metrics */}
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#336765]/15 pt-3.5">
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">Total Claimable Value</span>
-            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">₹14,80,000</span>
+            <span className="font-extrabold text-sm text-[#001535] dark:text-white mt-0.5 block">₹14,80,000</span>
             <span className="text-[10px] text-emerald-600 font-medium">350 Shares + Dividends</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
@@ -166,8 +166,8 @@ export default function ForgottenAssetsPage() {
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">Expected Time to Receive</span>
-            <span className="font-extrabold text-sm text-[#3451D1] mt-0.5 block">30–45 Days</span>
-            <span className="text-[10px] text-[#3451D1] font-medium">Deposited to your bank</span>
+            <span className="font-extrabold text-sm text-[#336765] mt-0.5 block">30–45 Days</span>
+            <span className="text-[10px] text-[#336765] font-medium">Deposited to your bank</span>
           </div>
         </div>
       </div>
@@ -182,13 +182,13 @@ export default function ForgottenAssetsPage() {
               value={searchPan}
               onChange={(e) => setSearchPan(e.target.value.toUpperCase())}
               placeholder="Search by PAN Card to check unclaimed funds"
-              className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50 dark:bg-white/[0.04] pl-10 pr-4 py-2.5 font-mono text-xs font-semibold text-slate-900 dark:text-white focus:border-[#3451D1] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
+              className="w-full rounded-xl border border-[#E8E8E8] dark:border-white/[0.1] bg-slate-50 dark:bg-white/[0.04] pl-10 pr-4 py-2.5 font-mono text-xs font-semibold text-slate-900 dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all"
             />
           </div>
           <button
             onClick={handleScan}
             disabled={isSearching}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#3451D1] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition disabled:opacity-50"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#336765] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition disabled:opacity-50"
           >
             {isSearching ? (
               <>
@@ -248,7 +248,7 @@ export default function ForgottenAssetsPage() {
                 {asset.status === "claimable" ? (
                   <button
                     onClick={() => setActiveClaimAsset(asset)}
-                    className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition"
+                    className="flex items-center gap-1.5 rounded-xl bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition"
                   >
                     <span>Claim Online</span>
                     <ArrowRight className="h-3.5 w-3.5" />

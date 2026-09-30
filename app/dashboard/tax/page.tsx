@@ -70,21 +70,21 @@ export default function TaxPage() {
       </div>
 
       {/* Sovereign AI Cross-Border Tax Optimizer */}
-      <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
+      <div className="rounded-2xl border border-[#336765]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF5F4] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-1.5 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] text-white shadow-xs">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#336765] to-[#234947] text-white shadow-xs">
                 <Scale className="h-3.5 w-3.5" />
               </span>
-              <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
+              <span className="rounded-md bg-[#EEF5F4] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
                 Sovereign AI
               </span>
               <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
                 Foreign Tax Credit Active
               </span>
             </div>
-            <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
+            <h3 className="font-extrabold text-[15px] text-[#001535] dark:text-white">
               US & India Tax Optimizer by Sovereign AI
             </h3>
             <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
@@ -95,7 +95,7 @@ export default function TaxPage() {
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
               onClick={() => setIsTaxAuditModalOpen(true)}
-              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm"
+              className="flex items-center gap-1.5 rounded-xl bg-[#336765] hover:bg-[#234947] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm"
             >
               <ShieldCheck className="h-4 w-4" />
               <span>Check for Tax Mismatches</span>
@@ -106,7 +106,7 @@ export default function TaxPage() {
                   "Explain how my Indian taxes give me foreign tax credits on my US return, and verify my 15% treaty rate."
                 )
               }
-              className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
+              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-blue-300 hover:bg-[#EEF5F4] transition"
             >
               <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -115,16 +115,16 @@ export default function TaxPage() {
         </div>
 
         {/* 3 Inline AI Tax Insights */}
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#336765]/15 pt-3.5">
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">US Tax Credit Available</span>
-            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">₹1,42,000 ($1,710 USD)</span>
+            <span className="font-extrabold text-sm text-[#001535] dark:text-white mt-0.5 block">₹1,42,000 ($1,710 USD)</span>
             <span className="text-[10px] text-emerald-600 font-medium">Direct credit on your US tax return</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">Lower Tax Certificate</span>
-            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">Eligible for Lower Deductions</span>
-            <span className="text-[10px] text-[#3451D1] font-medium">Saves ₹2,42,000 in advance tax</span>
+            <span className="font-extrabold text-sm text-[#001535] dark:text-white mt-0.5 block">Eligible for Lower Deductions</span>
+            <span className="text-[10px] text-[#336765] font-medium">Saves ₹2,42,000 in advance tax</span>
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">Tax Treaty Rate</span>
@@ -148,7 +148,7 @@ export default function TaxPage() {
               <span className="rounded-[6px] bg-[#DBEAFE] px-2.5 py-0.5 font-bold text-[11px] uppercase tracking-[0.06em] text-[#1D4ED8]">
                 FinCEN 114
               </span>
-              <h4 className="font-bold text-[14px] text-[#0D2266] dark:text-white">
+              <h4 className="font-bold text-[14px] text-[#001535] dark:text-white">
                 US FBAR Reporting Notice (Due April 15)
               </h4>
             </div>
@@ -159,7 +159,7 @@ export default function TaxPage() {
         </div>
         <button
           onClick={() => setIsFbarModalOpen(true)}
-          className="shrink-0 rounded-xl bg-[#3451D1] px-4 py-2 font-bold text-xs text-white hover:bg-[#1D3FAD] shadow-sm transition cursor-pointer"
+          className="shrink-0 rounded-xl bg-[#336765] px-4 py-2 font-bold text-xs text-white hover:bg-[#234947] shadow-sm transition cursor-pointer"
         >
           View FBAR Spreadsheet
         </button>

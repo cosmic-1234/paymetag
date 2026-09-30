@@ -107,7 +107,7 @@ Financial data consolidation avoids insecure screen-scraping:
 ```
 ├── Presentation Layer
 │   ├── Framework: Next.js 14.2 (App Router with React 18)
-│   ├── Styling: Tailwind CSS (Strict Institutional Palette: Navy #0D2266, Cobalt #3451D1, Slate #EAECF0)
+│   ├── Styling: Tailwind CSS (Strict Institutional Palette: Navy #001535, Cobalt #336765, Slate #EAECF0)
 │   ├── Typography: Inter (UI font), JetBrains Mono (Financial ledgers)
 │   ├── Icons: Lucide React (Enterprise & Private Wealth icon sets)
 │   └── 3D Graphics: Three.js & Globe.gl

@@ -186,31 +186,12 @@ function OnboardContent() {
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0A0E17] text-slate-900 dark:text-slate-100 flex flex-col justify-between font-sans">
       {/* Header */}
       <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between border-b border-[#F0F0F0] dark:border-white/[0.06] bg-white dark:bg-[#0F1523] px-6 md:px-12 shadow-[0px_1px_4px_rgba(0,0,0,0.04)]">
-        <Link href="/" className="flex items-center gap-[10px] group cursor-pointer select-none">
-          <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0">
-            <svg
-              className="h-[20px] w-[20px] text-white"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-              <path d="M12 8v8" />
-              <path d="M9.5 10.5h5" />
-              <path d="M9.5 13.5h5" />
-            </svg>
-          </div>
-          <div>
-            <span className="block font-extrabold text-[16px] tracking-tight text-[#0D2266] dark:text-white leading-tight">
-              DESHBOARD
-            </span>
-            <span className="block font-medium text-[11px] text-[#9CA3AF] leading-none mt-0.5">
-              NRI Wealth Management
-            </span>
-          </div>
+        <Link href="/" className="flex items-center group cursor-pointer select-none">
+          <img
+            src="/deshboard-logo.png"
+            alt="DeshBoard"
+            className="h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+          />
         </Link>
 
         {/* Security Badge */}
@@ -237,7 +218,7 @@ function OnboardContent() {
                           isPassed
                             ? "bg-[#10B981] text-white"
                             : isCurrent
-                            ? "bg-[#3451D1] text-white shadow-[0_0_0_4px_#EEF2FF] dark:shadow-[0_0_0_4px_rgba(52,81,209,0.25)]"
+                            ? "bg-[#336765] text-white shadow-[0_0_0_4px_#EEF5F4] dark:shadow-[0_0_0_4px_rgba(52,81,209,0.25)]"
                             : "border border-slate-300 dark:border-white/20 bg-white dark:bg-white/[0.04] text-slate-400"
                         }`}
                       >
@@ -246,7 +227,7 @@ function OnboardContent() {
                       <span
                         className={`mt-1.5 text-[11px] text-center leading-tight ${
                           isCurrent
-                            ? "font-bold text-[#0D2266] dark:text-white"
+                            ? "font-bold text-[#001535] dark:text-white"
                             : isPassed
                             ? "font-semibold text-emerald-600 dark:text-emerald-400"
                             : "font-medium text-slate-400"
@@ -274,10 +255,10 @@ function OnboardContent() {
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
                     Step 1 of 5
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#0D2266] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Where do you currently live?
                   </h2>
                   <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
@@ -295,7 +276,7 @@ function OnboardContent() {
                         onClick={() => setSelectedCountry(c.code)}
                         className={`w-full flex items-center justify-between p-4 rounded-xl border text-left transition-all cursor-pointer ${
                           isSelected
-                            ? "border-[#3451D1] bg-[#F4F7FF] dark:bg-blue-950/20 ring-1 ring-[#3451D1]"
+                            ? "border-[#336765] bg-[#F4F7FF] dark:bg-blue-950/20 ring-1 ring-[#336765]"
                             : "border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20"
                         }`}
                       >
@@ -303,14 +284,14 @@ function OnboardContent() {
                           <div
                             className={`flex h-9 w-9 items-center justify-center rounded-xl font-bold text-xs ${
                               isSelected
-                                ? "bg-[#3451D1] text-white shadow-xs"
+                                ? "bg-[#336765] text-white shadow-xs"
                                 : "bg-slate-100 dark:bg-white/[0.06] text-slate-600 dark:text-slate-300"
                             }`}
                           >
                             {c.code}
                           </div>
                           <div>
-                            <div className="font-bold text-sm text-[#0D2266] dark:text-white">
+                            <div className="font-bold text-sm text-[#001535] dark:text-white">
                               {c.name}
                             </div>
                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -322,7 +303,7 @@ function OnboardContent() {
                         <div
                           className={`flex h-5 w-5 items-center justify-center rounded-full border ${
                             isSelected
-                              ? "border-[#3451D1] bg-[#3451D1] text-white"
+                              ? "border-[#336765] bg-[#336765] text-white"
                               : "border-slate-300 dark:border-white/20"
                           }`}
                         >
@@ -351,10 +332,10 @@ function OnboardContent() {
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
                     Step 2 of 5
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#0D2266] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Enter your Indian PAN Number
                   </h2>
                   <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
@@ -376,7 +357,7 @@ function OnboardContent() {
                         onChange={(e) => setPan(e.target.value.toUpperCase())}
                         disabled={isPanQuerying || panVerified}
                         placeholder="ABCPM1234D"
-                        className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.04] pl-10 pr-4 font-bold tracking-widest text-sm text-[#0D2266] dark:text-white focus:border-[#3451D1] focus:bg-white focus:outline-none uppercase"
+                        className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.04] pl-10 pr-4 font-bold tracking-widest text-sm text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none uppercase"
                       />
                     </div>
                   </div>
@@ -395,8 +376,8 @@ function OnboardContent() {
 
                   {isPanQuerying && (
                     <div className="rounded-xl border border-blue-200 bg-blue-50/40 p-4 space-y-3 text-center">
-                      <Loader2 className="h-6 w-6 animate-spin text-[#3451D1] mx-auto" />
-                      <p className="font-bold text-xs text-[#0D2266]">
+                      <Loader2 className="h-6 w-6 animate-spin text-[#336765] mx-auto" />
+                      <p className="font-bold text-xs text-[#001535]">
                         {panStages[panStageIndex]}
                       </p>
                     </div>
@@ -411,7 +392,7 @@ function OnboardContent() {
                       <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-emerald-200/60 text-slate-700">
                         <div>
                           <span className="text-slate-500 text-[11px]">Name:</span>
-                          <div className="font-bold text-[#0D2266]">Brijal Patel</div>
+                          <div className="font-bold text-[#001535]">Brijal Patel</div>
                         </div>
                         <div>
                           <span className="text-slate-500 text-[11px]">Status:</span>
@@ -450,10 +431,10 @@ function OnboardContent() {
             {step === 3 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
                     Step 3 of 5
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#0D2266] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Confirm your Identity
                   </h2>
                   <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
@@ -471,7 +452,7 @@ function OnboardContent() {
                       value={aadhaarNumber}
                       onChange={(e) => setAadhaarNumber(e.target.value)}
                       disabled={otpSent || aadhaarVerified}
-                      className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.04] px-4 font-bold tracking-wider text-sm text-[#0D2266] dark:text-white focus:border-[#3451D1] focus:bg-white focus:outline-none"
+                      className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-slate-50/60 dark:bg-white/[0.04] px-4 font-bold tracking-wider text-sm text-[#001535] dark:text-white focus:border-[#336765] focus:bg-white focus:outline-none"
                     />
                   </div>
 
@@ -490,7 +471,7 @@ function OnboardContent() {
                   {otpSent && !aadhaarVerified && (
                     <div className="space-y-3 pt-2">
                       <div className="flex items-center justify-between">
-                        <label className="block text-xs font-bold text-[#0D2266] dark:text-white">
+                        <label className="block text-xs font-bold text-[#001535] dark:text-white">
                           Enter 6-Digit Code
                         </label>
                         <span className="text-[11px] text-slate-400">Sent to ••••••4521</span>
@@ -503,7 +484,7 @@ function OnboardContent() {
                         onChange={(e) => setOtpCode(e.target.value)}
                         placeholder="452109"
                         disabled={isOtpVerifying}
-                        className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-white px-4 font-bold tracking-widest text-center text-lg text-[#0D2266] focus:border-[#3451D1] focus:outline-none"
+                        className="w-full h-11 rounded-xl border border-slate-300 dark:border-white/[0.1] bg-white px-4 font-bold tracking-widest text-center text-lg text-[#001535] focus:border-[#336765] focus:outline-none"
                       />
 
                       <div className="flex items-center justify-between text-xs text-slate-400">
@@ -512,7 +493,7 @@ function OnboardContent() {
                           type="button"
                           onClick={() => setOtpCountdown(30)}
                           disabled={otpCountdown > 0}
-                          className="text-[#3451D1] font-semibold disabled:opacity-40"
+                          className="text-[#336765] font-semibold disabled:opacity-40"
                         >
                           Resend Code
                         </button>
@@ -572,10 +553,10 @@ function OnboardContent() {
             {step === 4 && (
               <div className="space-y-6">
                 <div>
-                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300 uppercase tracking-wider">
+                  <span className="rounded-md bg-blue-50 dark:bg-white/[0.08] px-2.5 py-0.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 uppercase tracking-wider">
                     Step 4 of 5
                   </span>
-                  <h2 className="mt-2 text-xl font-bold text-[#0D2266] dark:text-white">
+                  <h2 className="mt-2 text-xl font-bold text-[#001535] dark:text-white">
                     Finding your Indian Accounts & Assets
                   </h2>
                   <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
@@ -585,11 +566,11 @@ function OnboardContent() {
 
                 {discoveredCount === 0 && (
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 text-center space-y-4">
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-[#3451D1]">
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-[#336765]">
                       <Building2 className="h-6 w-6" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-[#0D2266]">
+                      <h4 className="text-sm font-bold text-[#001535]">
                         Ready to connect your Indian accounts
                       </h4>
                       <p className="text-xs text-slate-500 mt-0.5">
@@ -609,11 +590,11 @@ function OnboardContent() {
                 {discoveredCount > 0 && (
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-[#0D2266]">
+                      <span className="font-bold text-[#001535]">
                         Connected Accounts: {discoveredCount} of {assetNodes.length}
                       </span>
                       {isDiscovering && (
-                        <span className="flex items-center gap-1.5 text-xs text-[#3451D1] font-semibold">
+                        <span className="flex items-center gap-1.5 text-xs text-[#336765] font-semibold">
                           <Loader2 className="h-3.5 w-3.5 animate-spin" />
                           <span>Searching records...</span>
                         </span>
@@ -627,10 +608,10 @@ function OnboardContent() {
                           className="flex items-center justify-between p-2.5 rounded-lg border border-slate-200 bg-white text-xs"
                         >
                           <div>
-                            <div className="font-bold text-[#0D2266]">{node.name}</div>
+                            <div className="font-bold text-[#001535]">{node.name}</div>
                             <div className="text-[11px] text-slate-500">{node.detail}</div>
                           </div>
-                          <div className="font-bold font-mono text-[#0D2266]">
+                          <div className="font-bold font-mono text-[#001535]">
                             {formatINR(node.amount)}
                           </div>
                         </div>
@@ -643,7 +624,7 @@ function OnboardContent() {
                           <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 block">
                             Total Indian Wealth Discovered
                           </span>
-                          <span className="text-2xl font-extrabold text-[#0D2266]">
+                          <span className="text-2xl font-extrabold text-[#001535]">
                             ₹1,84,73,500
                           </span>
                         </div>
@@ -690,7 +671,7 @@ function OnboardContent() {
                   <span className="rounded-md bg-emerald-50 text-emerald-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider">
                     Step 5 of 5 &bull; All Set!
                   </span>
-                  <h2 className="mt-2 text-2xl font-bold text-[#0D2266]">
+                  <h2 className="mt-2 text-2xl font-bold text-[#001535]">
                     Your Account is Ready!
                   </h2>
                   <p className="mt-1 text-xs text-slate-500 max-w-sm mx-auto">
@@ -702,11 +683,11 @@ function OnboardContent() {
                 <div className="text-left rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2.5 text-xs">
                   <div className="flex justify-between border-b border-slate-200 pb-2">
                     <span className="text-slate-500">Account Name:</span>
-                    <span className="font-bold text-[#0D2266]">Brijal Patel</span>
+                    <span className="font-bold text-[#001535]">Brijal Patel</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-200 pb-2">
                     <span className="text-slate-500">Country of Residence:</span>
-                    <span className="font-bold text-[#0D2266]">
+                    <span className="font-bold text-[#001535]">
                       {countries.find((c) => c.code === selectedCountry)?.name}
                     </span>
                   </div>
@@ -716,7 +697,7 @@ function OnboardContent() {
                   </div>
                   <div className="flex justify-between pt-1">
                     <span className="text-slate-500 font-bold">Total Indian Wealth:</span>
-                    <span className="font-mono text-base font-extrabold text-[#0D2266]">
+                    <span className="font-mono text-base font-extrabold text-[#001535]">
                       ₹1,84,73,500
                     </span>
                   </div>
@@ -751,7 +732,7 @@ export default function OnboardPage() {
     <Suspense
       fallback={
         <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#3451D1]">
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#336765]">
             <Loader2 className="h-4 w-4 animate-spin" />
             <span>Loading...</span>
           </div>

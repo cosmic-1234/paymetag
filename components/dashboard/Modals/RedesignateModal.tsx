@@ -51,7 +51,7 @@ export const RedesignateModal: React.FC<RedesignateModalProps> = ({ isOpen, onCl
             <AlertTriangle className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-[#0D2266] dark:text-white tracking-tight">
+            <h3 className="text-base font-bold text-[#001535] dark:text-white tracking-tight">
               Convert Old Resident Savings Account
             </h3>
             <p className="text-xs text-[#9CA3AF]">
@@ -73,7 +73,7 @@ export const RedesignateModal: React.FC<RedesignateModalProps> = ({ isOpen, onCl
               <div className="rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-4 space-y-3 shadow-sm">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-[#9CA3AF]">Bank & Branch:</span>
-                  <span className="font-bold text-[#0D2266] dark:text-white">{account.bankName} (Alkapuri)</span>
+                  <span className="font-bold text-[#001535] dark:text-white">{account.bankName} (Alkapuri)</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-[#9CA3AF]">Account Number:</span>
@@ -88,7 +88,7 @@ export const RedesignateModal: React.FC<RedesignateModalProps> = ({ isOpen, onCl
               </div>
 
               <div className="flex items-start gap-2.5 rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-slate-50/60 dark:bg-white/[0.02] p-3 text-[11px] text-slate-600 dark:text-slate-300">
-                <FileText className="h-4 w-4 text-[#3451D1] shrink-0 mt-0.5" />
+                <FileText className="h-4 w-4 text-[#336765] shrink-0 mt-0.5" />
                 <span>
                   We will automatically generate the 1-page digital form and submit it to Bank of Baroda online.
                 </span>
@@ -99,7 +99,7 @@ export const RedesignateModal: React.FC<RedesignateModalProps> = ({ isOpen, onCl
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#DCFCE7] dark:bg-emerald-950/40 text-[#16A34A] dark:text-emerald-400">
                 <CheckCircle2 className="h-8 w-8" />
               </div>
-              <h4 className="text-base font-bold text-[#0D2266] dark:text-white">
+              <h4 className="text-base font-bold text-[#001535] dark:text-white">
                 Account Successfully Updated!
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -121,7 +121,7 @@ export const RedesignateModal: React.FC<RedesignateModalProps> = ({ isOpen, onCl
               <button
                 onClick={handleExecute}
                 disabled={loading}
-                className="flex items-center gap-2 rounded-xl bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+                className="flex items-center gap-2 rounded-xl bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-colors cursor-pointer disabled:opacity-50"
               >
                 {loading && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                 <span>Convert to NRO Account</span>
@@ -130,7 +130,7 @@ export const RedesignateModal: React.FC<RedesignateModalProps> = ({ isOpen, onCl
           ) : (
             <button
               onClick={onClose}
-              className="w-full rounded-xl bg-[#3451D1] py-2.5 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-colors cursor-pointer"
+              className="w-full rounded-xl bg-[#336765] py-2.5 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-colors cursor-pointer"
             >
               Done
             </button>

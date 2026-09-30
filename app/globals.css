@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #0C2340;
+  --background: #F4F7F8;
+  --foreground: #001535;
+  --brand-navy: #001535;
+  --brand-teal: #336765;
+  --brand-teal-light: #EEF5F4;
+  --brand-teal-border: #C6DFDD;
 }
 
 body {
@@ -57,7 +61,7 @@ body {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, rgba(52, 81, 209, 0.12) 0%, rgba(99, 132, 255, 0.24) 50%, rgba(52, 81, 209, 0.12) 100%);
+  background: linear-gradient(90deg, rgba(51, 103, 101, 0.10) 0%, rgba(51, 103, 101, 0.22) 50%, rgba(51, 103, 101, 0.10) 100%);
   background-size: 200% 100%;
   animation: shimmer-sweep 3s ease-in-out infinite;
 }

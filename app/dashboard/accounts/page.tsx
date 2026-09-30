@@ -95,7 +95,7 @@ export default function AccountsPage() {
             <span className="rounded-[6px] bg-[#FEF9C3] px-2.5 py-0.5 font-bold text-[11px] uppercase tracking-[0.06em] text-[#A16207]">
               Compliance
             </span>
-            <h4 className="font-bold text-[14px] text-[#0D2266]">
+            <h4 className="font-bold text-[14px] text-[#001535]">
               Action needed on Bank of Baroda account
             </h4>
           </div>

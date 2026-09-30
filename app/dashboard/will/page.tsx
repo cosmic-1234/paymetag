@@ -71,21 +71,21 @@ export default function WillPage() {
       />
 
       {/* Sovereign AI Family Protection & Will Check */}
-      <div className="rounded-2xl border border-[#3451D1]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF2FF] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
+      <div className="rounded-2xl border border-[#336765]/30 bg-gradient-to-br from-[#F4F7FF] via-white to-[#EEF5F4] dark:from-[#0F172A] dark:via-[#131C35] dark:to-[#0F172A] p-5 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-1.5 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] text-white shadow-xs">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-[#336765] to-[#234947] text-white shadow-xs">
                 <Scale className="h-3.5 w-3.5" />
               </span>
-              <span className="rounded-md bg-[#EEF2FF] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#3451D1] border border-[#3451D1]/20">
+              <span className="rounded-md bg-[#EEF5F4] dark:bg-blue-950/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#336765] border border-[#336765]/20">
                 Sovereign AI
               </span>
               <span className="text-xs font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
                 Protection Active
               </span>
             </div>
-            <h3 className="font-extrabold text-[15px] text-[#0D2266] dark:text-white">
+            <h3 className="font-extrabold text-[15px] text-[#001535] dark:text-white">
               Family Protection & Will Check by Sovereign AI
             </h3>
             <p className="text-xs text-[#6B7280] dark:text-slate-400 leading-relaxed">
@@ -103,7 +103,7 @@ export default function WillPage() {
                 }, 1300);
               }}
               disabled={isAiScanning}
-              className="flex items-center gap-1.5 rounded-xl bg-[#3451D1] hover:bg-[#1D3FAD] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm disabled:opacity-50"
+              className="flex items-center gap-1.5 rounded-xl bg-[#336765] hover:bg-[#234947] px-4 py-2.5 text-xs font-bold text-white transition shadow-sm disabled:opacity-50"
             >
               <ShieldCheck className="h-4 w-4" />
               <span>{isAiScanning ? "Checking Asset Protection..." : "Run Protection Check"}</span>
@@ -114,7 +114,7 @@ export default function WillPage() {
                   "Explain why I need a separate Indian Will for my Mumbai apartment if I already live in the US, and how Shagun can be named executor."
                 )
               }
-              className="flex items-center gap-1.5 rounded-xl border border-[#3451D1] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition"
+              className="flex items-center gap-1.5 rounded-xl border border-[#336765] bg-white dark:bg-blue-950/50 px-3.5 py-2.5 text-xs font-bold text-[#336765] dark:text-blue-300 hover:bg-[#EEF5F4] transition"
             >
               <span>Ask Sovereign AI</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -126,9 +126,9 @@ export default function WillPage() {
         {aiScanResult && (
           <div className="mt-4 rounded-xl border border-blue-200 dark:border-blue-950/50 bg-[#F0F4FF] dark:bg-blue-950/20 p-3.5 flex items-start justify-between">
             <div className="flex items-start gap-2.5">
-              <CheckCircle2 className="h-4 w-4 text-[#3451D1] shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-4 w-4 text-[#336765] shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-xs text-[#0D2266] dark:text-blue-300 block">
+                <span className="font-bold text-xs text-[#001535] dark:text-blue-300 block">
                   Recommendation: Create an Indian Will for Mumbai Property
                 </span>
                 <p className="text-[11px] text-slate-700 dark:text-slate-300 mt-0.5">
@@ -146,7 +146,7 @@ export default function WillPage() {
         )}
 
         {/* 3 Inline AI Succession Metrics */}
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#3451D1]/15 pt-3.5">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#336765]/15 pt-3.5">
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">Court Delay Without Will</span>
             <span className="font-extrabold text-sm text-[#DC2626] mt-0.5 block">14–22 Months</span>
@@ -159,8 +159,8 @@ export default function WillPage() {
           </div>
           <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-white/[0.06] bg-white/80 dark:bg-[#151B2B]/80 text-xs">
             <span className="block text-[10px] uppercase font-bold text-slate-400">Nominee Coverage</span>
-            <span className="font-extrabold text-sm text-[#0D2266] dark:text-white mt-0.5 block">6 of 8 Accounts Updated</span>
-            <span className="text-[10px] text-[#3451D1] font-medium">Bank & mutual funds covered</span>
+            <span className="font-extrabold text-sm text-[#001535] dark:text-white mt-0.5 block">6 of 8 Accounts Updated</span>
+            <span className="text-[10px] text-[#336765] font-medium">Bank & mutual funds covered</span>
           </div>
         </div>
       </div>
@@ -238,7 +238,7 @@ export default function WillPage() {
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-white/[0.05]">
                 <tr className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-5 py-3.5 font-bold text-[#0D2266] dark:text-white">NRE Savings</td>
+                  <td className="px-5 py-3.5 font-bold text-[#001535] dark:text-white">NRE Savings</td>
                   <td className="px-5 py-3.5 text-slate-500 dark:text-slate-400">HDFC Bank</td>
                   <td className="px-5 py-3.5 text-slate-900 dark:text-slate-200 font-medium">Shagun Patel (Family - 100%)</td>
                   <td className="px-5 py-3.5 text-right font-bold text-[#16A34A] dark:text-emerald-400">
@@ -249,7 +249,7 @@ export default function WillPage() {
                   </td>
                 </tr>
                 <tr className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-5 py-3.5 font-bold text-[#0D2266] dark:text-white">NRO Savings</td>
+                  <td className="px-5 py-3.5 font-bold text-[#001535] dark:text-white">NRO Savings</td>
                   <td className="px-5 py-3.5 text-slate-500 dark:text-slate-400">State Bank of India</td>
                   <td className="px-5 py-3.5 text-slate-900 dark:text-slate-200 font-medium">Shagun Patel (Family)</td>
                   <td className="px-5 py-3.5 text-right font-bold text-[#A16207] dark:text-amber-400">
@@ -260,7 +260,7 @@ export default function WillPage() {
                   </td>
                 </tr>
                 <tr className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-5 py-3.5 font-bold text-[#0D2266] dark:text-white">Old Savings</td>
+                  <td className="px-5 py-3.5 font-bold text-[#001535] dark:text-white">Old Savings</td>
                   <td className="px-5 py-3.5 text-slate-500 dark:text-slate-400">Bank of Baroda</td>
                   <td className="px-5 py-3.5 text-[#DC2626] font-bold">None Listed</td>
                   <td className="px-5 py-3.5 text-right font-bold text-[#DC2626]">
@@ -271,7 +271,7 @@ export default function WillPage() {
                   </td>
                 </tr>
                 <tr className="odd:bg-white dark:odd:bg-transparent even:bg-[#FAFAFA] dark:even:bg-white/[0.02] hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-colors">
-                  <td className="px-5 py-3.5 font-bold text-[#0D2266] dark:text-white">Family Health Insurance</td>
+                  <td className="px-5 py-3.5 font-bold text-[#001535] dark:text-white">Family Health Insurance</td>
                   <td className="px-5 py-3.5 text-slate-500 dark:text-slate-400">HDFC ERGO</td>
                   <td className="px-5 py-3.5 text-slate-900 dark:text-slate-200 font-medium">Shagun Patel (Family)</td>
                   <td className="px-5 py-3.5 text-right font-bold text-[#A16207] dark:text-amber-400">

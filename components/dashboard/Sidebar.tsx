@@ -146,10 +146,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <button
                 onClick={handleAiTrigger}
                 type="button"
-                className="flex-1 flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-[#1A1F2E] border border-slate-200/80 dark:border-white/10 hover:border-[#3451D1]/60 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all shadow-2xs group cursor-pointer"
+                className="flex-1 flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-[#1A1F2E] border border-slate-200/80 dark:border-white/10 hover:border-[#336765]/60 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all shadow-2xs group cursor-pointer"
                 title="Search or ask AI (Cmd+K)"
               >
-                <Search className="h-4 w-4 text-[#3451D1] group-hover:scale-110 transition-transform" />
+                <Search className="h-4 w-4 text-[#336765] group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-medium truncate">Search or ask...</span>
                 <span className="ml-auto text-[10px] font-bold text-slate-400 border border-slate-200 dark:border-white/10 rounded px-1 py-0.5">
                   ⌘K
@@ -159,10 +159,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <button
                 onClick={handleAiTrigger}
                 type="button"
-                className="h-10 w-10 mx-auto flex items-center justify-center rounded-xl bg-white dark:bg-[#1A1F2E] border border-slate-200/80 dark:border-white/10 text-[#3451D1] hover:bg-[#EEF2FF] dark:hover:bg-blue-950/40 transition-all shadow-2xs cursor-pointer group"
+                className="h-10 w-10 mx-auto flex items-center justify-center rounded-xl bg-white dark:bg-[#1A1F2E] border border-slate-200/80 dark:border-white/10 text-[#336765] hover:bg-[#EEF5F4] dark:hover:bg-teal-950/40 transition-all shadow-2xs cursor-pointer group"
                 title="Search or ask AI (Cmd+K)"
               >
-                <Sparkles className="h-4 w-4 text-[#3451D1] group-hover:rotate-12 transition-transform" />
+                <Sparkles className="h-4 w-4 text-[#336765] group-hover:rotate-12 transition-transform" />
               </button>
             )}
 
@@ -170,7 +170,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <button
               onClick={toggleCollapse}
               type="button"
-              className="hidden lg:flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/70 dark:border-white/10 text-slate-400 hover:text-[#0D2266] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors cursor-pointer shrink-0"
+              className="hidden lg:flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/70 dark:border-white/10 text-slate-400 hover:text-[#001535] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors cursor-pointer shrink-0"
               title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
             >
               {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
@@ -191,8 +191,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         isCollapsed ? "justify-center p-2.5" : "justify-between px-3 py-2.5"
                       } rounded-xl transition-all duration-200 ease-out select-none cursor-pointer ${
                         item.isActive
-                          ? "bg-[#EEF2FF] dark:bg-[rgba(52,81,209,0.18)] text-[#3451D1] font-bold shadow-2xs"
-                          : "text-slate-600 dark:text-slate-300 font-medium hover:bg-slate-100/70 dark:hover:bg-white/[0.06] hover:text-[#0D2266] dark:hover:text-white hover:translate-x-0.5"
+                          ? "bg-[#EEF5F4] dark:bg-[rgba(51,103,101,0.22)] text-[#336765] dark:text-teal-300 font-bold shadow-2xs border-l-3 border-[#336765]"
+                          : "text-slate-600 dark:text-slate-300 font-medium hover:bg-slate-100/70 dark:hover:bg-white/[0.06] hover:text-[#001535] dark:hover:text-white hover:translate-x-0.5"
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -201,7 +201,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             isCollapsed ? "h-9 w-9 rounded-xl" : "h-6 w-6"
                           } ${
                             item.isActive && isCollapsed
-                              ? "bg-[#3451D1] text-white shadow-[0_2px_8px_rgba(52,81,209,0.4)]"
+                              ? "bg-[#001535] text-white shadow-[0_2px_8px_rgba(0,21,53,0.35)]"
                               : ""
                           }`}
                         >
@@ -210,8 +210,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                               item.isActive
                                 ? isCollapsed
                                   ? "text-white"
-                                  : "text-[#3451D1]"
-                                : "text-slate-400 group-hover:text-[#3451D1]"
+                                  : "text-[#336765]"
+                                : "text-slate-400 group-hover:text-[#336765]"
                             }`}
                           />
                         </div>
@@ -231,7 +231,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                   ? "bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300"
                                   : item.badge === "+14.3%"
                                   ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
-                                  : "bg-blue-100 text-[#3451D1] dark:bg-blue-950/40 dark:text-blue-300"
+                                  : "bg-[#EEF5F4] text-[#336765] border border-[#C6DFDD] dark:bg-teal-950/40 dark:text-teal-300"
                               }`}
                             >
                               {item.badge}
@@ -289,7 +289,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             onClick={onClose}
                             className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs transition-colors ${
                               isSubActive
-                                ? "bg-[#EEF2FF] text-[#3451D1] font-bold"
+                                ? "bg-[#EEF5F4] text-[#336765] font-bold"
                                 : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/60"
                             }`}
                           >

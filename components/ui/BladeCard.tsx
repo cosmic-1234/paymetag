@@ -39,7 +39,7 @@ export const BladeCard: React.FC<BladeCardProps> = ({
   } else if (variant === "interactive") {
     // 2. INTERACTIVE CARD (clickable modules on dashboard)
     variantClasses =
-      "rounded-2xl border border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-6 min-h-[120px] shadow-[0px_2px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32)] hover:shadow-[0px_10px_25px_rgba(13,34,102,0.08)] dark:hover:shadow-[0px_8px_24px_rgba(0,0,0,0.48)] hover:border-[#3451D1]/40 dark:hover:border-white/[0.16] hover:-translate-y-1 cursor-pointer transition-all duration-300 ease-out";
+      "rounded-2xl border border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-6 min-h-[120px] shadow-[0px_2px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_2px_8px_rgba(0,0,0,0.32)] hover:shadow-[0px_10px_25px_rgba(13,34,102,0.08)] dark:hover:shadow-[0px_8px_24px_rgba(0,0,0,0.48)] hover:border-[#336765]/40 dark:hover:border-white/[0.16] hover:-translate-y-1 cursor-pointer transition-all duration-300 ease-out";
   } else {
     // 1. DEFAULT CARD (read-only info)
     variantClasses =

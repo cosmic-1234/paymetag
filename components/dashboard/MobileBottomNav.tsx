@@ -47,7 +47,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <div
             className={`flex items-center justify-center h-8 w-8 rounded-xl transition-all duration-200 ${
               isHomeActive
-                ? "bg-[#EEF2FF] dark:bg-[#3451D1]/20 text-[#3451D1] shadow-xs"
+                ? "bg-[#EEF5F4] dark:bg-[#336765]/20 text-[#336765] shadow-xs"
                 : "text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300"
             }`}
           >
@@ -56,7 +56,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <span
             className={`mt-1 text-[11px] font-medium transition-colors ${
               isHomeActive
-                ? "text-[#3451D1] font-bold"
+                ? "text-[#336765] font-bold"
                 : "text-slate-500 dark:text-slate-400"
             }`}
           >
@@ -72,7 +72,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <div
             className={`flex items-center justify-center h-8 w-8 rounded-xl transition-all duration-200 ${
               isAccountsActive
-                ? "bg-[#EEF2FF] dark:bg-[#3451D1]/20 text-[#3451D1] shadow-xs"
+                ? "bg-[#EEF5F4] dark:bg-[#336765]/20 text-[#336765] shadow-xs"
                 : "text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300"
             }`}
           >
@@ -84,7 +84,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <span
             className={`mt-1 text-[11px] font-medium transition-colors ${
               isAccountsActive
-                ? "text-[#3451D1] font-bold"
+                ? "text-[#336765] font-bold"
                 : "text-slate-500 dark:text-slate-400"
             }`}
           >
@@ -97,7 +97,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <button
             onClick={onOpenAiCopilot}
             type="button"
-            className="group relative -mt-5 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#0D2266] via-[#1D3FAD] to-[#3451D1] text-white shadow-[0_6px_20px_rgba(13,34,102,0.38)] border-2 border-white dark:border-[#0F1523] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="group relative -mt-5 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#001535] via-[#234947] to-[#336765] text-white shadow-[0_6px_20px_rgba(0,21,53,0.38)] border-2 border-white dark:border-[#0F1523] hover:scale-105 active:scale-95 transition-all cursor-pointer"
             title="Open Sovereign AI Copilot"
             aria-label="Open Sovereign AI"
           >
@@ -108,7 +108,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
               <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white dark:border-[#0F1523]" />
             </span>
           </button>
-          <span className="mt-1 text-[10px] font-bold tracking-tight bg-gradient-to-r from-[#0D2266] to-[#3451D1] dark:from-sky-400 dark:to-indigo-300 bg-clip-text text-transparent">
+          <span className="mt-1 text-[10px] font-bold tracking-tight bg-gradient-to-r from-[#001535] to-[#336765] dark:from-teal-300 dark:to-emerald-300 bg-clip-text text-transparent">
             Sovereign AI
           </span>
         </div>
@@ -121,7 +121,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <div
             className={`flex items-center justify-center h-8 w-8 rounded-xl transition-all duration-200 ${
               isInvestActive
-                ? "bg-[#EEF2FF] dark:bg-[#3451D1]/20 text-[#3451D1] shadow-xs"
+                ? "bg-[#EEF5F4] dark:bg-[#336765]/20 text-[#336765] shadow-xs"
                 : "text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300"
             }`}
           >
@@ -130,7 +130,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <span
             className={`mt-1 text-[11px] font-medium transition-colors ${
               isInvestActive
-                ? "text-[#3451D1] font-bold"
+                ? "text-[#336765] font-bold"
                 : "text-slate-500 dark:text-slate-400"
             }`}
           >

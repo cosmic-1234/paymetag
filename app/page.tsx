@@ -127,37 +127,16 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060B18] text-slate-900 font-sans selection:bg-[#3451D1] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#060B18] text-slate-900 font-sans selection:bg-[#336765] selection:text-white overflow-x-hidden">
       {/* ─── LANDING NAVBAR ─── */}
       <header className="sticky top-0 z-50 flex h-[68px] w-full items-center justify-between border-b border-white/[0.06] bg-[#060B18]/80 px-4 sm:px-6 md:px-12 backdrop-blur-[12px] transition-all">
         {/* Logo Lockup */}
-        <Link href="/" className="flex items-center gap-[10px]">
-          <div className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0">
-            <svg
-              className="h-[20px] w-[20px] text-white"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-              <path d="M12 8v8" />
-              <path d="M9.5 10.5h5" />
-              <path d="M9.5 13.5h5" />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-extrabold text-[15px] sm:text-[16px] tracking-tight text-white leading-none">
-              DESHBOARD
-            </span>
-            <span className="text-[11px] font-medium text-[#9CA3AF] mt-0.5">
-              NRI Wealth Portal
-            </span>
-          </div>
+        <Link href="/" className="flex items-center group cursor-pointer select-none">
+          <img
+            src="/deshboard-logo-dark.png"
+            alt="DeshBoard"
+            className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+          />
         </Link>
 
         {/* Right CTAs */}
@@ -170,7 +149,7 @@ export default function LandingPage() {
           </Link>
           <Link
             href="/onboard"
-            className="flex items-center gap-1.5 rounded-[8px] bg-[#3451D1] px-4 sm:px-5 py-[8px] sm:py-[9px] text-[13px] sm:text-[14px] font-bold text-white shadow-[0_4px_14px_rgba(52,81,209,0.4)] hover:bg-[#1D3FAD] transition-all"
+            className="flex items-center gap-1.5 rounded-[8px] bg-[#336765] px-4 sm:px-5 py-[8px] sm:py-[9px] text-[13px] sm:text-[14px] font-bold text-white shadow-[0_4px_14px_rgba(51,103,101,0.4)] hover:bg-[#234947] transition-all"
           >
             <span>Get Started</span>
             <span>→</span>
@@ -185,14 +164,14 @@ export default function LandingPage() {
           className="pointer-events-none absolute -top-[10%] left-0 h-[800px] w-[800px] rounded-full opacity-100 blur-[130px]"
           style={{
             background:
-              "radial-gradient(ellipse 800px 600px at 15% 40%, rgba(52,81,209,0.18) 0%, transparent 70%)",
+              "radial-gradient(ellipse 800px 600px at 15% 40%, rgba(51,103,101,0.22) 0%, transparent 70%)",
           }}
         />
         <div
           className="pointer-events-none absolute top-[15%] right-0 h-[700px] w-[700px] rounded-full opacity-100 blur-[140px]"
           style={{
             background:
-              "radial-gradient(ellipse 700px 700px at 85% 50%, rgba(59,130,246,0.12) 0%, transparent 65%)",
+              "radial-gradient(ellipse 700px 700px at 85% 50%, rgba(0,21,53,0.3) 0%, transparent 65%)",
           }}
         />
 
@@ -213,7 +192,7 @@ export default function LandingPage() {
                 <span className="block font-extrabold text-[32px] sm:text-[46px] lg:text-[56px] text-white">
                   All Your Indian Assets.
                 </span>
-                <span className="block font-extrabold text-[32px] sm:text-[46px] lg:text-[56px] bg-gradient-to-r from-[#60A5FA] via-[#93C5FD] to-[#A78BFA] bg-clip-text text-transparent">
+                <span className="block font-extrabold text-[32px] sm:text-[46px] lg:text-[56px] bg-gradient-to-r from-[#4E9390] via-[#85C4C0] to-[#E6F3F2] bg-clip-text text-transparent">
                   In One Sovereign View.
                 </span>
               </h1>
@@ -226,7 +205,7 @@ export default function LandingPage() {
               <div className="mt-7 flex flex-wrap items-center gap-3.5">
                 <Link
                   href="/onboard"
-                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#3451D1] to-[#2563EB] px-6 py-3 text-[14px] font-bold text-white shadow-[0_4px_14px_rgba(52,81,209,0.4)] hover:bg-[#1D3FAD] transition-all"
+                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#001535] to-[#336765] border border-[#336765]/40 px-6 py-3 text-[14px] font-bold text-white shadow-[0_4px_14px_rgba(51,103,101,0.35)] hover:border-[#336765] transition-all"
                 >
                   <span>Get Started →</span>
                 </Link>
@@ -293,10 +272,10 @@ export default function LandingPage() {
       <section className="bg-white px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
         <div className="mx-auto max-w-[1280px]">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3451D1]">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#336765]">
               SOVEREIGN DATA INTEGRITY
             </span>
-            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
+            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#001535]">
               Bank-Grade Security & Privacy by Design
             </h2>
             <p className="mt-2 text-sm text-[#6B7280]">
@@ -306,10 +285,10 @@ export default function LandingPage() {
 
           <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-5 sm:p-6 space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF5F4] text-[#336765]">
                 <ShieldCheck className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-base text-[#0D2266]">
+              <h3 className="font-bold text-base text-[#001535]">
                 RBI Account Aggregator
               </h3>
               <p className="text-xs text-[#6B7280] leading-relaxed">
@@ -318,10 +297,10 @@ export default function LandingPage() {
             </div>
 
             <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-5 sm:p-6 space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF5F4] text-[#336765]">
                 <Lock className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-base text-[#0D2266]">
+              <h3 className="font-bold text-base text-[#001535]">
                 Zero Read/Write Fund Access
               </h3>
               <p className="text-xs text-[#6B7280] leading-relaxed">
@@ -330,10 +309,10 @@ export default function LandingPage() {
             </div>
 
             <div className="rounded-2xl border border-[#EAECF0] bg-[#FAFAFA] p-5 sm:p-6 space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF5F4] text-[#336765]">
                 <KeyRound className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-base text-[#0D2266]">
+              <h3 className="font-bold text-base text-[#001535]">
                 DPDP Act & GDPR Compliant
               </h3>
               <p className="text-xs text-[#6B7280] leading-relaxed">
@@ -348,10 +327,10 @@ export default function LandingPage() {
       <section className="bg-[#F8FAFC] px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
         <div className="mx-auto max-w-[1280px]">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3451D1]">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#336765]">
               ROADMAP & CONCEPT PIPELINE
             </span>
-            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
+            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#001535]">
               Upcoming Features in DeshBoard
             </h2>
             <p className="mt-2 text-sm text-[#6B7280]">
@@ -369,15 +348,15 @@ export default function LandingPage() {
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#3451D1]">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#EEF5F4] text-[#336765]">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <span className="rounded-md bg-blue-50 border border-blue-200 px-2 py-0.5 text-[10px] font-bold text-[#3451D1]">
+                      <span className="rounded-md bg-teal-50 border border-[#C6DFDD] px-2 py-0.5 text-[10px] font-bold text-[#336765]">
                         {feat.tag}
                       </span>
                     </div>
 
-                    <h3 className="font-bold text-sm text-[#0D2266]">
+                    <h3 className="font-bold text-sm text-[#001535]">
                       {feat.title}
                     </h3>
                     <p className="text-xs text-[#6B7280] leading-relaxed">
@@ -395,10 +374,10 @@ export default function LandingPage() {
       <section className="bg-white px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-20 border-b border-[#EAECF0] relative z-20">
         <div className="mx-auto max-w-[1280px]">
           <div className="text-center">
-            <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#3451D1]">
+            <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#336765]">
               CORE PORTAL MODULES
             </div>
-            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#0D2266]">
+            <h2 className="mt-2 text-[26px] sm:text-[30px] md:text-[34px] font-extrabold tracking-tight text-[#001535]">
               Every Indian Asset, Unified
             </h2>
             <p className="mt-2 text-sm text-[#6B7280] max-w-lg mx-auto">
@@ -413,14 +392,14 @@ export default function LandingPage() {
                 <Link
                   key={idx}
                   href={m.href}
-                  className="group relative flex flex-col justify-between rounded-[16px] border border-[#EAECF0] bg-white p-5 sm:p-6 shadow-[0px_1px_4px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_24px_rgba(0,0,0,0.08)] hover:border-[#3451D1] transition-all duration-200 cursor-pointer"
+                  className="group relative flex flex-col justify-between rounded-[16px] border border-[#EAECF0] bg-white p-5 sm:p-6 shadow-[0px_1px_4px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_24px_rgba(0,0,0,0.08)] hover:border-[#336765] transition-all duration-200 cursor-pointer"
                 >
                   <div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#EEF2FF] to-[#DBEAFE] text-[#3451D1] shadow-xs">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#EEF5F4] to-[#DBEBE8] text-[#336765] shadow-xs">
                       <Icon className="h-5 w-5" />
                     </div>
 
-                    <h3 className="mt-4 text-sm font-bold text-[#111827] tracking-tight">
+                    <h3 className="mt-4 text-sm font-bold text-[#001535] tracking-tight">
                       {m.name}
                     </h3>
 
@@ -429,7 +408,7 @@ export default function LandingPage() {
                     </p>
                   </div>
 
-                  <div className="mt-4 flex items-center text-xs font-bold text-[#3451D1]">
+                  <div className="mt-4 flex items-center text-xs font-bold text-[#336765]">
                     <span>View Module →</span>
                   </div>
                 </Link>
@@ -443,12 +422,11 @@ export default function LandingPage() {
       <footer className="bg-[#FAFAFA] border-t border-[#F0F0F0] py-8 sm:py-10 px-4 sm:px-6 md:px-12 text-xs text-[#9CA3AF] relative z-20">
         <div className="mx-auto max-w-[1280px] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#3451D1] text-white">
-              <Landmark className="h-4 w-4" />
-            </div>
-            <span className="font-extrabold text-sm text-[#0D2266]">
-              DESHBOARD
-            </span>
+            <img
+              src="/deshboard-logo.png"
+              alt="DeshBoard"
+              className="h-6 w-auto object-contain"
+            />
             <span className="rounded-full bg-slate-200/80 px-2 py-0.5 text-[10px] font-bold text-slate-700">
               Prototype of DeshBoard
             </span>

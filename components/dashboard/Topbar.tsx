@@ -68,35 +68,12 @@ export const Topbar: React.FC<{
           <Menu className="h-5 w-5" />
         </button>
 
-        <Link href="/dashboard" className="flex items-center gap-[10px] group cursor-pointer select-none">
-          {/* Logo icon: 36px x 36px, rounded-[10px], linear-gradient(135deg, #3451D1, #1D3FAD) */}
-          <div className="flex h-[34px] w-[34px] sm:h-[36px] sm:w-[36px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#3451D1] to-[#1D3FAD] shadow-sm shrink-0 group-hover:opacity-95 transition-opacity">
-            <svg
-              className="h-[18px] w-[18px] sm:h-[20px] sm:w-[20px] text-white"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-              <path d="M12 8v8" />
-              <path d="M9.5 10.5h5" />
-              <path d="M9.5 13.5h5" />
-            </svg>
-          </div>
-
-          <div>
-            <span className="block font-extrabold text-[15px] sm:text-[16px] tracking-tight text-[#0D2266] dark:text-white leading-tight font-sans">
-              DESHBOARD
-            </span>
-            <span className="hidden sm:block font-medium text-[11px] text-[#9CA3AF] leading-none mt-0.5">
-              NRI Wealth Portal
-            </span>
-          </div>
+        <Link href="/dashboard" className="flex items-center group cursor-pointer select-none">
+          <img
+            src="/deshboard-logo.png"
+            alt="DeshBoard"
+            className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+          />
         </Link>
       </div>
 
@@ -104,16 +81,16 @@ export const Topbar: React.FC<{
           CENTER SECTION — Clean Wealth metric (Centered)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div className="hidden lg:flex items-center gap-3 absolute left-1/2 -translate-x-1/2 pointer-events-auto">
-        <div className="flex items-center gap-3 bg-slate-50 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/10 rounded-full px-4 py-1.5 shadow-2xs">
+        <div className="flex items-center gap-3 bg-white dark:bg-white/[0.04] border border-[#D8E6E4] dark:border-white/10 rounded-full px-4 py-1.5 shadow-2xs">
           <span className="font-bold text-[10px] tracking-wider text-slate-400 uppercase">
             Indian Wealth
           </span>
-          <span className="font-extrabold text-[17px] tracking-tight text-[#0D2266] dark:text-white leading-none font-sans">
+          <span className="font-extrabold text-[17px] tracking-tight text-[#001535] dark:text-white leading-none font-sans">
             {formattedWealth}
           </span>
           <button
             onClick={() => setCurrency(currency === "INR" ? "USD" : "INR")}
-            className="border border-slate-200 dark:border-white/15 bg-white dark:bg-white/10 rounded-full px-2.5 py-[3px] font-bold text-[10px] text-[#3451D1] dark:text-blue-300 hover:bg-[#EEF2FF] transition-colors cursor-pointer select-none shadow-2xs"
+            className="border border-[#C6DFDD] dark:border-white/15 bg-[#EEF5F4] dark:bg-teal-950/40 rounded-full px-2.5 py-[3px] font-bold text-[10px] text-[#336765] dark:text-teal-300 hover:bg-[#DCEEEB] transition-colors cursor-pointer select-none shadow-2xs"
             title="Toggle currency display"
           >
             {currency === "INR" ? "$ USD" : "₹ INR"}
@@ -132,7 +109,7 @@ export const Topbar: React.FC<{
         >
           <RefreshCw
             className={`h-3.5 w-3.5 text-[#374151] dark:text-slate-200 ${
-              isSyncing ? "animate-spin text-[#3451D1]" : ""
+              isSyncing ? "animate-spin text-[#336765]" : ""
             }`}
           />
           <span>Refresh Banks</span>
@@ -142,9 +119,9 @@ export const Topbar: React.FC<{
         {onOpenFbar && (
           <button
             onClick={onOpenFbar}
-            className="hidden 2xl:flex items-center gap-1.5 border border-[#3451D1] text-[#3451D1] bg-transparent rounded-lg px-3.5 py-2 font-bold text-[13px] hover:bg-[#EEF2FF] dark:hover:bg-blue-950/30 transition-all cursor-pointer"
+            className="hidden 2xl:flex items-center gap-1.5 border border-[#336765] text-[#336765] bg-transparent rounded-lg px-3.5 py-2 font-bold text-[13px] hover:bg-[#EEF5F4] dark:hover:bg-teal-950/30 transition-all cursor-pointer"
           >
-            <FileDown className="h-3.5 w-3.5 text-[#3451D1]" />
+            <FileDown className="h-3.5 w-3.5 text-[#336765]" />
             <span>US Tax Report (FBAR)</span>
           </button>
         )}
@@ -166,7 +143,7 @@ export const Topbar: React.FC<{
           {isAlertsOpen && (
             <div className="absolute right-0 mt-2 w-80 rounded-2xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-3 shadow-xl z-50 backdrop-blur-sm">
               <div className="flex items-center justify-between border-b border-[#F3F4F6] dark:border-white/[0.06] pb-2">
-                <span className="text-xs font-bold text-[#0D2266] dark:text-white">
+                <span className="text-xs font-bold text-[#001535] dark:text-white">
                   Action Reminders
                 </span>
                 <span className="text-[10px] font-bold text-[#EF4444] bg-[#FEE2E2] dark:bg-rose-950/40 px-2 py-0.5 rounded-full">
@@ -181,7 +158,7 @@ export const Topbar: React.FC<{
                   >
                     <div className="flex items-center gap-2">
                       <AlertTriangle className="h-3.5 w-3.5 text-[#F59E0B] shrink-0" />
-                      <span className="font-bold text-[#0D2266] dark:text-white truncate">
+                      <span className="font-bold text-[#001535] dark:text-white truncate">
                         {alert.title}
                       </span>
                     </div>
@@ -201,8 +178,8 @@ export const Topbar: React.FC<{
             onClick={() => setIsFamilyOpen(!isFamilyOpen)}
             className="flex items-center gap-2 bg-[#F3F4F6] dark:bg-white/[0.08] rounded-full pl-1.5 pr-3 py-1.5 hover:bg-[#E9EBF0] dark:hover:bg-white/[0.12] transition-colors cursor-pointer"
           >
-            {/* Avatar: 28px circle, dynamic initials, bg #3451D1 */}
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#3451D1] text-white font-bold text-[11px]">
+            {/* Avatar: 28px circle, dynamic initials, bg #001535 */}
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#001535] text-white font-bold text-[11px]">
               {userInitials}
             </div>
             <div className="text-left hidden sm:block">
@@ -232,15 +209,15 @@ export const Topbar: React.FC<{
                     }}
                     className={`flex w-full items-start gap-2.5 rounded-xl p-2 text-left transition ${
                       activeUser.id === user.id
-                        ? "bg-[#EEF2FF] dark:bg-blue-950/30 text-[#3451D1] font-bold"
+                        ? "bg-[#EEF5F4] dark:bg-teal-950/30 text-[#336765] font-bold"
                         : "hover:bg-slate-50 dark:hover:bg-white/[0.04] text-slate-700 dark:text-slate-300"
                     }`}
                   >
-                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#3451D1] text-[10px] font-bold text-white">
+                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#336765] text-[10px] font-bold text-white">
                       {user.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#0D2266] dark:text-white">
+                      <div className="text-xs font-bold text-[#001535] dark:text-white">
                         {user.name}
                       </div>
                       <div className="text-[11px] text-[#9CA3AF]">

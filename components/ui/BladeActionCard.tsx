@@ -80,7 +80,7 @@ export const BladeActionCard: React.FC<BladeActionCardProps> = ({
         </div>
 
         {/* ROW 2 — TITLE */}
-        <h4 className="mt-3 font-bold text-[16px] text-[#0D2266] dark:text-white leading-snug">
+        <h4 className="mt-3 font-bold text-[16px] text-[#001535] dark:text-white leading-snug">
           {title}
         </h4>
 
@@ -96,7 +96,7 @@ export const BladeActionCard: React.FC<BladeActionCardProps> = ({
           <button
             onClick={onCtaClick}
             type="button"
-            className="font-bold text-[13px] text-[#3451D1] hover:text-[#1D3FAD] inline-flex items-center gap-1 transition-colors duration-150"
+            className="font-bold text-[13px] text-[#336765] hover:text-[#234947] inline-flex items-center gap-1 transition-colors duration-150"
           >
             <span>{ctaText}</span>
             <span>→</span>
@@ -104,13 +104,13 @@ export const BladeActionCard: React.FC<BladeActionCardProps> = ({
         ) : ctaHref ? (
           <Link
             href={ctaHref}
-            className="font-bold text-[13px] text-[#3451D1] hover:text-[#1D3FAD] inline-flex items-center gap-1 transition-colors duration-150"
+            className="font-bold text-[13px] text-[#336765] hover:text-[#234947] inline-flex items-center gap-1 transition-colors duration-150"
           >
             <span>{ctaText}</span>
             <span>→</span>
           </Link>
         ) : (
-          <span className="font-bold text-[13px] text-[#3451D1]">
+          <span className="font-bold text-[13px] text-[#336765]">
             {ctaText} →
           </span>
         )}

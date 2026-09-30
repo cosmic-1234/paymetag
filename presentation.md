@@ -153,8 +153,8 @@
 ### **Inspired by Consumer Fintech Excellence (iNRI + Razorpay Blade)**
 
 - **Color Palette:**
-  - **Deep Institutional Navy (`#0D2266`):** Communicates sovereign trust, security, and permanence.
-  - **Cobalt Accent (`#3451D1`):** Action-oriented, modern, and engaging.
+  - **Deep Institutional Navy (`#001535`):** Communicates sovereign trust, security, and permanence.
+  - **Cobalt Accent (`#336765`):** Action-oriented, modern, and engaging.
   - **Clean Slate Canvas (`#F8FAFC`):** Eliminates clutter and cognitive overload.
   - **Emerald Green (`#16A34A`):** Highlights positive wealth gains, active compliance, and recovered funds.
 - **Tactile Micro-Interactions:**

@@ -290,16 +290,16 @@ export const SovereignCopilotDrawer: React.FC<{
         {/* Simple Friendly Header */}
         <div className="flex h-[66px] items-center justify-between border-b border-slate-200/80 dark:border-white/[0.08] bg-white dark:bg-[#121826] px-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#0D2266] to-[#3451D1] text-white shadow-sm">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#001535] to-[#336765] text-white shadow-sm">
               <BrainCircuit className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-bold text-[15px] tracking-tight text-[#0D2266] dark:text-white">
+                <h3 className="font-bold text-[15px] tracking-tight text-[#001535] dark:text-white">
                   Sovereign AI
                 </h3>
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="inline-flex items-center gap-1 rounded-full bg-teal-50 dark:bg-teal-950/50 px-2 py-0.5 text-[10px] font-bold text-[#336765] dark:text-teal-300 border border-[#C6DFDD] dark:border-teal-800">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#336765] animate-pulse" />
                   NRI Assistant
                 </span>
               </div>
@@ -338,7 +338,7 @@ export const SovereignCopilotDrawer: React.FC<{
               {/* Sender label */}
               <div className="mb-1 flex items-center gap-1.5 px-1 text-[11px] text-slate-400">
                 {msg.sender === "assistant" ? (
-                  <span className="font-semibold text-[#3451D1]">Sovereign AI</span>
+                  <span className="font-semibold text-[#336765]">Sovereign AI</span>
                 ) : (
                   <span className="font-semibold text-slate-600 dark:text-slate-300">
                     {activeUser?.name || "You"}
@@ -352,7 +352,7 @@ export const SovereignCopilotDrawer: React.FC<{
               <div
                 className={`relative w-full rounded-2xl p-4 text-xs sm:text-[13px] leading-relaxed shadow-2xs ${
                   msg.sender === "user"
-                    ? "bg-[#0D2266] text-white font-medium"
+                    ? "bg-[#001535] text-white font-medium"
                     : "border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#151B2B] text-slate-800 dark:text-slate-200"
                 }`}
               >
@@ -387,7 +387,7 @@ export const SovereignCopilotDrawer: React.FC<{
                           {met.label}
                         </span>
                         <div className="mt-0.5 flex items-baseline justify-between">
-                          <span className="text-sm font-bold text-[#0D2266] dark:text-white">
+                          <span className="text-sm font-bold text-[#001535] dark:text-white">
                             {met.value}
                           </span>
                           {met.change && (
@@ -409,7 +409,7 @@ export const SovereignCopilotDrawer: React.FC<{
                         key={lIdx}
                         href={link.href}
                         onClick={onClose}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#3451D1] bg-[#EEF2FF] dark:bg-blue-950/40 px-3 py-1.5 text-[11px] font-bold text-[#3451D1] dark:text-blue-300 hover:bg-[#3451D1] hover:text-white transition-all"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#336765] bg-[#EEF5F4] dark:bg-blue-950/40 px-3 py-1.5 text-[11px] font-bold text-[#336765] dark:text-blue-300 hover:bg-[#336765] hover:text-white transition-all"
                       >
                         <span>{link.label}</span>
                         <ArrowRight className="h-3 w-3" />
@@ -424,7 +424,7 @@ export const SovereignCopilotDrawer: React.FC<{
           {/* Typing Indicator */}
           {isTyping && (
             <div className="flex items-center gap-2 text-slate-400 text-xs">
-              <Sparkles className="h-4 w-4 text-[#3451D1] animate-spin" />
+              <Sparkles className="h-4 w-4 text-[#336765] animate-spin" />
               <span>Thinking...</span>
             </div>
           )}
@@ -442,9 +442,9 @@ export const SovereignCopilotDrawer: React.FC<{
               <button
                 key={idx}
                 onClick={() => handleSend(p.query)}
-                className="text-left rounded-xl border border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#151B2B] p-2 hover:border-[#3451D1] hover:bg-white dark:hover:bg-white/[0.04] transition-all group cursor-pointer"
+                className="text-left rounded-xl border border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#151B2B] p-2 hover:border-[#336765] hover:bg-white dark:hover:bg-white/[0.04] transition-all group cursor-pointer"
               >
-                <span className="block text-[11px] font-bold text-[#0D2266] dark:text-white group-hover:text-[#3451D1] transition-colors truncate">
+                <span className="block text-[11px] font-bold text-[#001535] dark:text-white group-hover:text-[#336765] transition-colors truncate">
                   {p.title}
                 </span>
                 <span className="block text-[10px] text-slate-500 truncate mt-0.5">
@@ -469,14 +469,14 @@ export const SovereignCopilotDrawer: React.FC<{
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Ask anything about Indian taxes, property, or money transfers..."
-                className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.03] px-3.5 py-2.5 text-xs text-slate-800 dark:text-white placeholder-slate-400 focus:border-[#3451D1] focus:outline-none focus:ring-1 focus:ring-[#3451D1] transition-all"
+                placeholder="Ask anything about Indian taxes, property, or investments..."
+                className="w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.03] px-3.5 py-2.5 text-xs text-slate-800 dark:text-white placeholder-slate-400 focus:border-[#336765] focus:outline-none focus:ring-1 focus:ring-[#336765] transition-all"
               />
             </div>
             <button
               type="submit"
               disabled={!inputValue.trim() || isTyping}
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3451D1] text-white shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#1D3FAD] transition-colors cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#001535] hover:bg-[#336765] text-white shadow-sm disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
             >
               <Send className="h-4 w-4" />
             </button>

@@ -48,11 +48,11 @@ export const IepfClaimModal: React.FC<IepfClaimModalProps> = ({ isOpen, onClose,
         </button>
 
         <div className="flex items-center gap-3 border-b border-[#F0F0F0] dark:border-white/[0.06] pb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4FF] dark:bg-white/10 text-[#3451D1] dark:text-blue-300">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4FF] dark:bg-white/10 text-[#336765] dark:text-blue-300">
             <FileSearch className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-[#0D2266] dark:text-white tracking-tight">
+            <h3 className="text-base font-bold text-[#001535] dark:text-white tracking-tight">
               Claim Your Uncollected Money
             </h3>
             <p className="text-xs text-[#9CA3AF]">
@@ -67,7 +67,7 @@ export const IepfClaimModal: React.FC<IepfClaimModalProps> = ({ isOpen, onClose,
               <div className="rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-slate-50/60 dark:bg-white/[0.02] p-4 space-y-3">
                 <div className="flex justify-between text-xs">
                   <span className="text-[#9CA3AF]">Company / Entity:</span>
-                  <span className="font-bold text-[#0D2266] dark:text-white">{asset.entityName}</span>
+                  <span className="font-bold text-[#001535] dark:text-white">{asset.entityName}</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-[#9CA3AF]">Type of Money:</span>
@@ -82,7 +82,7 @@ export const IepfClaimModal: React.FC<IepfClaimModalProps> = ({ isOpen, onClose,
               </div>
 
               <div className="rounded-xl border border-[#E8E8E8] dark:border-white/[0.08] bg-white dark:bg-[#1A1F2E] p-4 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
-                <p className="font-bold text-[#0D2266] dark:text-white mb-2">What happens next:</p>
+                <p className="font-bold text-[#001535] dark:text-white mb-2">What happens next:</p>
                 <ol className="list-decimal list-inside space-y-1 text-slate-600 dark:text-slate-400">
                   <li>We file the government claim form online with your PAN.</li>
                   <li>The company verifies your bank details.</li>
@@ -95,7 +95,7 @@ export const IepfClaimModal: React.FC<IepfClaimModalProps> = ({ isOpen, onClose,
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#DCFCE7] dark:bg-emerald-950/40 text-[#16A34A] dark:text-emerald-400">
                 <CheckCircle2 className="h-8 w-8" />
               </div>
-              <h4 className="text-base font-bold text-[#0D2266] dark:text-white">
+              <h4 className="text-base font-bold text-[#001535] dark:text-white">
                 Claim Submitted Successfully!
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -118,7 +118,7 @@ export const IepfClaimModal: React.FC<IepfClaimModalProps> = ({ isOpen, onClose,
               <button
                 onClick={handleClaim}
                 disabled={loading}
-                className="flex items-center gap-2 rounded-xl bg-[#3451D1] px-4 py-2 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+                className="flex items-center gap-2 rounded-xl bg-[#336765] px-4 py-2 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-colors cursor-pointer disabled:opacity-50"
               >
                 {loading && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                 <span>Submit Claim Now</span>
@@ -127,7 +127,7 @@ export const IepfClaimModal: React.FC<IepfClaimModalProps> = ({ isOpen, onClose,
           ) : (
             <button
               onClick={onClose}
-              className="w-full rounded-xl bg-[#3451D1] py-2.5 text-xs font-bold text-white hover:bg-[#1D3FAD] shadow-sm transition-colors cursor-pointer"
+              className="w-full rounded-xl bg-[#336765] py-2.5 text-xs font-bold text-white hover:bg-[#234947] shadow-sm transition-colors cursor-pointer"
             >
               Close
             </button>

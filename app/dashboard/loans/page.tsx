@@ -37,7 +37,7 @@ export default function LoansPage() {
             <h1 className="text-2xl font-bold text-[#0C2340]">
               Loans & Liabilities
             </h1>
-            <span className="rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[11px] font-bold text-[#3451D1]">
+            <span className="rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[11px] font-bold text-[#336765]">
               Future Planning
             </span>
           </div>
@@ -51,7 +51,7 @@ export default function LoansPage() {
             onClick={() => alert("Downloading consolidated Home Loan Interest Certificate")}
             className="flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-slate-400 transition shadow-sm"
           >
-            <Download className="h-3.5 w-3.5 text-[#3451D1]" />
+            <Download className="h-3.5 w-3.5 text-[#336765]" />
             <span>Download Tax Certificate</span>
           </button>
         </div>
@@ -60,11 +60,11 @@ export default function LoansPage() {
       {/* Future Planning Concept Banner */}
       <div className="rounded-xl border border-blue-100 bg-[#F4F7FF] p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-start gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3451D1] text-white shrink-0 mt-0.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#336765] text-white shrink-0 mt-0.5">
             <CreditCard className="h-4 w-4" />
           </div>
           <div>
-            <span className="font-bold text-xs text-[#0D2266] block">
+            <span className="font-bold text-xs text-[#001535] block">
               Loan Management Feature (Coming Soon)
             </span>
             <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
@@ -72,7 +72,7 @@ export default function LoansPage() {
             </p>
           </div>
         </div>
-        <span className="self-start sm:self-center shrink-0 text-[10px] font-bold uppercase tracking-wider bg-white border border-blue-200 text-[#3451D1] px-2.5 py-1 rounded-md">
+        <span className="self-start sm:self-center shrink-0 text-[10px] font-bold uppercase tracking-wider bg-white border border-blue-200 text-[#336765] px-2.5 py-1 rounded-md">
           Coming Soon
         </span>
       </div>
@@ -211,7 +211,7 @@ export default function LoansPage() {
                     </div>
                     <div className="flex items-center justify-between text-slate-600">
                       <span>Next EMI Date:</span>
-                      <span className="font-medium text-[#3451D1]">{loan.nextEmiDate}</span>
+                      <span className="font-medium text-[#336765]">{loan.nextEmiDate}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-600">
                       <span>Tenure Remaining:</span>

@@ -12,6 +12,9 @@ const mulish = Mulish({
 export const metadata: Metadata = {
   title: "DeshBoard | NRI Wealth Command Center",
   description: "Unified view of your bank accounts, properties, mutual funds, and taxes in India.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={mulish.variable}>
-      <body className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans antialiased">
+      <body className="min-h-screen bg-[#F4F7F8] text-[#001535] font-sans antialiased">
         <AppProvider>
           {children}
         </AppProvider>

@@ -143,7 +143,7 @@ export default function KycPage() {
                     {k.ckycStatus !== "verified" ? (
                       <button
                         onClick={() => setSelectedInstitution(k.institution)}
-                        className="inline-flex items-center gap-1 rounded-xl bg-[#3451D1] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#1D3FAD] transition shadow-sm ml-auto cursor-pointer"
+                        className="inline-flex items-center gap-1 rounded-xl bg-[#336765] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#234947] transition shadow-sm ml-auto cursor-pointer"
                       >
                         <Video className="h-3.5 w-3.5" />
                         <span>Start Video Call</span>
