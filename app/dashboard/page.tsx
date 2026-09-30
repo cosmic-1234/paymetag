@@ -133,16 +133,6 @@ export default function DashboardMain() {
       subtitle: "Authorized family caretaker • Indian Will pending",
     },
     {
-      title: "Lost Money Finder",
-      href: "/dashboard/forgotten",
-      icon: Search,
-      valueINR: totalForgottenINR,
-      valueLabel: "Claimable",
-      badge: "4 Found",
-      badgeType: "gold",
-      subtitle: "Old dividends, dormant account & old PF",
-    },
-    {
       title: "Family Access",
       href: "/dashboard",
       icon: Users,

@@ -82,7 +82,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
         pathname === "/dashboard/property" ||
         pathname === "/dashboard/insurance" ||
         pathname === "/dashboard/will" ||
-        pathname === "/dashboard/forgotten" ||
         pathname === "/dashboard/kyc",
       hasSubmenu: true,
       badge: "Action",
@@ -109,7 +108,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { name: "Properties & Land", href: "/dashboard/property", icon: Building2 },
     { name: "Insurance Cover", href: "/dashboard/insurance", icon: ShieldCheck },
     { name: "Will & Caretaker", href: "/dashboard/will", icon: Scroll },
-    { name: "Find Lost Money", href: "/dashboard/forgotten", icon: Search, badge: "₹1.18L" },
     { name: "Identity & KYC", href: "/dashboard/kyc", icon: Fingerprint },
     { name: "Gold & Bonds", href: "/dashboard/alternates", icon: Coins },
     { name: "PF & Pension", href: "/dashboard/retirement", icon: PiggyBank },

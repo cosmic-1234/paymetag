@@ -84,7 +84,7 @@
 
 ---
 
-## Slide 5: The 10 Core Wealth Modules
+## Slide 5: The 9 Core Wealth Modules
 
 ### **Complete Coverage of NRI Financial Life**
 
@@ -97,7 +97,6 @@
 7. **Taxes & US Filing (FBAR):** Form 26AS matching, 15% special treaty rate lock-in, and instant one-click pre-filled US FBAR spreadsheets.
 8. **Identity & Central Verification:** Central KYC (CKYC) registry check with direct redirect to Complete KYC for restricted accounts.
 9. **Will, Caretaker & Succession:** Registered Power of Attorney (POA) repository, nominee coverage audit, and Indian Will drafting.
-10. **Lost Money Finder:** Deep scan across government registers (IEPF, UDGAM, EPFO) to recover unclaimed dividends and dormant balances.
 
 ---
 

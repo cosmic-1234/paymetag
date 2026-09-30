@@ -79,12 +79,6 @@ export default function LandingPage() {
       icon: Scroll,
       href: "/dashboard/will",
     },
-    {
-      name: "Lost Money Finder",
-      desc: "Search IEPF unclaimed dividends, dormant bank accounts, and forgotten PF",
-      icon: Search,
-      href: "/dashboard/forgotten",
-    },
   ];
 
   const upcomingFeatures = [
